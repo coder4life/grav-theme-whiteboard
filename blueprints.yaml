@@ -1,0 +1,229 @@
+name: Whiteboard
+version: 0.0.1
+description: "Whiteboards are used to write, draw, plan, and prototypes ideas. Why cannot a similar concept exist for documentation?"
+icon: empire
+author:
+  name: Josh Weiss
+  email: coder4life.dev@gmail.com
+  url: https://github.com/coder4life
+homepage: https://github.com/coder4life/grav-theme-whiteboard
+keywords: whiteboard, theme, core, modern, fast, responsive, html5, css3
+bugs: https://github.com//coder4life/grav-theme-whiteboard/issues
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+
+        base:
+          type: tab
+          title: Base
+          fields:
+
+            section_shade_colors:
+              type: section
+              title: Shade Colors
+              underline: true
+              fields:
+
+                basic_shade.white:
+                  type: colorpicker
+                  label: White
+                  default: '#d6d5d0'
+                  validate:
+                    type: string
+
+                basic_shade.light_grey:
+                  type: colorpicker
+                  label: Light Grey
+                  default: '#b3b3b3'
+                  validate:
+                    type: string
+
+                basic_shade.dark_grey:
+                  type: colorpicker
+                  label: Dark Grey
+                  default: '#6b6b6b'
+                  validate:
+                    type: string
+
+                basic_shade.black:
+                  type: colorpicker
+                  label: Black
+                  default: '#242728'
+                  validate:
+                    type: string
+
+            section_primary_colors:
+              type: section
+              title: Primary Colors
+              underline: true
+              fields:
+
+                primary_colors.red:
+                  type: colorpicker
+                  label: Red
+                  default: '#ff2600'
+                  validate:
+                    type: string
+
+                primary_colors.green:
+                  type: colorpicker
+                  label: Green
+                  default: '#93be18'
+                  validate:
+                    type: string
+
+                primary_colors.blue:
+                  type: colorpicker
+                  label: Blue
+                  default: '#005cbb'
+                  validate:
+                    type: string
+
+            section_secondary_colors:
+              type: section
+              title: Secondary Colors
+              underline: true
+              fields:
+
+                secondary_colors.yellow:
+                  type: colorpicker
+                  label: Yellow
+                  default: '#feee7f'
+                  validate:
+                    type: string
+
+                secondary_colors.cyan:
+                  type: colorpicker
+                  label: Cyan
+                  default: '#65ccde'
+                  validate:
+                    type: string
+
+                secondary_colors.magenta:
+                  type: colorpicker
+                  label: Magenta
+                  default: '#fd4485'
+                  validate:
+                    type: string
+
+        scheme:
+          type: tab
+          title: Scheme
+          fields:
+
+            section_schema:
+              type: section
+              title: Schema Colors
+              underline: true
+              fields:
+
+                scheme_colors.primary:
+                  type: colorpicker
+                  label: Primary
+                  default: '#00b680'
+                  validate:
+                    type: string
+
+                scheme_colors.secondary:
+                  type: colorpicker
+                  label: Secondary
+                  default: '#00b680'
+                  validate:
+                    type: string
+
+                scheme_colors.info:
+                  type: colorpicker
+                  label: Info
+                  default: '#009cde'
+                  validate:
+                    type: string
+
+                scheme_colors.warning:
+                  type: colorpicker
+                  label: Warning
+                  default: '#f08d00'
+                  validate:
+                    type: string
+
+                scheme_colors.danger:
+                  type: colorpicker
+                  label: Danger
+                  default: '#d4005e'
+                  validate:
+                    type: string
+
+                scheme_colors.inverse:
+                  type: colorpicker
+                  label: Inverse
+                  default: '#00b680'
+                  validate:
+                    type: string
+
+        api:
+          type: tab
+          title: API
+          fields:
+
+            section_rest:
+              type: section
+              title: REST
+              underline: true
+              fields:
+
+                rest.get:
+                  type: colorpicker
+                  label: GET Color
+                  default: '#00b680'
+                  validate:
+                    type: string
+
+                rest.post:
+                  type: colorpicker
+                  label: POST Color
+                  default: '#009cde'
+                  validate:
+                    type: string
+
+                rest.patch:
+                  type: colorpicker
+                  label: PATCH Color
+                  default: '#640487'
+                  validate:
+                    type: string
+
+                rest.put:
+                  type: colorpicker
+                  label: PUT Color
+                  default: '#f08d00'
+                  validate:
+                    type: string
+
+                rest.delete:
+                  type: colorpicker
+                  label: DELETE Color
+                  default: '#d4005e'
+                  validate:
+                    type: string
+
+        settings:
+          type: tab
+          title: Settings
+          fields:
+
+            dropdown.enabled:
+              type: toggle
+              label: Dropdown in navbar
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool

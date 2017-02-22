@@ -1,0 +1,24 @@
+form:
+  fields:
+
+    style:
+      type: select
+      label: Shade
+      classes: fancy
+      options:
+        'light': 'light'
+        'dark': 'dark'
+    pallet:
+      type: select
+      label: Pallet
+      classes: fancy
+      options:
+        'accent1': 'accent1'
+        'accent2': 'accent2'
+        'accent3': 'accent3'
+        'accent4': 'accent4'
+    image:
+      type: filepicker
+      folder: '@self'
+      preview_images: true
+      label: Select a file

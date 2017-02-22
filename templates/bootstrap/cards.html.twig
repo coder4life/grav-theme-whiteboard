@@ -1,0 +1,42 @@
+{% set classes = 'card' %}
+
+{% if class.outline is not empty %}
+    {% set classes = classes ~ ' card-outline-' ~ class.style|default('primary') %}
+{% else %}
+    {% set classes = classes ~ ' card-'  ~ class.style|default('primary') %}
+{% endif %}
+
+{% if class.align is not empty %}
+    {% do classes ~ ' text-' ~ cards.class.align %}
+{% endif %}
+
+<div class="{{ classes }}">
+    {% if image_top is not empty %}
+        <img class="card-img-top" src="{{  image_top.uri|url }}"{% if image_top.alt %} alt="{{  image_top.alt }}"{% endif %}>
+    {% endif %}
+    {% if header is not empty %}
+        <div class="card-header">
+            {{ header.text }}
+        </div>
+    {% endif %}
+    <div class="card-block">
+        {% if title is not empty %}
+            <h4 class="card-title">{{ title }}</h4>
+        {% endif %}
+        {% if subtitle is not empty %}
+            <h6 class="card-subtitle text-muted">{{ subtitle }}</h6>
+        {% endif %}
+        <p class="card-text">{{ text }}</p>
+        {% if action is not empty %}
+            <a href="{{ action.href|default('#') }}" class="btn btn-primary">{{ action.text }}</a>
+        {% endif %}
+    </div>
+    {% if footer is not empty %}
+        <div class="card-footer text-muted">
+            {{ footer.text }}
+        </div>
+    {% endif %}
+    {% if image_bottom is not empty %}
+        <img class="card-img-bottom" src="{{  image_bottom.uri|url }}"{% if image_bottom.alt %} alt="{{  image_bottom.alt }}"{% endif %}>
+    {% endif %}
+</div>

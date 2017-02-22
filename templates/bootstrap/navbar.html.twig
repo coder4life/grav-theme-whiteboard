@@ -1,0 +1,60 @@
+{% set collection = collection ? collection : pages.children.visible %}
+
+{# defined class #}
+{% set classes = 'navbar' %}
+
+{# toggle classe, required #}
+{% if class.toggleable is not empty %}
+    {% set classes = classes ~ ' navbar-toggleable-' ~ class.toggleable %}
+{% endif %}
+
+{# mutable classe, required #}
+{% if class.theme is not empty %}
+    {% set classes = classes ~ ' navbar-' ~ class.theme %}
+{% endif %}
+
+{# mutable classe, required #}
+{% if class.style is not empty %}
+    {% set classes = classes ~ ' bg-' ~ class.style %}
+{% endif %}
+
+{# toggle classe, required #}
+{% if class.position is not empty %}
+    {% set classes = classes ~ ' fixed-' ~ class.position %}
+{% endif %}
+
+<nav class="{{ classes }}">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% if not site.logo.url %}{{ base_url_absolute }}{% else %}{{ site.logo.url }}{% endif %}">
+            {% if site.logo.icon %}<span class="icon-{{ site.logo.icon }}"></span>{% endif %}
+            {% if site.logo.text %}<span class="sr-only">{{ site.logo.text }}</span>{% endif %}
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% for item in collection %}
+                    {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}
+                    {% if item.children.visible.count > 0 %}
+                        <li class="nav-item dropdown {{ current_page }}">
+                            {% set vars = {
+                                'collection': item.children.visible,
+                                'id': item.slug,
+                                'url': item.url,
+                                'text': item.menu|upper
+                            } %}
+                            {% include 'bootstrap/dropdown.html.twig' with vars %}
+                        </li>
+                    {% else %}
+                        <li class="nav-item {{ current_page }}">
+                            <a class="nav-link" href="{{ item.url }}">
+                                {{ item.menu|upper }}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

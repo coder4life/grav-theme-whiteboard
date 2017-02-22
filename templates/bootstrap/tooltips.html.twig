@@ -1,0 +1,53 @@
+{% set html_template = '
+    <div class="tooltip" role="tooltip">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner"></div>
+    </div>' %}
+
+{% set options = 'badge' %}
+
+{% if animation %}
+    {% do options ~ ' data-animation="' ~ animation ~ '"' %}
+{% endif %}
+
+{% if container %}
+    {% do options ~ ' data-container="' ~ container ~ '"' %}
+{% endif %}
+
+{% if delay %}
+    {% do options ~ ' data-delay="' ~ delay ~ '"' %}
+{% endif %}
+
+{% if html %}
+    {% set options = options ~ ' data-delay="' ~ html ~ '"' %}
+{% endif %}
+
+{% if placement %}
+    {% set options = options ~ ' data-placement="' ~ placement ~ '"' %}
+{% endif %}
+
+{% if selector %}
+    {% set options = options ~ ' data-selector="' ~ selector ~ '"' %}
+{% endif %}
+
+{% if template %}
+    {% set options = options ~ ' data-template="' ~ template ~ '"' %}
+{% endif %}
+
+{% if title %}
+    {% set options = options ~ ' data-template="' ~ title ~ '"' %}
+{% endif %}
+
+{% if trigger %}
+    {% set options = options ~ ' data-template="' ~ trigger ~ '"' %}
+{% endif %}
+
+{% if constraints %}
+    {% set options = options ~ ' data-template="' ~ constraints ~ '"' %}
+{% endif %}
+
+{% if offset %}
+    {% set options = options ~ ' data-template="' ~ offset ~ '"' %}
+{% endif %}
+
+{{ options }}

@@ -1,0 +1,21 @@
+{# defined class #}
+{% set classes = 'progress-bar' %}
+
+{# mutable and toggle class, required #}
+{% if class.striped is same as(true) %}
+    {% set classes = classes ~ ' progress-bar-striped' %}
+{% endif %}
+
+{# mutable and toggle class, required #}
+{% if class.animated is same as(true) %}
+    {% set classes = classes ~ ' progress-bar-animated' %}
+{% endif %}
+
+{# mutable and toggle class, required #}
+{% if class.style %}
+    {% set classes = classes ~ ' bg-'  ~ class.style %}
+{% endif %}
+
+<div class="progress">
+    <div class="{{ classes }}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>

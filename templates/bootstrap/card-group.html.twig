@@ -1,0 +1,22 @@
+{% set classes = '' %}
+
+{% set classes = classes ~ 'card-' ~ type|default('group') %}
+
+<div class="{{ classes }}">
+    {% block cards %}
+        {% for item in collection %}
+            {% set vars = {
+                'class': { 'outline': false, 'align': left },
+                'image_top': item.image_top,
+                'header': { },
+                'title': item.title,
+                'subtitle': item.subtitle,
+                'text': item.content,
+                'action': { 'href': item.uri, 'text': item.text  },
+                'footer': { },
+                'image_bottom': item.image_top,
+            } %}
+            {% include 'cards.html.twig' with vars %}
+        {% endfor %}
+    {% endblock %}
+</div>

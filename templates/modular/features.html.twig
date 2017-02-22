@@ -1,0 +1,30 @@
+<section class="{{ _self.pageLinkName(module.menu) }} text-center">
+    <div class="container">
+        <h1>{{ page.header.title}}</h1>
+        <div>{{ page.content }}</div>
+        {% set vars = {
+            'collection': page.header.features
+        } %}
+        {% embed 'bootstrap/card-group.html.twig' with vars %}
+            {% block cards %}
+                {% for feature in collection %}
+                    {% set vars = {
+                        'class': { 'outline': false, 'align': center },
+                        'image_top': { 'href': feature.image_top.uri, 'alt': feature.image_top.alt },
+                        'title': feature.title|markdown,
+                        'text': feature.content
+                    } %}
+                    {% include 'cards.html.twig' with vars %}
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+        {% if page.header.button %}
+            {% set vars = {
+                'class': { 'outline': 'true' },
+                'uri': page.header.button.uri,
+                'text': page.header.button.text
+            } %}
+            {% include 'bootstrap/button.html.twig' with vars %}
+        {% endif %}
+    </div>
+</section>

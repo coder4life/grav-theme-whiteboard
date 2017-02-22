@@ -1,0 +1,67 @@
+{# defined class #}
+{% set classes = 'pagination' %}
+
+{# mutable and toggle class, required #}
+{% if class.size %}
+    {% set classes = classes ~ ' pagination-' ~ class.size %}
+{% endif %}
+
+{# mutable and toggle class, required #}
+{% if class.justify %}
+    {% set classes = classes ~ ' justify-content-' ~ class.justify %}
+{% endif %}
+
+{# mutable and toggle class, required #}
+{% if class.align %}
+    {% set classes = classes ~ ' align-content-' ~ class.align %}
+{% endif %}
+
+{% set collection = pagination|default(page.collection.params.pagination) %}
+{% set base_url = base_url|default(page.url) %}
+
+{% if collection|length > 1 %}
+<nav aria-label="Pagination">
+    <ul class="{{ classes }}">
+        {% if collection.hasPrev %}
+            {% set url =  (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
+            <li class="page-item">
+                <a class="page-link" rel="prev" href="{{ url }}">{{ previous.text }}</a>
+            </li>
+        {% else %}
+            <li class="page-item-disabled">
+                <span class="page-link">{{ previous.text }}</span>
+            </li>
+        {% endif %}
+
+        {% for item in collection %}
+
+            {% if item.isCurrent %}
+                <li class="page-item active">
+                    <span class="page-link">{{ item.number }}</span>
+                </li>
+            {% elseif item.isInDelta %}
+                {% set url = (base_url ~ collection.params ~ item.url)|replace({'//':'/'}) %}
+                <li class="page-item">
+                    <a class="page.link" href="{{ url }}">{{ item.number }}</a>
+                </li>
+            {% elseif item.isDeltaBorder %}
+                <li class="page-item disabled">
+                    <span class="page-link">&hellip;</span>
+                </li>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if collection.hasNext %}
+            {% set url = (base_url ~ collection.params ~ collection.nextUrl)|replace({'//':'/'}) %}
+            <li class="page-item">
+                <a class="page-link" rel="next" href="{{ url }}">&raquo;</a>
+            </li>
+        {% else %}
+            <li class="page-item">
+                <span class="page-link">&raquo;</span>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

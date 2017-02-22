@@ -1,0 +1,25 @@
+{# defined class #}
+{% set classes = 'btn' %}
+
+{# mutable and toggle class, required #}
+{% if class.outline is same as(true) %}
+    {% set classes = classes ~ ' btn-outline-' ~ class.style|default('secondary') %}
+{% else %}
+    {% set classes = classes ~ ' btn-'  ~ class.style|default('secondary') %}
+{% endif %}
+
+{# mutable class, optional #}
+{% if class.size is not empty %}
+    {% set classes = classes ~ ' btn-' ~ class.size %}
+{% endif %}
+
+{# mutable class, optional #}
+{% if class.block is not empty %}
+    {% set classes = classes ~ ' btn-block' %}
+{% endif %}
+
+{% if uri %}
+    <a href="{{ uri }}" class="{{ classes }}">{{ text }}</a>
+{% else %}
+    <button type="{{ type|default('button') }}" class="{{ classes }}">{{ text }}</button>
+{% endif %}

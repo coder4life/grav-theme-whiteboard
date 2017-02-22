@@ -1,0 +1,35 @@
+{% embed 'partials/base.html.twig' %}
+
+{% set collection = page.collection() %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.content }}</p>
+        </header>
+        <div class="content">
+            <header>
+                <h2>{{ page.title }}</h2>
+                <div>
+                    <p>{{ page.content }}</p>
+                    {% if page.header.children %}
+                        <ul>
+                            {% for page in pages.children.visible %}
+                                <li class="{{ current_page }}">
+                                    <a href="{{ page.header.slug }}"></a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </header>
+            {% for child in collection %}
+                {% include 'partials/resource_item.html.twig' with {'resource': page, 'page': child, 'truncate': true} %}
+            {% endfor %}
+            {% if config.plugins.pagination.enabled and collection.params.pagination %}
+                {% include 'partials/pagination.html.twig' with {'base_url': page.url, 'pagination': collection.params.pagination} %}
+            {% endif %}
+        </div>
+    </article>
+{% endblock %}

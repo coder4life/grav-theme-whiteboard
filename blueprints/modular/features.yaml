@@ -1,0 +1,68 @@
+title: Features
+'@extends': default
+
+form:
+  fields:
+
+    tabs:
+      fields:
+
+        content:
+          type: tab
+          title: Features
+          fields:
+
+            header.features:
+              name: features
+              type: list
+              label: Features
+              style: vertical
+              fields:
+
+                .icon:
+                  type: text
+                  label: Icon
+                .image.uri:
+                  type: filepicker
+                  folder: '@self'
+                  preview_images: true
+                  label: Image
+                  placeholder: Please upload page media first...
+                  acccept:
+                    - .png
+                    - .jpg
+                .title:
+                  type: text
+                  label: Title
+                .text:
+                  type: textarea
+                  label: Text
+
+        style:
+          type: tab
+          title: Style
+          fields:
+
+            section_page_style:
+              type: section
+              title: Page Style
+              underline: true
+              import@:
+
+                type: partials/page_style
+                context: blueprints://
+
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/features
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/features
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'

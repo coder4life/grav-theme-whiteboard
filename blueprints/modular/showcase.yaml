@@ -1,0 +1,68 @@
+title: Showcase
+'@extends': default
+
+form:
+  fields:
+
+    tabs:
+      fields:
+
+        content:
+          type: tab
+          fields:
+
+            header.buttons:
+              name: buttons
+              type: list
+              label: Buttons
+              style: vertical
+              fields:
+
+                .text:
+                  type: text
+                  label: Text
+                .url:
+                  type: text
+                  label: URL
+                .primary:
+                  type: toggle
+                  label: Primary
+                  highlight: 1
+                  default: 1
+                  options:
+                      1: 'Yes'
+                      0: 'No'
+                  validate:
+                      type: bool
+
+        style:
+          type: tab
+          title: Style
+          fields:
+
+
+              import@:
+
+                type: partials/page_style
+                context: blueprints://
+
+        advanced:
+          type: tab
+            fields:
+
+              columns:
+                fields:
+
+                  column1:
+                    fields:
+
+                      name:
+                        default: modular/showcase
+                        '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+
+              overrides:
+                fields:
+
+                  header.template:
+                    default: modular/showcase
+                    '@data-options': '\Grav\Common\Page\Pages::modularTypes'

@@ -1,0 +1,87 @@
+title: Intro
+'@extends': default
+
+form:
+  fields:
+
+    tabs:
+      fields:
+
+        content:
+          type: tab
+          ordering@: 0
+          title: Content
+          fields:
+
+            section_content_items:
+              type: section
+              title: Content Items
+              underline: true
+              fields:
+
+                header.content.items:
+                  type: array
+                  label: Content Items
+                  style: vertical
+                  value_only: true
+
+        style:
+          type: tab
+          ordering@: 1
+          title: Style
+          fields:
+
+            section_page_style:
+              type: section
+              title: Page Style
+              underline: true
+              import@:
+
+                type: partials/page_style
+                context: blueprints://
+
+        particles:
+          type: tab
+          ordering@: 2
+          title: Particles
+          import@:
+
+            type: plugins/particles
+            context: blueprints://
+
+        typed:
+          type: tab
+          ordering@: 3
+          title: Typed
+          import@:
+
+            type: plugins/typed
+            context: blueprints://
+
+        options:
+          type: tab
+          title: Options
+          ordering@: 4
+
+        advanced:
+          type: tab
+          title: Advance
+          ordering@: 5
+          fields:
+
+            columns:
+              fields:
+
+                column1:
+                  fields:
+
+                    name:
+                      default: modular/text
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+
+            overrides:
+              fields:
+
+                header.template:
+                  default: modular/text
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'

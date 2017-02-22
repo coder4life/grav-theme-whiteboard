@@ -1,0 +1,15 @@
+{
+   "project":"grav-theme-whiteboard",
+   "platforms":{
+      "grav":{
+         "nodes":{
+            "theme":[
+               {
+                  "source":"/",
+                  "destination":"/user/themes/whiteboard"
+               }
+            ]
+         }
+      }
+   }
+}
