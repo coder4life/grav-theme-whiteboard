@@ -4,7 +4,7 @@
 
 <div class="{{ classes }}">
     {% block cards %}
-        {% for item in collection %}
+        {% for item in items %}
             {% set vars = {
                 'class': { 'outline': false, 'align': left },
                 'image_top': item.image_top,

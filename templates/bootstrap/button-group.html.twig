@@ -1,4 +1,4 @@
-{% macro button_group(collection, parent) %}
+{% macro button_group(items, parent) %}
     {% set class = 'btn-group' %}
 
     {% if button_group.class.margin %}
@@ -10,7 +10,7 @@
     {% elseif %}
 
     <div class="btn-group mr-2" role="group">
-        {% for item in collection %}
+        {% for item in items %}
             {% include 'template.html' with {'foo': 'bar'} %}
         {% endfor %}
     </div>

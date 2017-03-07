@@ -1,0 +1,102 @@
+<section class="partial-resource-item">
+    <header class="resource-header container-fluid">
+        <h4>
+            <a href="#{{ page.slug }}">{{ page.title }}</a>
+        </h4>
+        <div class="http-method">
+            <span class="http-verb http-verb-{{ page.header.verb|lower }}">{{ page.header.verb|upper }}</span>
+            <span class="http-path http-path">{{ page.header.path }}</span>
+        </div>
+        <div class="resource-content">
+            {{ page.content }}
+        </div>
+    </header>
+    {% if page.header.parameters.items is not empty %}
+        <div class="resource-parameters flex-row">
+            <div class="resource-reference container-fluid">
+                <header>
+                    <h5 class="resource-name">{{ t("RESOURCE.PATH") }}</h5>
+                    <div class="resource-preamble">
+                        {{ page.header.parameters.preamble|markdown }}
+                    </div>
+                </header>
+                <ul class="resource-items">
+                    {% for item in page.header.parameters.items %}
+                        <li class="resource-item">
+                            <div class="resource-label">
+                                <strong class="resource-field">{{ item.name }}</strong>
+                                <em class="resource-type">string</em>
+                                {% if item.required %}
+                                    <span class=resource-required"">{{ t("RESOURCE.REQUIRED") }}</span>
+                                {% endif %}
+                                <p>
+                                    {{ item.description|markdown }}
+                                </p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    {% if page.header.query.items is not empty %}
+        <div class="resource-query flex-row">
+            <div class="resource-reference container-fluid">
+                <header>
+                    <h5 class="resource-name">{{ t("RESOURCE.QUERY") }}</h5>
+                    <div class="resource-preamble">
+                        {{ page.header.query.preamble|markdown }}
+                    </div>
+                </header>
+                <ul class="resource-items">
+                    {% for item in page.header.query.items %}
+                        <li class="resource-item">
+                            <div class="resource-label">
+                                <strong class="resource-field">{{ item.name }}</strong>
+                                <em class="resource-type"></em>
+                                {% if item.required %}
+                                    <span class=resource-required"">{{ t("RESOURCE.REQUIRED") }}</span>
+                                {% endif %}
+                                <p>
+                                    {{ item.description|markdown }}
+                                </p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+    {% if page.header.response.items is not empty %}
+        <div class="resource-response flex-row">
+            <div class="resource-reference container-fluid">
+                <header>
+                    <h5 class="resource-name">{{ t("RESOURCE.RESPONSE") }}</h5>
+                    <div class="resource-preamble">
+                        {{ page.header.response.preamble|markdown }}
+                    </div>
+                </header>
+                <ul class="resource-items">
+                    {% for item in page.header.response.items %}
+                        <li class="resource-item">
+                            <div class="resource-label">
+                                <strong class="resource-field"></strong>
+                                <em class="resource-type"></em>
+                                {% if item.required %}
+                                    <span class=resource-required"">{{ t("RESOURCE.REQUIRED") }}</span>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="resource-sample container-fluid">
+                <pre>
+                    <code>
+                        {{ page.header.query.description }}
+                    </code>
+                </pre>
+            </div>
+        </div>
+    {% endif %}
+</section>

@@ -1,0 +1,53 @@
+title: API
+extends@:
+    type: default
+    context: blueprints://pages
+rules:
+  slug:
+    pattern: '[a-z][a-z0-9_\-]+'
+    min: 2
+    max: 80
+form:
+  validation: loose
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+
+        content:
+          type: tab
+          title: Content
+          ordering@: 0
+          fields:
+
+            header.title:
+              type: text
+              autofocus: true
+              style: vertical
+              label: Title
+            content:
+              type: markdown
+              style: vertical
+              validate:
+                type: textarea
+
+        index:
+          type: tab
+          title: Index
+          ordering@: 1
+          import@:
+
+            type: partials/index
+            context: blueprints://
+
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+          ordering@: 2
+
+        advanced:
+          type: tab
+          title: PLUGIN_ADMIN.ADVANCED
+          ordering@: 3

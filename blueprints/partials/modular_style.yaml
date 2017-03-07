@@ -1,23 +1,24 @@
 form:
   fields:
 
-    style:
+    header.section.shade:
       type: select
       label: Shade
       classes: fancy
       options:
         'light': 'light'
         'dark': 'dark'
-    pallet:
+    header.secti0n.pallet:
       type: select
       label: Pallet
       classes: fancy
       options:
+        'inherit': 'inherit'
         'accent1': 'accent1'
         'accent2': 'accent2'
         'accent3': 'accent3'
         'accent4': 'accent4'
-    image:
+    header.scection.image:
       type: filepicker
       folder: '@self'
       preview_images: true

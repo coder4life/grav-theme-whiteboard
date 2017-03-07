@@ -6980,6 +6980,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .hidden-print {
     display: none !important; } }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; }
+
 .navbar-toggleable-md {
   padding: 0; }
   .navbar-toggleable-md .navbar-nav .nav-link {

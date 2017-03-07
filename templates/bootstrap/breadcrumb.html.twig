@@ -1,13 +1,13 @@
-{% set collection = breadcrumbs.get() %}
+{% set items = breadcrumbs.get() %}
 {% set breadcrumbs_config = config.plugins.breadcrumbs %}
 {% set divider = breadcrumbs_config.icon_divider_classes %}
 
-{% if collection|length > 1 or breadcrumbs_config.show_all %}
-    <ol id="breadcrumbs">
+{% if items|length > 1 or breadcrumbs_config.show_all %}
+    <ol id="breadcrumb">
         {% if breadcrumbs_config.icon_home %}
             <i class="{{ breadcrumbs_config.icon_home }}"></i>
         {% endif %}
-        {% for item in collection %}
+        {% for item in items %}
             {% if not loop.last %}
                 <li class="breadcrumb-item">
                     {% if item.routable %}

@@ -1,0 +1,39 @@
+{% set items = collection ? collection : pages.children.visible %}
+
+{# defined class #}
+{% set classes = 'nav' %}
+
+{# mutable class, required #}
+{% if class.style %}
+    {% set classes = classes ~ ' nav-' ~ class.style %}
+{% endif %}
+
+{% if class.position %}
+    {% set classes = classes ~ ' nav-' ~ class.position %}
+{% endif %}
+
+<ul class="{{ classes }}" role="tablist" aria-multiselectable="true">
+    {% for item in collection.children.visible %}
+        {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}
+        {% if item.children.visible.count > 0 %}
+            <li class="nav-item {{ current_page }}">
+
+            </li>
+        {% else %}
+            <li class="nav-item {{ current_page }}">
+                <a href="#{{ item.slug }}" role="tab">
+                    {{ item.menu }}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<div class="tab-content">
+    {% for item in items %}
+        {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}
+        <div class="tab-pane {{ current_page }}" id="{{ item.slug }}" role="tabpanel">
+            {{ item.content }}
+        </div>
+    {% endfor %}
+</div>

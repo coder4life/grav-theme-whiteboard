@@ -16,13 +16,13 @@
     {% set classes = classes ~ ' align-content-' ~ class.align %}
 {% endif %}
 
-{% set collection = pagination|default(page.collection.params.pagination) %}
+{% set items = pagination|default(page.collection.params.pagination) %}
 {% set base_url = base_url|default(page.url) %}
 
-{% if collection|length > 1 %}
+{% if items|length > 1 %}
 <nav aria-label="Pagination">
     <ul class="{{ classes }}">
-        {% if collection.hasPrev %}
+        {% if items.hasPrev %}
             {% set url =  (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
             <li class="page-item">
                 <a class="page-link" rel="prev" href="{{ url }}">{{ previous.text }}</a>
@@ -33,7 +33,7 @@
             </li>
         {% endif %}
 
-        {% for item in collection %}
+        {% for item in items %}
 
             {% if item.isCurrent %}
                 <li class="page-item active">

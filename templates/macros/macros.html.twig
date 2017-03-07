@@ -1,7 +1,5 @@
-{% macro attribute(name, text) %}
-    {{ name ~ '=' ~ text }}
-{% endmacro %}
+{% macro htmlAttributes(name, text) %}{{ name ~ '=' ~ text }}{% endmacro %}
 
-{% macro attributes(items) %}
+{% macro htmlAttributes(items) %}
 
 {% endmacro %}

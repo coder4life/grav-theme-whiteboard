@@ -1,4 +1,8 @@
-<section class="{{ _self.pageLinkName(module.menu) }} text-center">
+{% import 'macros/pages.html.twig' as pageMacro %}
+
+{% set items =  items ? items : page.collection() %}
+
+<section class="{{ pageMacro.linkName(page.menu) }} modular text-center">
     <div class="container">
         <h1>{{ page.header.title}}</h1>
         <div>{{ page.content }}</div>
@@ -7,7 +11,7 @@
         } %}
         {% embed 'bootstrap/card-group.html.twig' with vars %}
             {% block cards %}
-                {% for feature in collection %}
+                {% for item in items %}
                     {% set vars = {
                         'class': { 'outline': false, 'align': center },
                         'image_top': { 'href': feature.image_top.uri, 'alt': feature.image_top.alt },

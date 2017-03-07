@@ -1,11 +1,12 @@
 title: Resource )bject
-
+extends@:
+    type: default
+    context: blueprints://pages
 rules:
   slug:
     pattern: '[a-z][a-z0-9_\-]+'
     min: 2
     max: 80
-
 form:
   validation: loose
   fields:

@@ -1,43 +1,21 @@
-.modular-features {
+@import "modular/intro";
+@import "modular/features";
+@import "modular/showcase";
+@import "modular/text";
 
-    .card-group {
 
-        .card {
-            margin: 0;
+.main {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 4rem;
 
-            .card-img-top {
-                border-radius: 100%;
-            }
-
-        }
-
-        .card:nth-child(n+4) {
-            border-bottom: 0;
-            margin: 0;
-        }
-
-        .card:nth-child(3n) {
-            border-right: 0;
-            margin: 0;
-        }
-
+    .modular {
+        position: relative;
     }
 
-    &.light {
-        .card-group {
-            .card {
-                border-right: 1px solid #aaaaaa;
-                border-bottom: 1px solid #aaaaaa;
-            }
-        }
+    .modular.inset {
+        padding: 4rem 0;
     }
-
 }
 
-.modular-showcase {
-
-}
-
-.modular-text {
-
-}

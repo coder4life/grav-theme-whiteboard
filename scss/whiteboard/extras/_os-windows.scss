@@ -1,25 +1,26 @@
 .mac.window {
+    height: 100%;
     background: #ffffff;
-    min-height: 50vh;
-    margin: 3.75rem auto 0;
-    border: 1px solid #acacac;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    box-shadow: 0px -3px 15px -5px #acacac;
+    border-top: 1px solid #acacac;
+    border-right: 1px solid #acacac;
+    border-left: 1px solid #acacac;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.35);
 
     .titlebar {
         color: #4d494d;
-        background: linear-gradient(top, #ebebeb, #d5d5d5);
+        background: linear-gradient(to bottom, #ebebeb, #d5d5d5);
         text-align: center;
         width: 100%;
         border-bottom: 1px solid #b1aeb1;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
         user-select: none;
         cursor: default;
         padding: 0.5rem 0;
 
-        .title {
+        .title-text {
             font-size: 1rem;
             line-height: 1.15rem;
             padding: 0 0.5rem;

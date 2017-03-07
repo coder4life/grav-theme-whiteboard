@@ -1,0 +1,42 @@
+.partial-resource-item {
+    .title {
+        margin-bottom: 4rem;
+    }
+
+    .http-method {
+        width: 100%;
+        display: flex;
+        position: relative;
+        border: 1px solid;
+        border-radius: 4px;
+        margin-bottom: 2rem;
+    }
+
+    .http-verb {
+        border-radius: 4px 0 0 4px;
+        padding: 0 0.25rem;
+        line-height: 2.25rem;
+    }
+
+    .http-path {
+        border-radius: 0 4px 4px 0;
+        margin-left: 0.5rem;
+        padding: 0 0.25rem;
+        line-height: 2.25rem;
+    }
+
+    .resource-name {
+
+    }
+
+    .resource-items {
+        list-style: none;
+        padding: 0;
+    }
+
+    .resource-item {
+        border-bottom: 1px solid;
+        padding: 1.5rem 0;
+        list-style: none;
+    }
+}

@@ -1,2 +1,4 @@
 title: Nopad
-'@extends': default
+extends@:
+    type: default
+    context: blueprints://pages

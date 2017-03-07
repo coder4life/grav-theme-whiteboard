@@ -1,31 +1,27 @@
-title: Resource Item
-
+title: Resource Method
+extends@:
+    type: default
+    context: blueprints://pages
 rules:
   slug:
     pattern: '[a-z][a-z0-9_\-]+'
     min: 2
     max: 80
-
 form:
   validation: loose
   fields:
+
     tabs:
       type: tabs
       active: 1
       fields:
+
         content:
           type: tab
+          ordering@: 0
           title: Resource
           fields:
-            header.title:
-              type: text
-              autofocus: true
-              style: vertical
-              label: Title
-            header.slug:
-              type: text
-              style: vertical
-              label: Slug
+
             header.verb:
               type: select
               size: full
@@ -42,46 +38,35 @@ form:
               autofocus: true
               style: vertical
               label: Resource Path
-            content:
-              type: markdown
-              validate:
-                type: textarea
             section_parameter:
               type: section
               title: Parameter Items
               underline: true
-            header.parameters.items:
-              name: item
-              type: list
-              style: vertical
               fields:
-                .name:
-                  type: text
-                  label: Title
+
+                header.parameters.items:
+                  name: item
+                  type: list
                   style: vertical
-                .description:
-                  type: textarea
-                  label: Description
-                  style: vertical
-                  validate:
-                    type: textarea
-                .required:
-                  type: toggle
-                  label: Required
-                  style: vertical
-                  highlight: 1
-                  default: 1
-                  options:
-                      1: 'Yes'
-                      0: 'No'
-                  validate:
-                      type: bool
+                  fields:
+                    .name:
+                      type: text
+                      label: Title
+                      style: vertical
+                    .description:
+                      type: textarea
+                      label: Description
+                      style: vertical
+                      validate:
+                        type: textarea
 
         query:
           type: tab
+          ordering@: 1
           title: Query
           fields:
-            header.parameters.example_request:
+
+            header.query.preamble:
               type: editor
               label: Example Request
               autofocus: true
@@ -98,64 +83,69 @@ form:
               type: section
               title: Query String Items
               underline: true
-            header.query.items:
-              name: item
-              type: list
-              style: vertical
               fields:
-                .name:
-                  type: text
-                  label: Name
+
+                header.query.items:
+                  name: item
+                  type: list
                   style: vertical
-                .description:
-                  type: textarea
-                  label: Description
-                  style: vertical
-                  validate:
-                    type: textarea
-                .type:
-                  type: select
-                  label: Value Type
-                  class: fancy
-                  style: vertical
-                  options:
-                    array: array
-                    boolen: boolean
-                    integer: integer
-                    float: float
-                    null: null
-                    objection: object
-                    string: string
-                .required:
-                  type: toggle
-                  label: Required
-                  style: vertical
-                  highlight: 1
-                  default: 1
-                  options:
-                      1: 'Yes'
-                      0: 'No'
-                  validate:
+                  fields:
+
+                    .name:
+                      type: text
+                      label: Name
+                      style: vertical
+                    .description:
+                      type: textarea
+                      label: Description
+                      style: vertical
+                      validate:
+                        type: textarea
+                    .type:
+                      type: select
+                      label: Value Type
+                      class: fancy
+                      style: vertical
+                      options:
+                        array: array
+                        boolen: boolean
+                        integer: integer
+                        float: float
+                        null: null
+                        objection: object
+                        string: string
+                    .required:
+                      type: toggle
+                      label: Required
+                      style: vertical
+                      highlight: 1
+                      default: 0
+                      options:
+                          1: 'Yes'
+                          0: 'No'
+                      validate:
                       type: bool
 
         response:
           type: tab
+          ordering@: 2
           title: Response
           fields:
-            header.response.example_response:
+
+            header.response.sample:
               type: editor
               label: Example Response
               style: vertical
               autofocus: true
               codemirror:
-                mode: 'application/jso'
+                mode: 'application/json'
                 indentUnit: 4
                 autofocus: true
                 indentWithTabs: false
                 lineNumbers: true
                 styleActiveLine: true
                 gutters: ['CodeMirror-lint-markers']
-                lint: true
+                lint: false
             header.response.description:
               type: editor
               label: Description
@@ -173,134 +163,10 @@ form:
 
         options:
           type: tab
+          ordering@: 3
           title: PLUGIN_ADMIN.OPTIONS
 
-          fields:
-
-            publishing:
-              type: section
-              title: PLUGIN_ADMIN.PUBLISHING
-              underline: true
-
-            header.published:
-              type: toggle
-              toggleable: true
-              label: PLUGIN_ADMIN.PUBLISHED
-              help: PLUGIN_ADMIN.PUBLISHED_HELP
-              highlight: 1
-              size: medium
-              options:
-                1: PLUGIN_ADMIN.YES
-                0: PLUGIN_ADMIN.NO
-              validate:
-                type: bool
-
-            header.date:
-              type: datetime
-              label: PLUGIN_ADMIN.DATE
-              toggleable: true
-              help: PLUGIN_ADMIN.DATE_HELP
-
-            header.publish_date:
-              type: datetime
-              label: PLUGIN_ADMIN.PUBLISHED_DATE
-              toggleable: true
-              help: PLUGIN_ADMIN.PUBLISHED_DATE_HELP
-
-            header.unpublish_date:
-              type: datetime
-              label: PLUGIN_ADMIN.UNPUBLISHED_DATE
-              toggleable: true
-              help: PLUGIN_ADMIN.UNPUBLISHED_DATE_HELP
-
-            header.metadata:
-              toggleable: true
-              type: array
-              label: PLUGIN_ADMIN.METADATA
-              help: PLUGIN_ADMIN.METADATA_HELP
-              placeholder_key: PLUGIN_ADMIN.METADATA_KEY
-              placeholder_value: PLUGIN_ADMIN.METADATA_VALUE
-
-            taxonomies:
-              type: section
-              title: PLUGIN_ADMIN.TAXONOMIES
-              underline: true
-
-
-            header.taxonomy:
-              type: taxonomy
-              label: PLUGIN_ADMIN.TAXONOMY
-              multiple: true
-              validate:
-                type: array
-
-        advanced:
+        advance:
           type: tab
+          ordering@: 4
           title: PLUGIN_ADMIN.ADVANCED
-
-          fields:
-            columns:
-              type: columns
-              fields:
-                column1:
-                  type: column
-                  fields:
-
-                    settings:
-                      type: section
-                      title: PLUGIN_ADMIN.SETTINGS
-                      underline: true
-
-                    ordering:
-                      type: toggle
-                      label: PLUGIN_ADMIN.FOLDER_NUMERIC_PREFIX
-                      help: PLUGIN_ADMIN.FOLDER_NUMERIC_PREFIX_HELP
-                      highlight: 1
-                      options:
-                        1: PLUGIN_ADMIN.ENABLED
-                        0: PLUGIN_ADMIN.DISABLED
-                      validate:
-                        type: bool
-
-                    folder:
-                      type: text
-                      label: PLUGIN_ADMIN.FOLDER_NAME
-                      validate:
-                        type: slug
-                        pattern: '[a-zа-я0-9_\-]+'
-
-                    route:
-                      type: select
-                      label: PLUGIN_ADMIN.PARENT
-                      classes: fancy
-                      data-options@: '\Grav\Common\Page\Pages::parentsRawRoutes'
-                      data-default@: '\Grav\Plugin\Admin\Admin::rawRoute'
-                      options:
-                        '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
-
-                    name:
-                      type: select
-                      classes: fancy
-                      label: PLUGIN_ADMIN.PAGE_FILE
-                      help: PLUGIN_ADMIN.PAGE_FILE_HELP
-                      default: default
-                      data-options@: '\Grav\Common\Page\Pages::pageTypes'
-
-                    header.body_classes:
-                      type: text
-                      label: PLUGIN_ADMIN.BODY_CLASSES
-
-
-                column2:
-                  type: column
-
-                  fields:
-                    order_title:
-                      type: section
-                      title: PLUGIN_ADMIN.ORDERING
-                      underline: true
-
-                    order:
-                      type: order
-                      label: PLUGIN_ADMIN.PAGE_ORDER
-                      sitemap:

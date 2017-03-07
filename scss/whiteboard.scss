@@ -6,8 +6,17 @@
 // Core variables and mixins
 @import "whiteboard/variables";
 
-// Components
+// Themes
 @import "whiteboard/theme";
-@import "whiteboard/topography";
+
+// Plugins
+@import "whiteboard/plugins";
+
+// Pages
+@import "whiteboard/api";
+
+// Modular
 @import "whiteboard/modular";
-@import "whiteboard/os-windows";
+
+// Extras
+@import "whiteboard/extras/os-windows";

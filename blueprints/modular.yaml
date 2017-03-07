@@ -1,5 +1,5 @@
 title: PLUGIN_ADMIN.MODULAR
-@extends:
+extends@:
     type: default
     context: blueprints://pages
 
@@ -12,8 +12,9 @@ form:
 
       fields:
 
-        content:
+        items:
           type: tab
+          title: Items
           ordering@: 0
           fields:
 
@@ -71,4 +72,3 @@ form:
 
               type: partials/footer_style
               context: blueprints://
-

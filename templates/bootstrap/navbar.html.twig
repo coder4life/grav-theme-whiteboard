@@ -1,4 +1,4 @@
-{% set collection = collection ? collection : pages.children.visible %}
+{% set items = collection ? collection : pages.children.visible %}
 
 {# defined class #}
 {% set classes = 'navbar' %}
@@ -34,12 +34,12 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                {% for item in collection %}
+                {% for item in items %}
                     {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}
-                    {% if item.children.visible.count > 0 %}
+                    {% if item.children.visible.count > 0 and grav.theme.config.settings.dropdown.enabled %}
                         <li class="nav-item dropdown {{ current_page }}">
                             {% set vars = {
-                                'collection': item.children.visible,
+                                'items': item.children.visible,
                                 'id': item.slug,
                                 'url': item.url,
                                 'text': item.menu|upper

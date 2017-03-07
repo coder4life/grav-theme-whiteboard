@@ -25,88 +25,81 @@ form:
           title: Base
           fields:
 
-            section_shade_colors:
+            section_base_shade:
               type: section
               title: Shade Colors
               underline: true
               fields:
 
-                basic_shade.white:
+                base.shade.white:
                   type: colorpicker
                   label: White
                   default: '#d6d5d0'
                   validate:
                     type: string
-
-                basic_shade.light_grey:
+                base.shade.light_grey:
                   type: colorpicker
                   label: Light Grey
                   default: '#b3b3b3'
                   validate:
                     type: string
-
-                basic_shade.dark_grey:
+                base.shade.dark_grey:
                   type: colorpicker
                   label: Dark Grey
                   default: '#6b6b6b'
                   validate:
                     type: string
-
-                basic_shade.black:
+                base.shade.black:
                   type: colorpicker
                   label: Black
                   default: '#242728'
                   validate:
                     type: string
 
-            section_primary_colors:
+            section_base_primary:
               type: section
               title: Primary Colors
               underline: true
               fields:
 
-                primary_colors.red:
+                base.primary.red:
                   type: colorpicker
                   label: Red
                   default: '#ff2600'
                   validate:
                     type: string
-
-                primary_colors.green:
+                base.primary.green:
                   type: colorpicker
                   label: Green
                   default: '#93be18'
                   validate:
                     type: string
-
-                primary_colors.blue:
+                base.primary.blue:
                   type: colorpicker
                   label: Blue
                   default: '#005cbb'
                   validate:
                     type: string
 
-            section_secondary_colors:
+            section_base_secondary:
               type: section
               title: Secondary Colors
               underline: true
               fields:
 
-                secondary_colors.yellow:
+                base.secondary.yellow:
                   type: colorpicker
                   label: Yellow
                   default: '#feee7f'
                   validate:
                     type: string
-
-                secondary_colors.cyan:
+                base.secondary.cyan:
                   type: colorpicker
                   label: Cyan
                   default: '#65ccde'
                   validate:
                     type: string
-
-                secondary_colors.magenta:
+                base.secondary.magenta:
                   type: colorpicker
                   label: Magenta
                   default: '#fd4485'
@@ -118,94 +111,206 @@ form:
           title: Scheme
           fields:
 
-            section_schema:
+            section_scheme_type:
               type: section
-              title: Schema Colors
+              title: Primary Colors
               underline: true
               fields:
 
-                scheme_colors.primary:
+                scheme.type.primary:
                   type: colorpicker
                   label: Primary
                   default: '#00b680'
                   validate:
                     type: string
-
-                scheme_colors.secondary:
+                scheme.type.secondary:
                   type: colorpicker
                   label: Secondary
                   default: '#00b680'
                   validate:
                     type: string
-
-                scheme_colors.info:
+                scheme.type.info:
                   type: colorpicker
                   label: Info
                   default: '#009cde'
                   validate:
                     type: string
-
-                scheme_colors.warning:
+                scheme.type.warning:
                   type: colorpicker
                   label: Warning
                   default: '#f08d00'
                   validate:
                     type: string
-
-                scheme_colors.danger:
+                scheme.type.danger:
                   type: colorpicker
                   label: Danger
                   default: '#d4005e'
                   validate:
                     type: string
-
-                scheme_colors.inverse:
+                scheme.type.inverse:
                   type: colorpicker
                   label: Inverse
                   default: '#00b680'
                   validate:
                     type: string
 
+        theme:
+          type: tab
+          title: Theme
+          fields:
+
+            section_theme_main:
+              type: section
+              title: Body Style
+              underline: true
+              fields:
+
+                theme.main.shade:
+                  type: select
+                  label: Shade
+                  classes: fancy
+                  options:
+                    'light': 'light'
+                    'dark': 'dark'
+                theme.main.pallet:
+                  type: select
+                  label: Pallet
+                  classes: fancy
+                  options:
+                    'inherit': 'inherit'
+                    'accent1': 'accent1'
+                    'accent2': 'accent2'
+                    'accent3': 'accent3'
+                    'accent4': 'accent4'
+                theme.main.image:
+                  type: filepicker
+                  folder: '@self'
+                  preview_images: true
+                  label: Select a file
+
+            section_theme_modular:
+              type: section
+              title: Main Style
+              underline: true
+              fields:
+
+                theme.modular.shade:
+                  type: select
+                  label: Shade
+                  classes: fancy
+                  options:
+                    'light': 'light'
+                    'dark': 'dark'
+                theme.modular.pallet:
+                  type: select
+                  label: Pallet
+                  classes: fancy
+                  options:
+                    'inherit': 'inherit'
+                    'accent1': 'accent1'
+                    'accent2': 'accent2'
+                    'accent3': 'accent3'
+                    'accent4': 'accent4'
+                theme.modular.image:
+                  type: filepicker
+                  folder: '@self'
+                  preview_images: true
+                  label: Select a file
+
+            section_theme_header:
+              type: section
+              title: Header Style
+              underline: true
+              fields:
+
+                theme.header.style:
+                  type: select
+                  label: Shade
+                  classes: fancy
+                  options:
+                    'light': 'light'
+                    'dark': 'dark'
+                theme.header.pallet:
+                  type: select
+                  label: Pallet
+                  classes: fancy
+                  options:
+                    'inherit': 'inherit'
+                    'accent1': 'accent1'
+                    'accent2': 'accent2'
+                    'accent3': 'accent3'
+                    'accent4': 'accent4'
+                theme.header.image:
+                  type: filepicker
+                  folder: '@self'
+                  preview_images: true
+                  label: Select a file
+
+            section_theme_footer:
+              type: section
+              title: Footer Style
+              underline: true
+              fields:
+
+                theme.footer.style:
+                  type: select
+                  label: Shade
+                  classes: fancy
+                  options:
+                    'light': 'light'
+                    'dark': 'dark'
+                theme.footer.pallet:
+                  type: select
+                  label: Pallet
+                  classes: fancy
+                  options:
+                    'inherit': 'inherit'
+                    'accent1': 'accent1'
+                    'accent2': 'accent2'
+                    'accent3': 'accent3'
+                    'accent4': 'accent4'
+                theme.footer.image:
+                  type: filepicker
+                  folder: '@self'
+                  preview_images: true
+                  label: Select a file
+
         api:
           type: tab
           title: API
           fields:
 
-            section_rest:
+            section_api_rest:
               type: section
               title: REST
               underline: true
               fields:
 
-                rest.get:
+                api.rest.get:
                   type: colorpicker
                   label: GET Color
                   default: '#00b680'
                   validate:
                     type: string
-
-                rest.post:
+                api.rest.post:
                   type: colorpicker
                   label: POST Color
                   default: '#009cde'
                   validate:
                     type: string
-
-                rest.patch:
+                api.rest.patch:
                   type: colorpicker
                   label: PATCH Color
                   default: '#640487'
                   validate:
                     type: string
-
-                rest.put:
+                api.rest.put:
                   type: colorpicker
                   label: PUT Color
                   default: '#f08d00'
                   validate:
                     type: string
-
-                rest.delete:
+                api.rest.delete:
                   type: colorpicker
                   label: DELETE Color
                   default: '#d4005e'
@@ -217,13 +322,19 @@ form:
           title: Settings
           fields:
 
-            dropdown.enabled:
-              type: toggle
-              label: Dropdown in navbar
-              highlight: 1
-              default: 1
-              options:
-                1: PLUGIN_ADMIN.ENABLED
-                0: PLUGIN_ADMIN.DISABLED
-              validate:
-                type: bool
+            section_settings_global:
+              type: section
+              title: Golbal Settings
+              underline: true
+              fields:
+
+                settings.dropdown.enabled:
+                  type: toggle
+                  label: Dropdown in navbar
+                  highlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_ADMIN.ENABLED
+                    0: PLUGIN_ADMIN.DISABLED
+                  validate:
+                    type: bool

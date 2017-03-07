@@ -1,35 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 
-{% set show_onpage_menu = header.onpage_menu == true or header.onpage_menu is null %}
-{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
-
-{% block javascripts %}
-    {% if show_onpage_menu %}
-        {% do assets.add('theme://js/singlePageNav.min.js') %}
-    {% endif %}
-    {{ parent() }}
-{% endblock %}
-
-
-{% block bottom %}
-    {{ parent() }}
-    {% if show_onpage_menu %}
-        <script>
-        // singlePageNav initialization & configuration
-        $('#navbar').singlePageNav({
-            offset: $('#header').outerHeight(),
-            filter: ':not(.external)',
-            updateHash: true,
-            currentClass: 'active'
-        });
-        </script>
-    {% endif %}
-{% endblock %}
-
 {% block content %}
-    <main>
-        {% for module in page.collection() %}
-            {{ module.content }}
-        {% endfor %}
-    </main>
+    {% for module in page.collection() %}
+        {{ module.content }}
+    {% endfor %}
 {% endblock %}

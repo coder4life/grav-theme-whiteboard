@@ -1,13 +1,11 @@
 <div class="list-group">
-    {% for item in collection %}
+    {% for item in items %}
         {% if item.action %}
             {% include 'bootstrap/buttons.html.twig' with { 'text': item.text } %}
         {% elseif item.url %}
-            <a href="{{ item.url }}" class="list-group-item list-group-item-action">
-                {{ item.text }}
-            </a>
+            <a href="{{ item.url }}" class="list-group-item list-group-item-action">{{ item.menu }}</a>
         {% else %}
-            {{ item.text }}
+            <span class="list-group-item list-group-item-action">{{ item.text }}</span>
         {% endif %}
     {% endfor %}
 </div>

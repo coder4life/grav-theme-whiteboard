@@ -1,0 +1,31 @@
+{# extends base template partial #}
+{% extends 'partials/base.html.twig' %}
+
+{# set collection variable, from page class API #}
+{% set items = page.collection() %}
+
+{% block content %}
+
+    {# define section element type #}
+    <section class="api-cards text-center">
+        <div class="container">
+            {% set vars = {
+                'class': { 'type': 'deck' }
+            } %}
+            {% embed 'bootstrap/card-group.html.twig' with vars %}
+                {% block cards %}
+                    {% for item in items %}
+                        {% set vars = {
+                            'class': { 'outline': false, 'align': left },
+                            'image_top': item.image_top,
+                            'title': item.title,
+                            'text': item.content,
+                            'action': { 'href': item.uri, 'text': item.text  },
+                        } %}
+                        {% include 'bootstrap/cards.html.twig' with vars %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </section>
+{% endblock %}

@@ -37,7 +37,7 @@ form:
               underline: true
               import@:
 
-                type: partials/page_style
+                type: partials/modular_style
                 context: blueprints://
 
         particles:

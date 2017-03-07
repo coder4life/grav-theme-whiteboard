@@ -1,24 +1,27 @@
 title: Resource
-
+extends@:
+    type: default
+    context: blueprints://pages
 rules:
   slug:
     pattern: '[a-z][a-z0-9_\-]+'
     min: 2
     max: 80
-
-child_type: resource_item
-
 form:
   validation: loose
   fields:
+
     tabs:
       type: tabs
       active: 1
       fields:
+
         content:
           type: tab
           title: Content
+          ordering: 0
           fields:
+
             header.title:
               type: text
               autofocus: true
@@ -30,101 +33,21 @@ form:
               validate:
                 type: textarea
 
-        group:
+        items:
           type: tab
-          title: Group
-          fields:
-            header.group.title:
-              type: text
-              autofocus: true
-              style: vertical
-              label: Title
+          title: Items
+          ordering: 1
+          import@:
 
-            header.group.description:
-              type: textarea
-              style: vertical
-              validate:
-                type: textarea
+            type: partials/items
+            context: blueprints://
 
-            header.group.children:
-              type: toggle
-              label: Show Children
-              style: vertical
-              highlight: 1
-              default: 1
-              options:
-                  1: 'Yes'
-                  0: 'No'
-              validate:
-                  type: bool
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+          ordering: 2
 
         advanced:
           type: tab
           title: PLUGIN_ADMIN.ADVANCED
-
-          fields:
-            columns:
-              type: columns
-              fields:
-                column1:
-                  type: column
-                  fields:
-
-                    settings:
-                      type: section
-                      title: PLUGIN_ADMIN.SETTINGS
-                      underline: true
-
-                    ordering:
-                      type: toggle
-                      label: PLUGIN_ADMIN.FOLDER_NUMERIC_PREFIX
-                      help: PLUGIN_ADMIN.FOLDER_NUMERIC_PREFIX_HELP
-                      highlight: 1
-                      options:
-                        1: PLUGIN_ADMIN.ENABLED
-                        0: PLUGIN_ADMIN.DISABLED
-                      validate:
-                        type: bool
-
-                    folder:
-                      type: text
-                      label: PLUGIN_ADMIN.FOLDER_NAME
-                      validate:
-                        type: slug
-                        pattern: '[a-zа-я0-9_\-]+'
-
-                    route:
-                      type: select
-                      label: PLUGIN_ADMIN.PARENT
-                      classes: fancy
-                      data-options@: '\Grav\Common\Page\Pages::parentsRawRoutes'
-                      data-default@: '\Grav\Plugin\Admin\Admin::rawRoute'
-                      options:
-                        '/': PLUGIN_ADMIN.DEFAULT_OPTION_ROOT
-
-                    name:
-                      type: select
-                      classes: fancy
-                      label: PLUGIN_ADMIN.PAGE_FILE
-                      help: PLUGIN_ADMIN.PAGE_FILE_HELP
-                      default: default
-                      data-options@: '\Grav\Common\Page\Pages::pageTypes'
-
-                    header.body_classes:
-                      type: text
-                      label: PLUGIN_ADMIN.BODY_CLASSES
-
-
-                column2:
-                  type: column
-
-                  fields:
-                    order_title:
-                      type: section
-                      title: PLUGIN_ADMIN.ORDERING
-                      underline: true
-
-                    order:
-                      type: order
-                      label: PLUGIN_ADMIN.PAGE_ORDER
-                      sitemap:
+          ordering: 3

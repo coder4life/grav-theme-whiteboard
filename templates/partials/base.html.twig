@@ -11,38 +11,58 @@
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 
     {% block stylesheets %}
-        {% do assets.addCss('theme://css-compiled/owlcarousel2.min.css', 100) %}
-        {% do assets.addCss('theme://css-compiled/font-awesome.min.css', 101) %}
-        {% do assets.addCss('theme://css-compiled/bootstrap.min.css', 105) %}
-        {% do assets.addCss('theme://css-compiled/whiteboard.min.css', 110) %}
+        {% if config.system.debugger.enabled %}
+            {% do assets.addCss('theme://css-compiled/owlcarousel2.css', 100) %}
+            {% do assets.addCss('theme://css-compiled/font-awesome.css', 101) %}
+            {% do assets.addCss('theme://css-compiled/bootstrap.css', 105) %}
+            {% do assets.addCss('theme://css-compiled/whiteboard.css', 110) %}
+        {% else %}
+            {% do assets.addCss('theme://css-compiled/owlcarousel2.min.css', 100) %}
+            {% do assets.addCss('theme://css-compiled/font-awesome.min.css', 101) %}
+            {% do assets.addCss('theme://css-compiled/bootstrap.min.css', 105) %}
+            {% do assets.addCss('theme://css-compiled/whiteboard.min.css', 110) %}
+        {% endif %}
     {% endblock %}
-    {% include 'partials/style.html.twig' %}
     {{ assets.css() }}
 
     {% block javascripts %}
-        {% do assets.addJs('theme://js-compiled/typed.min.js', 101) %}
-        {% do assets.addJs('theme://js-compiled/particles.min.js', 102) %}
-        {% do assets.addJs('theme://js-compiled/owlcarousel2.min.js', 103) %}
-        {% do assets.addJs('theme://js-compiled/bootstrap.min.js', 105) %}
+        {% if config.system.debugger.enabled %}
+            {% do assets.addJs('theme://js-compiled/typed.js', 101) %}
+            {% do assets.addJs('theme://js-compiled/particles.js', 102) %}
+            {% do assets.addJs('theme://js-compiled/owlcarousel2.js', 103) %}
+            {% do assets.addJs('theme://js-compiled/bootstrap.js', 105) %}
+            {% do assets.addJs('theme://js-compiled/tether.min.js', 106) %}
+        {% else %}
+            {% do assets.addJs('theme://js-compiled/typed.min.js', 101) %}
+            {% do assets.addJs('theme://js-compiled/particles.min.js', 102) %}
+            {% do assets.addJs('theme://js-compiled/owlcarousel2.min.js', 103) %}
+            {% do assets.addJs('theme://js-compiled/bootstrap.min.js', 105) %}
+            {% do assets.addJs('theme://js-compiled/tether.min.js', 106) %}
+        {% endif %}
         {% do assets.addJs('jquery', 110) %}
     {% endblock %}
     {{ assets.js() }}
-
 {% endblock head %}
 </head>
+
 <body class="{{ page.header.body_classes }}">
     {% block header %}
-        <header id="header">
+        <header id="header" class="fixed-top">
             {% block navigation %}
                 {% set vars = {
-                    'class': { 'toggleable': "md", 'theme': 'inverse', 'style': 'inverse', 'position': 'top' }
+                    'class': { 'toggleable': "md", 'theme': 'inverse', 'style': 'inverse' }
                 } %}
                 {% include 'bootstrap/navbar.html.twig' with vars %}
             {% endblock %}
         </header>
     {% endblock %}
 
-    {% block content %}{% endblock %}
+    {% block main %}
+        <main class="main">
+            {% block sidebar %}{% endblock %}
+            {% block content %}{% endblock %}
+        </main>
+    {% endblock %}
 
     {% block footer %}
         <footer id="footer">
@@ -52,18 +72,5 @@
         </footer>
     {% endblock %}
 
-    {% block bottom %}
-        {{ assets.js('bottom') }}
-        <script>
-        $(function () {
-            $(document).ready(function() {
-              $.slidebars({
-                hideControlClasses: true,
-                scrollLock: true
-              });
-            });
-        });
-        </script>
-    {% endblock %}
 </body>
 </html>
