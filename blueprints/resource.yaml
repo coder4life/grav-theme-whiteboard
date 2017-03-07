@@ -18,8 +18,8 @@ form:
 
         content:
           type: tab
+          ordering@: 0
           title: Content
-          ordering: 0
           fields:
 
             header.title:
@@ -35,8 +35,8 @@ form:
 
         items:
           type: tab
+          ordering@: 1
           title: Items
-          ordering: 1
           import@:
 
             type: partials/items
@@ -44,10 +44,10 @@ form:
 
         options:
           type: tab
+          ordering@: 2
           title: PLUGIN_ADMIN.OPTIONS
-          ordering: 2
 
         advanced:
           type: tab
+          ordering@: 3
           title: PLUGIN_ADMIN.ADVANCED
-          ordering: 3
