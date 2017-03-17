@@ -1,42 +1,63 @@
 {% set classes = 'card' %}
 
+{% set placeImage = 'http://www.placehold.it/300x150/f4f4f4' %}
+
 {% if class.outline is not empty %}
     {% set classes = classes ~ ' card-outline-' ~ class.style|default('primary') %}
 {% else %}
-    {% set classes = classes ~ ' card-'  ~ class.style|default('primary') %}
+    {% if class.style %}
+        {% set classes = classes ~ ' card-'  ~ class.style|default('') %}
+    {% endif %}
 {% endif %}
 
 {% if class.align is not empty %}
-    {% do classes ~ ' text-' ~ cards.class.align %}
+    {% set classes = classes ~ ' text-' ~ class.align %}
 {% endif %}
 
 <div class="{{ classes }}">
-    {% if image_top is not empty %}
-        <img class="card-img-top" src="{{  image_top.uri|url }}"{% if image_top.alt %} alt="{{  image_top.alt }}"{% endif %}>
-    {% endif %}
     {% if header is not empty %}
         <div class="card-header">
-            {{ header.text }}
+            <h3>{{ header.text }}</h3>
         </div>
     {% endif %}
-    <div class="card-block">
-        {% if title is not empty %}
-            <h4 class="card-title">{{ title }}</h4>
+    {% if image_top is not empty %}
+        {% if image_top.link %}
+            <a href="{{ image_top.link }}">
+                <img class="card-img-top align-self-center" src="{{  image_top.url|default(placeImage) }}"{% if image_top.alt %} alt="{{  image_top.alt }}"{% endif %}>
+            </a>
+        {% else %}
+            <img class="card-img-top align-self-center" src="{{  image_top.url|default(placeImage) }}"{% if image_top.alt %} alt="{{  image_top.alt }}"{% endif %}>
         {% endif %}
-        {% if subtitle is not empty %}
-            <h6 class="card-subtitle text-muted">{{ subtitle }}</h6>
+    {% endif %}
+    {% if block %}
+        <div class="card-block">
+            {% if block.title is not empty %}
+                <h4 class="card-title">{{ title }}</h4>
+            {% endif %}
+            {% if block.subtitle is not empty %}
+                <h6 class="card-subtitle text-muted">{{ subtitle }}</h6>
+            {% endif %}
+            <p class="card-text">{{ text }}</p>
+            {% if block.action is not empty %}
+                <a href="{{ action.href|default('#') }}" class="btn btn-primary">{{ action.text }}</a>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if list %}
+        {% include 'bootstrap/list.html.twig' with { 'items': list } %}
+    {% endif %}
+    {% if image_bottom is not empty %}
+        {% if image_bottom.link %}
+            <a href="{{ image_top.link }}">
+                <img class="card-img-bottom align-self-center" src="{{  image_bottom.uri|url }}"{% if image_bottom.alt %} alt="{{  image_bottom.alt }}"{% endif %}>
+            </a>
+        {% else %}
+            <img class="card-img-bottom align-self-center" src="{{  image_bottom.uri|url }}"{% if image_bottom.alt %} alt="{{  image_bottom.alt }}"{% endif %}>
         {% endif %}
-        <p class="card-text">{{ text }}</p>
-        {% if action is not empty %}
-            <a href="{{ action.href|default('#') }}" class="btn btn-primary">{{ action.text }}</a>
-        {% endif %}
-    </div>
+    {% endif %}
     {% if footer is not empty %}
         <div class="card-footer text-muted">
             {{ footer.text }}
         </div>
-    {% endif %}
-    {% if image_bottom is not empty %}
-        <img class="card-img-bottom" src="{{  image_bottom.uri|url }}"{% if image_bottom.alt %} alt="{{  image_bottom.alt }}"{% endif %}>
     {% endif %}
 </div>

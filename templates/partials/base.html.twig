@@ -45,7 +45,15 @@
 {% endblock head %}
 </head>
 
-<body class="{{ page.header.body_classes }}">
+{% set classes = 'theme-' ~ config.system.pages.theme %}
+
+{% set classes = classes ~ ' page-' ~ page.slug %}
+
+{% if page.header.body_classes %}
+    {% set classes = classes ~ ' ' ~ page.header.body_classes %}
+{% endif %}
+
+<body class="{{ classes }}">
     {% block header %}
         <header id="header" class="fixed-top">
             {% block navigation %}

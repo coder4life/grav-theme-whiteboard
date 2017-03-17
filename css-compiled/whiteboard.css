@@ -27,6 +27,21 @@
   display: block;
   vertical-align: bottom; }
 
+.home .main {
+  padding: 0; }
+
+.main {
+  padding-top: 4rem; }
+
+.group {
+  margin: 4rem auto; }
+  .group .title {
+    margin-bottom: 2rem; }
+
+.api-cards .card {
+  background: transparent;
+  border: none; }
+
 .partial-resource-item .title {
   margin-bottom: 4rem; }
 

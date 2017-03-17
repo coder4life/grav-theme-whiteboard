@@ -1,6 +1,20 @@
-{% set classes = '' %}
+{% set classes = 'card-' ~ class.type|default('group') %}
 
-{% set classes = classes ~ 'card-' ~ type|default('group') %}
+{% if class.wrap %}
+    {% set classes = classes ~ ' flex-' ~ class.wrap %}
+{% endif %}
+
+{% if class.justify is not empty %}
+    {% set classes = classes ~ ' justify-content-' ~ class.justify %}
+{% endif %}
+
+{% if class.align_items is not empty %}
+    {% set classes = classes ~ ' align-items-' ~ class.align_items %}
+{% endif %}
+
+{% if class.align_content is not empty %}
+    {% set classes = classes ~ ' align-content-' ~ class.align_content %}
+{% endif %}
 
 <div class="{{ classes }}">
     {% block cards %}

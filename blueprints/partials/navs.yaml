@@ -1,0 +1,37 @@
+form:
+  fields:
+    header.navs:
+      type: list
+      style: vertical
+      fields:
+        .name:
+          type: text
+          label: Parent Name
+          style: vertical
+        .path:
+          type: pages
+          classes: fancy
+          label: Parent Page
+          style: vertical
+          show_all: true
+          show_modular: false
+          show_root: false
+          show_fullpath: true
+        .options:
+          type: list
+          style: vertical
+          fields:
+
+            .depth:
+              type: number
+              label: Child Depth
+              style: vertical
+            .type:
+              type: select
+              label: Child Type
+              style: vertical
+              classes: fancy
+              default: link
+              options:
+                'link': 'link'
+                'id': 'id'

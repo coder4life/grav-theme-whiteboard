@@ -9,13 +9,17 @@ form:
     tabs:
       type: tabs
       active: 1
-
       fields:
+
+        content:
+          type: tab
+          title: Content
+          ordering@: 0
 
         items:
           type: tab
           title: Items
-          ordering@: 0
+          ordering@: 1
           fields:
 
             header.content.items:
@@ -24,7 +28,6 @@ form:
               default: '@self.modular'
               options:
                 '@self.modular': Modular Children
-
             header.content.order.by:
               type: select
               label: PLUGIN_ADMIN.ORDER_BY
@@ -34,7 +37,6 @@ form:
                 title: PLUGIN_ADMIN.TITLE
                 date: PLUGIN_ADMIN.DATE
                 default: PLUGIN_ADMIN.DEFAULT
-
             header.content.order.dir:
               type: select
               label: PLUGIN_ADMIN.ORDER
@@ -52,23 +54,34 @@ form:
 
         style:
           type: tab
-          ordering@: 1
+          ordering@: 2
           title: Style
+          fields:
 
-          section_header_style:
-            type: section
-            title: Header Style
-            underline: true
-            import@:
+            section_header_style:
+              type: section
+              title: Header Style
+              underline: true
+              import@:
 
-              type: partials/header_style
-              context: blueprints://
+                type: partials/header_style
+                context: blueprints://
+            section_footer_style:
+              type: section
+              title: Footer Style
+              underline: true
+              import@:
 
-          section_footer_style:
-            type: section
-            title: Footer Style
-            underline: true
-            import@:
+                type: partials/footer_style
+                context: blueprints://
 
-              type: partials/footer_style
-              context: blueprints://
+        options:
+          type: tab
+          ordering@: 3
+          title: Options
+
+        advanced:
+          type: tab
+          ordering@: 4
+          title: Advanced
+

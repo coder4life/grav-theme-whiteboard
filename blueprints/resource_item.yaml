@@ -166,7 +166,7 @@ form:
           ordering@: 3
           title: PLUGIN_ADMIN.OPTIONS
 
-        advance:
+        advanced:
           type: tab
           ordering@: 4
           title: PLUGIN_ADMIN.ADVANCED

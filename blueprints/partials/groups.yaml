@@ -1,0 +1,46 @@
+form:
+  fields:
+
+    header.groups:
+      type: list
+      style: vertical
+      fields:
+
+        .name:
+          type: text
+          label: Group Name
+          style: vertical
+        .parents:
+          type: list
+          style: vertical
+          fields:
+
+            .name:
+              type: text
+              label: Resource Name
+              style: vertical
+            .image_selected:
+              type: filepicker
+              style: vertical
+              label: Select a file
+              folder: '@self'
+              preview_images: true
+            .image_width:
+              type: number
+              style: vertical
+              label: Image Width
+              default: 300
+            .image_height:
+              type: number
+              style: vertical
+              label: Image Width
+              default: 150
+            .path:
+              type: pages
+              classes: fancy
+              label: Parent Page
+              style: vertical
+              show_all: true
+              show_modular: false
+              show_root: false
+              show_fullpath: true

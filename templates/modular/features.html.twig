@@ -1,8 +1,8 @@
 {% import 'macros/pages.html.twig' as pageMacro %}
 
-{% set items =  items ? items : page.collection() %}
+{% set items =  collection ? collection : page.collection() %}
 
-<section class="{{ pageMacro.linkName(page.menu) }} modular text-center">
+<section class="{{ pageMacro.linkName(page.menu) }} modular inset">
     <div class="container">
         <h1>{{ page.header.title}}</h1>
         <div>{{ page.content }}</div>

@@ -23,31 +23,9 @@
     {% endif %}
 {% endif %}
 
-<nav role="navigation">
-    <ul class="{{ classes }}">
-        {% for item in items %}
-
-            {% if item.children.visible.count > 0 and grav.theme.config.settings.dropdown.enabled %}
-                <li class="nav-item dropdown {{ current_page }}">
-                    {% set vars = {
-                        'items': item.children.visible,
-                        'id': item.slug,
-                        'url': item.url,
-                        'text': item.menu|upper
-                        } %}
-                    {% include 'bootstrap/dropdown.html.twig' with vars %}
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    {% if item.action %}
-                        {% include 'bootstrap/buttons.html.twig' with { 'text': item.text } %}
-                    {% elseif item.url %}
-                        <a href="{{ item.url }}" class="nav-link">{{ item.menu }}</a>
-                    {% else %}
-                        <span>{{ item.text }}</span>
-                    {% endif %}
-                </li>
-        {% endfor %}
-
-    </ul>
+<nav class="{{ classes }}" role="navigation">
+    {% block navs %}
+    {% endblock %}
 </nav>
+
+{% block pane %}{% endblock %}

@@ -1,15 +1,58 @@
 {% extends 'partials/base.html.twig' %}
 
+{% macro parentPath(current) %}
+    {#{{ dump('currentFolder: ' ~ current.folder) }}
+    {{ dump('parentFolder: ' ~ current.parent.folder) }}
+    {{ dump('isRoot: ' ~ current.parent.root) }}
+    {{ dump(current.header.navs) }}#}
+    {% if current.header.navs is not empty %}
+        {{ current.path }}
+    {% elseif current.parent.folder != 'pages' %}
+        {{ _self.parentPath(current.parent) }}
+    {% else %}
+        {{ null }}
+    {% endif %}
+{% endmacro %}
+
 {% set items = page.collection() %}
+{% set ancestor = _self.parentPath(page) %}
+
+{% block sidebar %}
+    {% set ancestor = null %}
+
+    <div class="sidebar">
+        {% embed 'bootstrap/navs.html.twig' %}
+            {% block navs %}
+                {% set navs = parentNav.header.navs %}
+                <div class="nav-back">
+                    {% if parentNav is not empty %}
+                        <a href="{{ parentNav.url }}" class="nav-item">{{ parentNav.menu }}</a>
+                    {% endif %}
+                </div>
+                <div class="nav-list">
+                    {% for nav in navs %}
+                        {% set vars = {
+                            'collection': page.find(nav.path).children,
+                            'options': nav.options
+                        } %}
+                        {% include 'bootstrap/navs/accordian.html.twig' with vars %}
+                    {% endfor %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </div>
+{% endblock %}
 
 {% block content %}
-    <header class="container-fluid">
-        <h1 class="title">{{ page.title }}</h1>
-        <div class="description">
-            {{ page.content }}
-        </div>
-    </header>
-    {% for item in items %}
-        {% include 'partials/resource_item.html.twig' with { 'resource': page, 'page': item, 'truncate': true } %}
-    {% endfor %}
+    <article class="content">
+        <header class="container-fluid">
+            <h1 class="title">{{ page.title }}</h1>
+            <div class="description">
+                {{ page.content }}
+            </div>
+        </header>
+        {% for item in items %}
+            {% include 'partials/resource_item.html.twig' with { 'resource': page, 'page': item, 'truncate': true } %}
+        {% endfor %}
+    </article>
 {% endblock %}
