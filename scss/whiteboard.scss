@@ -3,21 +3,22 @@
 // Frameworks provide a baseline for topography and styles for the most atomic parts of HTML markup semantics.
 // The theme file is kept separate to apply more opinionated topography and styles to scaffold elements.
 
-// Core variables and mixins
-@import "whiteboard/variables";
-
 // Themes
-@import "whiteboard/theme";
+// @import "whiteboard/layout/themes";
+
+//
+// Layouts
+//
 
 // Plugins
-@import "whiteboard/plugins";
+@import "whiteboard/layout/plugins";
 
 // Pages
-@import "whiteboard/pages";
-@import "whiteboard/api";
+@import "whiteboard/layout/pages";
+@import "whiteboard/layout/api";
 
 // Modular
-@import "whiteboard/modular";
+@import "whiteboard/layout/modular";
 
 // Extras
-@import "whiteboard/extras/os-windows";
+@import "whiteboard/layout/extras/os-windows";

@@ -24,37 +24,37 @@
 {% endif %}
 
 <nav class="{{ classes }}">
-    <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% if not site.logo.url %}{{ base_url_absolute }}{% else %}{{ site.logo.url }}{% endif %}">
-            {% if site.logo.icon %}<span class="icon-{{ site.logo.icon }}"></span>{% endif %}
-            {% if site.logo.text %}<span class="sr-only">{{ site.logo.text }}</span>{% endif %}
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {% if grav.theme.config.settings.logo %}
+        {{ dump(grav.theme.config.settings.logo) }}
+        <a class="navbar-brand" href="{{ base_url_absolute }}">
+            <img src="{{ url('theme://images/' ~ grav.theme.config.settings.logo) }}">
         </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                {% for item in items %}
-                    {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}
-                    {% if item.children.visible.count > 0 and grav.theme.config.settings.dropdown.enabled %}
-                        <li class="nav-item dropdown {{ current_page }}">
-                            {% set vars = {
-                                'items': item.children.visible,
-                                'id': item.slug,
-                                'url': item.url,
-                                'text': item.menu|upper
-                            } %}
-                            {% include 'bootstrap/dropdown.html.twig' with vars %}
-                        </li>
-                    {% else %}
-                        <li class="nav-item {{ current_page }}">
-                            <a class="nav-link" href="{{ item.url }}">
-                                {{ item.menu|upper }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+    {% endif %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% for item in items %}
+                {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}
+                {% if item.children.visible.count > 0 and grav.theme.config.settings.dropdown.enabled %}
+                    <li class="nav-item dropdown {{ current_page }}">
+                        {% set vars = {
+                            'items': item.children.visible,
+                            'id': item.url|md5,
+                            'url': item.url,
+                            'text': item.menu|upper
+                        } %}
+                        {% include 'bootstrap/dropdown.html.twig' with vars %}
+                    </li>
+                {% else %}
+                    <li class="nav-item {{ current_page }}">
+                        <a class="nav-link" href="{{ item.url }}">
+                            {{ item.menu|upper }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
 </nav>

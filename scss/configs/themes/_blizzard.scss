@@ -1,0 +1,62 @@
+// whiteboard
+//
+// whiteboard configuration elements for block-level elements.
+
+$whiteboard-font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$whiteboard-font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$whiteboard-font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$whiteboard-font-family: $font-family-sans-serif !default;
+
+$whiteboard-font-size: 1rem !default; // Assumes the browser default, typically `16px`
+$whiteboard-font-weight-normal: normal !default;
+$whiteboard-font-weight-bold: bold !default;
+$whiteboard-line-height: 1.5 !default;
+
+$whiteboard-background-color: #010E16;
+$whiteboard-text-color: #FAFBFC;
+$whiteboard-link-color: #01b2f1;
+
+$whiteboard-headings-margin-bottom: ($spacer / 2) !default;
+$whiteboard-headings-font-family: inherit !default;
+$whiteboard-headings-font-weight: 500 !default;
+$whiteboard-headings-line-height: 1.1 !default;
+$whiteboard-headings-color: inherit !default;
+
+$whiteboard-h1-font-size: 2.5rem !default;
+$whiteboard-h2-font-size: 2rem !default;
+$whiteboard-h3-font-size: 1.75rem !default;
+$whiteboard-h4-font-size: 1.5rem !default;
+$whiteboard-h5-font-size: 1.25rem !default;
+$whiteboard-h6-font-size: 1rem !default;
+
+
+// Block
+//
+// Block configuration elements for block-level elements.
+
+// Body
+$body-background-color: $whiteboard-background-color;
+$body-text-color: $whiteboard-text-color;
+
+// Nav
+$nav-background-color: $whiteboard-background-color;
+$nav-text-color: $whiteboard-text-color;
+
+// Header
+$header-background-color: $whiteboard-background-color;
+$header-background-text: $whiteboard-text-color;
+
+// Main
+$main-background-color: $whiteboard-background-color;
+$main-text-color: $whiteboard-text-color;
+
+// Sidebar > Nav
+$sidebar-nav-header-font-size: .9375rem;
+$sicebar-nav-header-line-height: 2rem;
+$sidebar-nav-link-font-size: .9375rem;
+$sicebar-nav-link-line-height: 2rem;
+
+//Footer
+$footer-background-color: $whiteboard-background-color;
+$footer-text-color: $whiteboard-text-color;
+

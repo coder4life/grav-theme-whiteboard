@@ -5,38 +5,33 @@
 {% set groups = page.header.groups %}
 
 {% block content %}
-
-    {# define section element type #}
-    <div class="api-cards">
-
-        <section class="container">
-            {{ page.content }}
-        </section>
-
-        {% for group in groups %}
-            <section class="container group">
-                <h2 class="title">{{ group.name }}</h2>
-                {% set vars = {
-                    'class': { 'type': 'deck', 'align_content': 'start', 'align_items': 'start' }
-                } %}
-                {% embed 'bootstrap/card-group.html.twig' with vars %}
-                    {% block cards %}
-                        {% set parents = group.parents %}
-                        {% for parent in parents %}
-                            {% set vars = {
-                                'class': { 'outline': false, 'align': 'center' },
-                                'header': { 'text': parent.name },
-                                'image_top': {
-                                    'url': page.media[parent.image_selected].resize(parent.image_width, parent.image_height).url,
-                                    'link': page.find(parent.path).children.first.url
-                                },
-                                'list': page.find(parent.path).children
-                            } %}
-                            {% include 'bootstrap/cards.html.twig' with vars %}
-                        {% endfor %}
-                    {% endblock %}
-                {% endembed %}
-            </section>
-        {% endfor %}
+    <div class="container">
+        {{ page.content }}
     </div>
+
+    {% for group in groups %}
+        <section class="api-cards container group">
+            <h2 class="title">{{ group.name }}</h2>
+            {% set vars = {
+                'class': { 'type': 'deck', 'align_content': 'start', 'align_items': 'start' }
+            } %}
+            {% embed 'bootstrap/card-group.html.twig' with vars %}
+                {% block cards %}
+                    {% set parents = group.parents %}
+                    {% for parent in parents %}
+                        {% set vars = {
+                            'class': { 'outline': false, 'align': 'center' },
+                            'top': { 'text': parent.name },
+                            'image_top': {
+                                'url': page.media[parent.image_selected].resize(parent.image_width, parent.image_height).url,
+                                'link': page.find(parent.path).children.first.url
+                            },
+                            'list': page.find(parent.path).children
+                        } %}
+                        {% include 'bootstrap/cards.html.twig' with vars %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        </section>
+    {% endfor %}
 {% endblock %}

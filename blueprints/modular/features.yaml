@@ -9,41 +9,57 @@ form:
 
         content:
           type: tab
+          ordering@: 0
+
+        features:
+          type: tab
           title: Features
+          ordering@: 1
           fields:
 
-            header.features:
-              name: features
-              type: list
-              label: Features
-              style: vertical
+            section_features:
+              type: section
+              title: Features
+              underline: true
               fields:
 
-                .icon:
-                  type: text
-                  label: Icon
-                .image.uri:
-                  type: filepicker
-                  folder: '@self'
-                  preview_images: true
-                  label: Image
-                  placeholder: Please upload page media first...
-                  acccept:
-                    - .png
-                    - .jpg
-                .title:
-                  type: text
-                  label: Title
-                .text:
-                  type: textarea
-                  label: Text
+                header.features:
+                  type: list
+                  style: vertical
+                  fields:
+
+                    .title:
+                      type: text
+                      label: Resource Name
+                      style: vertical
+                    .text:
+                      type: textarea
+                      label: Resource Name
+                      style: vertical
+                    .image_selected:
+                      type: filepicker
+                      style: vertical
+                      label: Select a file
+                      folder: '@self'
+                      preview_images: true
+                    .image_width:
+                      type: number
+                      style: vertical
+                      label: Image Width
+                      default: 300
+                    .image_height:
+                      type: number
+                      style: vertical
+                      label: Image Width
+                      default: 150
 
         style:
           type: tab
           title: Style
+          ordering@: 2
           fields:
 
-            section_page_style:
+            section_style:
               type: section
               title: Page Style
               underline: true
@@ -53,16 +69,22 @@ form:
                 context: blueprints://
 
         advanced:
+          ordering@: 3
           fields:
+
             columns:
               fields:
+
                 column1:
                   fields:
+
                     name:
                       default: modular/features
                       '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+
             overrides:
               fields:
+
                 header.template:
                   default: modular/features
                   '@data-options': '\Grav\Common\Page\Pages::modularTypes'

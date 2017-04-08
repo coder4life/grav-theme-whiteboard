@@ -1,8 +1,6 @@
 <section class="partial-resource-item">
-    <header class="resource-header container-fluid">
-        <h4>
-            <a href="#{{ page.slug }}">{{ page.title }}</a>
-        </h4>
+    <header class="resource-header container">
+        <h4 id="{{ page.slug }}">{{ page.title }}</h4>
         <div class="http-method">
             <span class="http-verb http-verb-{{ page.header.verb|lower }}">{{ page.header.verb|upper }}</span>
             <span class="http-path http-path">{{ page.header.path }}</span>
@@ -13,7 +11,7 @@
     </header>
     {% if page.header.parameters.items is not empty %}
         <div class="resource-parameters flex-row">
-            <div class="resource-reference container-fluid">
+            <div class="resource-reference container">
                 <header>
                     <h5 class="resource-name">{{ t("RESOURCE.PATH") }}</h5>
                     <div class="resource-preamble">
@@ -41,7 +39,7 @@
     {% endif %}
     {% if page.header.query.items is not empty %}
         <div class="resource-query flex-row">
-            <div class="resource-reference container-fluid">
+            <div class="resource-reference container">
                 <header>
                     <h5 class="resource-name">{{ t("RESOURCE.QUERY") }}</h5>
                     <div class="resource-preamble">
@@ -69,7 +67,7 @@
     {% endif %}
     {% if page.header.response.items is not empty %}
         <div class="resource-response flex-row">
-            <div class="resource-reference container-fluid">
+            <div class="resource-reference container">
                 <header>
                     <h5 class="resource-name">{{ t("RESOURCE.RESPONSE") }}</h5>
                     <div class="resource-preamble">
@@ -90,7 +88,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="resource-sample container-fluid">
+            <div class="resource-sample container">
                 <pre>
                     <code>
                         {{ page.header.query.description }}

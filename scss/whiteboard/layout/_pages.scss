@@ -1,0 +1,108 @@
+.navbar-brand {
+    min-width: 175px;
+}
+
+.main {
+    overflow: hidden;
+    position: relative;
+    top: 4rem;
+}
+
+
+.group {
+    margin: 4rem auto;
+
+    .title {
+        margin-bottom: 2rem;
+    }
+}
+
+.sidebar {
+    width: 20rem;
+    border-right: 1px solid;
+    top: 4rem;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .nav {
+
+        .nav-back {
+            border-bottom: 1px solid;
+            padding: 1rem 1.5rem;
+
+            .nav-link {
+                font-size: .9375rem;
+            }
+        }
+
+        .nav-list {
+            padding: 1rem 1.5rem;
+
+            .nav.root {
+                padding-bottom: 1rem;
+            }
+        }
+
+        .nav-header {
+            font-size: 0.9375rem;
+            line-height: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.9375rem;
+            padding: 0 0 0 1rem;
+            line-height: 2rem;
+        }
+    }
+}
+
+.content {
+    top: 4rem;
+    right: 0;
+    bottom: 0;
+    left: 20rem;
+    position: fixed;
+    overflow-y: scroll;
+
+    p {
+
+    }
+
+    a {
+
+    }
+
+    blockquote {
+
+    }
+
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: $spacer;
+
+        th,
+        td {
+            padding: $table-cell-padding;
+            vertical-align: top;
+            border-top: $table-border-width solid $table-border-color;
+        }
+
+        thead th {
+            vertical-align: bottom;
+            border-bottom: (2 * $table-border-width) solid $table-border-color;
+        }
+
+        tbody + tbody {
+            border-top: (2 * $table-border-width) solid $table-border-color;
+        }
+
+        table {
+            background-color: $body-bg;
+        }
+    }
+}
+

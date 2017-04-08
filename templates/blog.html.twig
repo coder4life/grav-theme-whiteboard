@@ -12,11 +12,6 @@
 			} %}
 			{% include 'bootstrap/navbar.html.twig' with vars %}
 		{% endblock %}
-
-        {# include breadcrumbs needed with collection items, not global to site #}
-        {% if config.plugins.breadcrumbs.enabled %}
-            {% include 'bootstrap/breadcrumb.html.twig' %}
-        {% endif %}
 	</header>
 
 {% endblock %}

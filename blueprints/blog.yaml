@@ -30,7 +30,7 @@ form:
 
             section_blog_items:
               type: section
-              title: Blog Items
+              title: Items
               underline: true
               import@:
 

@@ -1,24 +1,26 @@
 {% import 'macros/pages.html.twig' as pageMacro %}
 
-{% set items =  collection ? collection : page.collection() %}
+{% set items =  page.header.features %}
 
-<section class="{{ pageMacro.linkName(page.menu) }} modular inset">
+<section class="features modular inset">
+    <div class="content container text-center">
+        {{ page.content }}
+    </div>
     <div class="container">
-        <h1>{{ page.header.title}}</h1>
-        <div>{{ page.content }}</div>
         {% set vars = {
-            'collection': page.header.features
+            'class': { 'type': 'group', 'align_content': 'start', 'align_items': 'start' }
         } %}
         {% embed 'bootstrap/card-group.html.twig' with vars %}
             {% block cards %}
                 {% for item in items %}
                     {% set vars = {
-                        'class': { 'outline': false, 'align': center },
-                        'image_top': { 'href': feature.image_top.uri, 'alt': feature.image_top.alt },
-                        'title': feature.title|markdown,
-                        'text': feature.content
+                        'class': { 'outline': false, 'align': 'center' },
+                        'image_top': {
+                            'url': page.media[item.image_selected].resize(item.image_width, item.image_height).url
+                        },
+                        'block': { 'title': item.title, 'text': item.text }
                     } %}
-                    {% include 'cards.html.twig' with vars %}
+                    {% include 'bootstrap/cards.html.twig' with vars %}
                 {% endfor %}
             {% endblock %}
         {% endembed %}

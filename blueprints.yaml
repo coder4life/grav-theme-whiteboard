@@ -120,12 +120,18 @@ form:
                 scheme.type.primary:
                   type: colorpicker
                   label: Primary
-                  default: '#00b680'
+                  default: '#0e86ca'
                   validate:
                     type: string
                 scheme.type.secondary:
                   type: colorpicker
                   label: Secondary
+                  default: '#d6d5d0'
+                  validate:
+                    type: string
+                scheme.type.success:
+                  type: colorpicker
+                  label: Info
                   default: '#00b680'
                   validate:
                     type: string
@@ -150,7 +156,7 @@ form:
                 scheme.type.inverse:
                   type: colorpicker
                   label: Inverse
-                  default: '#00b680'
+                  default: '#242728'
                   validate:
                     type: string
 
@@ -327,6 +333,24 @@ form:
               title: Golbal Settings
               underline: true
               fields:
+
+                settings.logo:
+                  type: filepicker
+                  folder: 'theme@:/images'
+                  label: Site Logo
+                  preview_images: true
+                  acccept:
+                    - .png
+                    - .jpg
+
+                settings.favicon:
+                  type: filepicker
+                  folder: 'theme@:/images'
+                  label: Site Favicon
+                  preview_images: true
+                  acccept:
+                    - .png
+                    - .jpg
 
                 settings.dropdown.enabled:
                   type: toggle

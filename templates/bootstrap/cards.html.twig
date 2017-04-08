@@ -15,9 +15,9 @@
 {% endif %}
 
 <div class="{{ classes }}">
-    {% if header is not empty %}
+    {% if top is not empty %}
         <div class="card-header">
-            <h3>{{ header.text }}</h3>
+            <h3>{{ top.text }}</h3>
         </div>
     {% endif %}
     {% if image_top is not empty %}
@@ -32,12 +32,12 @@
     {% if block %}
         <div class="card-block">
             {% if block.title is not empty %}
-                <h4 class="card-title">{{ title }}</h4>
+                <h4 class="card-title">{{ block.title }}</h4>
             {% endif %}
             {% if block.subtitle is not empty %}
-                <h6 class="card-subtitle text-muted">{{ subtitle }}</h6>
+                <h6 class="card-subtitle text-muted">{{ block.subtitle }}</h6>
             {% endif %}
-            <p class="card-text">{{ text }}</p>
+            <p class="card-text">{{ block.text }}</p>
             {% if block.action is not empty %}
                 <a href="{{ action.href|default('#') }}" class="btn btn-primary">{{ action.text }}</a>
             {% endif %}
@@ -55,9 +55,9 @@
             <img class="card-img-bottom align-self-center" src="{{  image_bottom.uri|url }}"{% if image_bottom.alt %} alt="{{  image_bottom.alt }}"{% endif %}>
         {% endif %}
     {% endif %}
-    {% if footer is not empty %}
+    {% if bottom is not empty %}
         <div class="card-footer text-muted">
-            {{ footer.text }}
+            {{ bottom.text }}
         </div>
     {% endif %}
 </div>

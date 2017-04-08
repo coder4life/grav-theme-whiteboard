@@ -1,51 +1,42 @@
 {% extends 'partials/base.html.twig' %}
 
-{% macro parentPath(current) %}
-    {#{{ dump('currentFolder: ' ~ current.folder) }}
-    {{ dump('parentFolder: ' ~ current.parent.folder) }}
-    {{ dump('isRoot: ' ~ current.parent.root) }}
-    {{ dump(current.header.navs) }}#}
-    {% if current.header.navs is not empty %}
-        {{ current.path }}
-    {% elseif current.parent.folder != 'pages' %}
-        {{ _self.parentPath(current.parent) }}
-    {% else %}
-        {{ null }}
-    {% endif %}
-{% endmacro %}
-
 {% set items = page.collection() %}
-{% set ancestor = _self.parentPath(page) %}
+
+{% set inheritedNavs = page.inherited('navs') %}
+
+{% set navs = page.header.navs  %}
 
 {% block sidebar %}
-    {% set ancestor = null %}
-
     <div class="sidebar">
-        {% embed 'bootstrap/navs.html.twig' %}
-            {% block navs %}
-                {% set navs = parentNav.header.navs %}
-                <div class="nav-back">
-                    {% if parentNav is not empty %}
-                        <a href="{{ parentNav.url }}" class="nav-item">{{ parentNav.menu }}</a>
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            {% embed 'bootstrap/navs.html.twig' with { 'vertical': true } %}
+                {% block navs %}
+                    {% if inheritedNavs is not empty %}
+                        <div class="nav-back">
+                            <a class="nav-link" href="{{ inherited.url }}">Back to {{ inheritedNavs.menu }}</a>
+                        </div>
                     {% endif %}
-                </div>
-                <div class="nav-list">
-                    {% for nav in navs %}
-                        {% set vars = {
-                            'collection': page.find(nav.path).children,
-                            'options': nav.options
-                        } %}
-                        {% include 'bootstrap/navs/accordian.html.twig' with vars %}
-                    {% endfor %}
-                </div>
-            {% endblock %}
-        {% endembed %}
+                    <div class="nav-list">
+                        {% for nav in navs %}
+                            {{ dump(nav.options) }}
+                            {% set parent = page.find(nav.path) %}
+                            {% set vars = {
+                                'parent': parent,
+                                'options': nav.options
+                            } %}
+                            <h5 class="nav-header">{{ nav.name|upper }}</h5>
+                            {% include 'bootstrap/navs/accordian.html.twig' with vars %}
+                        {% endfor %}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
     </div>
 {% endblock %}
 
 {% block content %}
     <article class="content">
-        <header class="container-fluid">
+        <header class="container">
             <h1 class="title">{{ page.title }}</h1>
             <div class="description">
                 {{ page.content }}

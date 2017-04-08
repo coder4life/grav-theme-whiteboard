@@ -1,31 +1,44 @@
-{% macro loop(pages, options, depth) %}
-    <ul class="nav flex-column depth-{{ depth }}">
-        {% for page in pages %}
-            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-            {% if page.children.visible.count > 0 %}
-                <li class="nav-item">
-                    {% for child in options.children %}
-                        {% if page.depth == depth %}
-                            {% if page.type == 'id' %}
-                                <a class="nav-link" href="#{{ page.slug }}">{{ page.menu }}</a>
-                            {% else %}
-                                <a class="nav-link" href="{{ page.url }}">{{ page.menu }}</a>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                    {{ _self.loop(page.children, options, depth + 1) }}
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ page.url }}">
-                        {{ page.menu }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+{% macro loop(page, options, depth, previous) %}
+    {#{{ dump("====================") }}
+    {{ dump("Parent") }}
+    {{ dump("--------------------") }}
+    {{ dump(page) }}
+    {{ dump(page.children) }}#}
+
+    {% for child in page.children %}
+        {#{{ dump("====================") }}
+        {{ dump("Children") }}
+        {{ dump("--------------------") }}
+        {{ dump(child) }}
+        {{ dump(child.children) }}
+        {{ dump(child.children.count) }}#}
+        {% set current_child = (child.active or child.activeChild) ? ' show' : '' %}
+
+        {% if child.children.count > 0 %}
+            <li class="nav-item">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{ child.url|md5 }}" aria-expanded="false" aria-controls="collapse_{{ child.url|md5 }}">
+                    {{ child.menu }}
+                </a>
+                <div id="collapse_{{ child.url|md5 }}" class="collapse{{ current_child }}" role="tabpanel" aria-labelledby="collapse_{{ child.url|md5 }}">
+                    <ul class="nav flex-column depth-{{ depth + 1 }}" >
+                        {{ _self.loop(child, options, depth + 1) }}
+                    </ul>
+                </div>
+            </li>
+        {% else %}
+            {% for option in options %}
+                {% if option.depth == depth %}
+                    {% if option.type == 'id' %}
+                        <a class="nav-link" href="{{ page.url }}#{{ child.slug }}">{{ child.menu }}</a>
+                    {% else %}
+                        <a class="nav-link" href="{{ child.url }}">{{ child.menu }}</a>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
 {% endmacro %}
 
-{% set items = collection ? collection : pages.children.visible %}
-
-{{ _self.loop(items, options, 0) }}
+<ul class="nav root flex-column">
+    {{ _self.loop(parent, options, 1) }}
+</ul>

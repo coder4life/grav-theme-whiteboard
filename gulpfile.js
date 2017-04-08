@@ -107,6 +107,13 @@ config = {
       out: 'css-compiled',
       compile: true,
       prefix: true,
+    },
+    { // themes
+      name: 'whiteboard',
+      in: 'scss/themes.scss',
+      out: 'css-compiled',
+      compile: true,
+      prefix: true,
     }
   ],
 };

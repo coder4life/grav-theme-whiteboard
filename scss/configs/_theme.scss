@@ -1,0 +1,194 @@
+// base
+//
+// Base configuration elements for block-level elements.
+
+// base: color shade
+$wb-base-color-shade-white: #d6d5d0 !default;
+$wb-base-color-shade-gray-light: #b3b3b3 !default;
+$wb-base-color-shade-gray-dark: #6b6b6b !default;
+$wb-base-color-shade-black: #242728 !default;
+
+// base: color primary
+$wb-base-color-primary-red: #ff2600 !default;
+$wb-base-color-primary-green: #93be18 !default;
+$wb-base-color-primary-blue: #005cbb !default;
+
+// base: color secondary
+$wb-base-color-secondary-yellow: #feee7f !default;
+$wb-base-color-secondary-cyan: #65ccde !default;
+$wb-base-color-secondary-magenta: #fd4485 !default;
+
+// base: color scheme type
+$wb-base-scheme-type-primary: #025aa5 !default;
+$wb-base-scheme-type-seconadary: $wb-base-color-shade-white !default;
+$wb-base-scheme-type-success: #449d44 !default;
+$wb-base-scheme-type-info: #31b0d5 !default;
+$wb-base-scheme-type-warning: #ec971f !default;
+$wb-base-scheme-type-danger: #c9302c !default;
+$wb-base-scheme-type-inverse: $wb-base-color-shade-black !default;
+
+// base: font family
+$wb-base-font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$wb-base-font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$wb-base-font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$wb-base-font-family: $wb-base-font-family-sans-serif !default;
+
+// base: style
+$wb-base-color: #010e16;
+$wb-base-font-size: 1rem !default; // Assumes the browser default, typically `16px`
+$wb-base-font-weight-bold: bold !default;
+$wb-base-font-weight-normal: normal !default;
+$wb-base-line-height: 1.5 !default;
+
+// base: spacer
+$spacer:   1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+
+// base: background
+$wb-base-background-color: #010e16;
+
+// base: border
+$wb-base-border-radius: .25rem !default;
+$wb-base-border-width: .25rem !default;
+
+// base: header
+$wb-base-headers-border-bottom-width: none !default;
+$wb-base-headers-font-family: inherited !default;
+$wb-base-headers-font-weight: 300 !default;
+$wb-base-headers-line-height: 1.618 !default;
+
+
+// inline
+//
+// Inline configuration for inline elements
+
+// inline: a
+$wb-inline-a-color: #fafbfc;
+$wb-inline-a-decoration: none;
+$wb-inline-a-hover-color: #01b2f1;
+$wb-inline-a-hover-decoration: none;
+
+// inline: blockquote
+$wb-inline-blockquote-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-blockquote-border-width: .25rem !default;
+$wb-inline-blockquote-font-size: ($wb-base-font-size * 1.25) !default;
+$wb-inline-blockquote-font-size: 2.5rem !default;
+$wb-inline-blockquote-font-weight: 500 !default;
+$wb-inline-blockquote-line-height: $wb-base-headers-line-height !default;
+
+// inline: code
+$wb-inline-code-font-size: .875rem !default;
+$wb-inline-code-padding-x: .4rem !default;
+$wb-inline-code-padding-y: .2rem !default;
+$wb-inline-code-text-color: #bd4147 !default;
+$code-background: $wb-base-color-shade-gray-light !default;
+
+// inline: h1
+$wb-inline-h1-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h1-border-bottom-width: $wb-base-headers-border-bottom-width !default;
+$wb-inline-h1-font-family: $wb-base-headers-font-family !default;
+$wb-inline-h1-font-size: 3.25rem !default;
+$wb-inline-h1-font-weight: $wb-base-headers-font-weight !default;
+$wb-inline-h1-line-height: $wb-base-headers-line-height !default;
+$wb-inline-h1-margin-bottom: ($spacer / 2) !default;
+
+// inline: h2
+$wb-inline-h2-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h2-border-bottom-width: $wb-base-headers-border-bottom-width !default;
+$wb-inline-h2-font-family: $wb-base-headers-font-family !default;
+$wb-inline-h2-font-size: 2.75rem !default;
+$wb-inline-h2-font-weight: $wb-base-headers-font-weight !default;
+$wb-inline-h2-line-height: $wb-base-headers-line-height !default;
+$wb-inline-h2-margin-bottom: ($spacer / 2) !default;
+
+// inline: h3
+$wb-inline-h3-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h3-border-bottom-width: $wb-base-headers-border-bottom-width !default;
+$wb-inline-h3-font-family: $wb-base-headers-font-family !default;
+$wb-inline-h3-font-size: 2.25rem !default;
+$wb-inline-h3-font-weight: $wb-base-headers-font-weight !default;
+$wb-inline-h3-line-height: $wb-base-headers-line-height !default;
+$wb-inline-h3-margin-bottom: ($spacer / 2) !default;
+
+// inline: h4
+$wb-inline-h4-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h4-border-bottom-width: $wb-base-headers-border-bottom-width!default;
+$wb-inline-h4-font-family: $wb-base-headers-font-family !default;
+$wb-inline-h4-font-size: 1.85rem !default;
+$wb-inline-h4-font-weight: $wb-base-headers-font-weight !default;
+$wb-inline-h4-line-height: $wb-base-headers-line-height !default;
+$wb-inline-h4-margin-bottom: ($spacer / 2) !default;
+
+// inline: h5
+$wb-inline-h5-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h5-border-bottom-width: $wb-base-headers-border-bottom-width!default;
+$wb-inline-h5-font-family: $wb-base-headers-font-family !default;
+$wb-inline-h5-font-size: 1.25rem !default;
+$wb-inline-h5-font-weight: $wb-base-headers-font-weight !default;
+$wb-inline-h5-line-height: 1.618 !default;
+$wb-inline-h5-margin-bottom: ($spacer / 2) !default;
+
+// inline: h6
+$wb-inline-h6-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h6-border-bottom-width: $wb-base-headers-border-bottom-width!default;
+$wb-inline-h6-font-family: $wb-base-headers-font-family !default;
+$wb-inline-h6-font-size: 1rem !default;
+$wb-inline-h6-font-weight: $wb-base-headers-font-weight !default;
+$wb-inline-h6-line-height: $wb-base-headers-line-height !default;
+$wb-inline-h6-margin-bottom: ($spacer / 2) !default;
+
+// inline: hr
+$wb-inline-hr-border-color: rgba($wb-base-color-shade-black, .1) !default;
+$wb-inline-hr-border-width: $border-width !default;
+
+// inline: p
+$wb-inline-h6-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-h6-border-bottom-width: .25rem !default;
+$wb-inline-h6-font-family: inherit !default;
+$wb-inline-h6-font-size: 2.5rem !default;
+$wb-inline-h6-font-weight: 500 !default;
+$wb-inline-h6-line-height: 1.1 !default;
+$wb-inline-h6-margin-bottom: ($spacer / 2) !default;
+
+
+// block
+//
+// Block configuration for block level elements
+
+// block: body
+$wb-body-background-color: $wb-base-background-color;
+$wb-body-text-color: $wb-base-color;
+
+// block: footer
+$wb-footer-background-color: $wb-base-background-color;
+$wb-footer-text-color: $wb-base-color;
+
+// block: header
+$wb-header-background-color: $wb-base-background-color;
+$wb-header-background-text: $wb-base-color;
+
+// block: main
+$wb-main-background-color: $wb-base-background-color;
+$wb-main-text-color: $wb-base-color;
+
+// block: nav
+$wb-nav-background-color: $wb-base-background-color;
+$wb-nav-text-color: $wb-base-color;
+
+// block: pre
+$wb-pre-background-color: $gray-lightest !default;
+$wb-pre-text-color: $gray-dark !default;
+$wb-pre-border-color: #ccc !default;
+$wb-pre-scrollable-max-height: 340px !default;
+
+
+// components
+//
+// Components configuration
+
+// components: sidebar-nav
+$sidebar-nav-header-font-size: .9375rem;
+$sidebar-nav-header-line-height: 2rem;
+$sidebar-nav-link-font-size: .9375rem;
+$sidebar-nav-link-line-height: 2rem;

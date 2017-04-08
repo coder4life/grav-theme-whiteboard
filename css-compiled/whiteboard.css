@@ -1,42 +1,53 @@
-.light {
-  background: #F6F4F8;
-  color: #777777; }
-  .light h1, .light h2, .light h3, .light h4, .light h5 {
-    color: #222222; }
-  .light strong {
-    font-weight: inherit; }
-  .light a {
-    color: #2aabd2;
-    text-decoration: underline; }
-
-.dark {
-  background: #F6F4F8;
-  color: #777777; }
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5 {
-    color: #222222; }
-  .dark strong {
-    font-weight: inherit; }
-  .dark a {
-    color: #2aabd2;
-    text-decoration: underline; }
-
-/*@each $theme, $color in $themes {
-    @include theme($theme, $color);
-}*/
 #particles-js canvas {
   display: block;
   vertical-align: bottom; }
 
-.home .main {
-  padding: 0; }
+.navbar-brand {
+  min-width: 175px; }
 
 .main {
-  padding-top: 4rem; }
+  overflow: hidden;
+  position: relative;
+  top: 4rem; }
 
 .group {
   margin: 4rem auto; }
   .group .title {
     margin-bottom: 2rem; }
+
+.sidebar {
+  width: 20rem;
+  border-right: 1px solid;
+  top: 4rem;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  .sidebar .nav .nav-back {
+    border-bottom: 1px solid;
+    padding: 1rem 1.5rem; }
+    .sidebar .nav .nav-back .nav-link {
+      font-size: .9375rem; }
+  .sidebar .nav .nav-list {
+    padding: 1rem 1.5rem; }
+    .sidebar .nav .nav-list .nav.root {
+      padding-bottom: 1rem; }
+  .sidebar .nav .nav-header {
+    font-size: 0.9375rem;
+    line-height: 2rem; }
+  .sidebar .nav .nav-link {
+    font-size: 0.9375rem;
+    padding: 0 0 0 1rem;
+    line-height: 2rem; }
+
+.content {
+  top: 4rem;
+  right: 0;
+  bottom: 0;
+  left: 20rem;
+  position: fixed;
+  overflow-y: scroll; }
 
 .api-cards .card {
   background: transparent;
@@ -108,15 +119,11 @@
   border-right: 1px solid #aaaaaa;
   border-bottom: 1px solid #aaaaaa; }
 
-.main {
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  top: 4rem; }
-  .main .modular {
-    position: relative; }
-  .main .modular.inset {
-    padding: 4rem 0; }
+.main .modular {
+  position: relative; }
+
+.main .modular.inset {
+  padding: 4rem 0; }
 
 .mac.window {
   height: 100%;

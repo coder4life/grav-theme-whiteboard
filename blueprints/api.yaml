@@ -29,7 +29,7 @@ form:
 
             section_api_groups:
               type: section
-              title: API Groups
+              title: Groups
               underline: true
               import@:
 
