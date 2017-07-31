@@ -19,11 +19,10 @@ config = {
     {
       name: 'bootstrap',
       in: [
-        //'node_modules/.bin/babel-external-helpers/lib/index.js',
         'node_modules/bootstrap/js/src/util.js',
         'node_modules/bootstrap/js/src/alert.js',
         'node_modules/bootstrap/js/src/button.js',
-        // 'node_modules/bootstrap/src/carousel.js',
+        //'node_modules/bootstrap/src/carousel.js',
         'node_modules/bootstrap/js/src/collapse.js',
         'node_modules/bootstrap/js/src/dropdown.js',
         'node_modules/bootstrap/js/src/modal.js',
@@ -89,14 +88,14 @@ config = {
   css: [
     { // bootstrap
       name: 'bootstrap',
-      in: 'scss/bootstrap.scss',
+      in: 'scss/vendor/bootstrap.scss',
       out: 'css-compiled',
       compile: true,
       prefix: true,
     },
-    { // whiteboard
+    { // owlcarousel2
       name: 'owlcarousel2',
-      in: 'scss/owlcarousel2.scss',
+      in: 'scss/vendor/owlcarousel2.scss',
       out: 'css-compiled',
       compile: true,
       prefix: true,
@@ -104,13 +103,6 @@ config = {
     { // whiteboard
       name: 'whiteboard',
       in: 'scss/whiteboard.scss',
-      out: 'css-compiled',
-      compile: true,
-      prefix: true,
-    },
-    { // themes
-      name: 'whiteboard',
-      in: 'scss/themes.scss',
       out: 'css-compiled',
       compile: true,
       prefix: true,
@@ -132,9 +124,7 @@ gulp.task('js', function () {
       .pipe(gulp.dest(js.out))
       .pipe(gulpif(js.minify, rename(js.name + '.min.js')))
       .pipe(gulpif(js.minify,
-        uglify({
-          outSourceMap: true
-        }).on('error', gutil.log))
+        uglify().on('error', gutil.log))
       ) // is the path able to minify?
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(js.out))

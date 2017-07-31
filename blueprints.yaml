@@ -20,6 +20,52 @@ form:
 
       fields:
 
+        features:
+          type: tab
+          title: Features
+          fields:
+
+            features.owlcarousel2:
+              type: toggle
+              label: Enable Owl Carousel 2 - JS
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+            features.particles:
+              type: toggle
+              label: Enable Particles - JS
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+            features.tether:
+              type: toggle
+              label: Enable Tether - JS
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+            features.typed:
+              type: toggle
+              label: Enable Typed - JS
+              highlight: 1
+              default: 0
+              options:
+                1: Enabled
+                0: Disabled
+              validate:
+                type: bool
+
         base:
           type: tab
           title: Base
@@ -175,6 +221,7 @@ form:
                   type: select
                   label: Shade
                   classes: fancy
+                  default: light
                   options:
                     'light': 'light'
                     'dark': 'dark'
@@ -182,6 +229,7 @@ form:
                   type: select
                   label: Pallet
                   classes: fancy
+                  default: inherit
                   options:
                     'inherit': 'inherit'
                     'accent1': 'accent1'
@@ -211,6 +259,7 @@ form:
                   type: select
                   label: Pallet
                   classes: fancy
+                  default: inherit
                   options:
                     'inherit': 'inherit'
                     'accent1': 'accent1'
@@ -233,6 +282,7 @@ form:
                   type: select
                   label: Shade
                   classes: fancy
+                  default: light
                   options:
                     'light': 'light'
                     'dark': 'dark'
@@ -240,6 +290,7 @@ form:
                   type: select
                   label: Pallet
                   classes: fancy
+                  default: inherit
                   options:
                     'inherit': 'inherit'
                     'accent1': 'accent1'
@@ -262,6 +313,7 @@ form:
                   type: select
                   label: Shade
                   classes: fancy
+                  default: light
                   options:
                     'light': 'light'
                     'dark': 'dark'
@@ -269,6 +321,7 @@ form:
                   type: select
                   label: Pallet
                   classes: fancy
+                  default: inherit
                   options:
                     'inherit': 'inherit'
                     'accent1': 'accent1'

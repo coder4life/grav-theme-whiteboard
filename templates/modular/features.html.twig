@@ -18,7 +18,7 @@
                         'image_top': {
                             'url': page.media[item.image_selected].resize(item.image_width, item.image_height).url
                         },
-                        'block': { 'title': item.title, 'text': item.text }
+                        'body': { 'title': item.title, 'text': item.text }
                     } %}
                     {% include 'bootstrap/cards.html.twig' with vars %}
                 {% endfor %}

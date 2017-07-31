@@ -42,23 +42,10 @@ form:
               type: section
               title: Parameter Items
               underline: true
-              fields:
+              import@:
 
-                header.parameters.items:
-                  name: item
-                  type: list
-                  style: vertical
-                  fields:
-                    .name:
-                      type: text
-                      label: Title
-                      style: vertical
-                    .description:
-                      type: textarea
-                      label: Description
-                      style: vertical
-                      validate:
-                        type: textarea
+                type: partials/param
+                context: blueprints://
 
         query:
           type: tab
@@ -66,12 +53,13 @@ form:
           title: Query
           fields:
 
-            header.query.preamble:
+            header.query.description:
               type: editor
-              label: Example Request
+              label: Description
+              style: vertical
               autofocus: true
               codemirror:
-                mode: 'text/x-sh'
+                mode: 'text'
                 indentUnit: 4
                 autofocus: true
                 indentWithTabs: false
@@ -79,73 +67,50 @@ form:
                 styleActiveLine: true
                 gutters: ['CodeMirror-lint-markers']
                 lint: true
+
             section_query:
               type: section
-              title: Query String Items
+              title: Query Items
               underline: true
-              fields:
+              import@:
+                type: partials/query
+                context: blueprints://
 
-                header.query.items:
-                  name: item
-                  type: list
-                  style: vertical
-                  fields:
-
-                    .name:
-                      type: text
-                      label: Name
-                      style: vertical
-                    .description:
-                      type: textarea
-                      label: Description
-                      style: vertical
-                      validate:
-                        type: textarea
-                    .type:
-                      type: select
-                      label: Value Type
-                      class: fancy
-                      style: vertical
-                      options:
-                        array: array
-                        boolen: boolean
-                        integer: integer
-                        float: float
-                        null: null
-                        objection: object
-                        string: string
-                    .required:
-                      type: toggle
-                      label: Required
-                      style: vertical
-                      highlight: 1
-                      default: 0
-                      options:
-                          1: 'Yes'
-                          0: 'No'
-                      validate:
-                      type: bool
-
-        response:
+        requests:
           type: tab
           ordering@: 2
-          title: Response
+          title: Request
           fields:
 
-            header.response.sample:
+            header.request.description:
               type: editor
-              label: Example Response
+              label: Description
               style: vertical
               autofocus: true
               codemirror:
-                mode: 'application/json'
+                mode: 'text'
                 indentUnit: 4
                 autofocus: true
                 indentWithTabs: false
                 lineNumbers: true
                 styleActiveLine: true
                 gutters: ['CodeMirror-lint-markers']
-                lint: false
+                lint: true
+
+            section_query:
+              type: section
+              title: Argument Items
+              underline: true
+              import@:
+                type: partials/argument
+                context: blueprints://
+
+        response:
+          type: tab
+          ordering@: 3
+          title: Response
+          fields:
+
             header.response.description:
               type: editor
               label: Description
@@ -161,12 +126,20 @@ form:
                 gutters: ['CodeMirror-lint-markers']
                 lint: true
 
+            section_query:
+              type: section
+              title: Attribute Items
+              underline: true
+              import@:
+                type: partials/attribute
+                context: blueprints://
+
         options:
           type: tab
-          ordering@: 3
+          ordering@: 4
           title: PLUGIN_ADMIN.OPTIONS
 
         advanced:
           type: tab
-          ordering@: 4
+          ordering@: 5
           title: PLUGIN_ADMIN.ADVANCED

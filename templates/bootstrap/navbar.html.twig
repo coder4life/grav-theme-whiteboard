@@ -9,6 +9,11 @@
 {% endif %}
 
 {# mutable classe, required #}
+{% if class.responsive is not empty %}
+    {% set classes = classes ~ ' navbar-expand-' ~ class.responsive %}
+{% endif %}
+
+{# mutable classe, required #}
 {% if class.theme is not empty %}
     {% set classes = classes ~ ' navbar-' ~ class.theme %}
 {% endif %}
@@ -24,16 +29,15 @@
 {% endif %}
 
 <nav class="{{ classes }}">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
     {% if grav.theme.config.settings.logo %}
-        {{ dump(grav.theme.config.settings.logo) }}
         <a class="navbar-brand" href="{{ base_url_absolute }}">
             <img src="{{ url('theme://images/' ~ grav.theme.config.settings.logo) }}">
         </a>
     {% endif %}
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             {% for item in items %}
                 {% set current_page = (item.active or item.activeChild) ? 'active' : '' %}

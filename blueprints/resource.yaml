@@ -2,6 +2,7 @@ title: Resource
 extends@:
     type: default
     context: blueprints://pages
+child_type: resource_item
 rules:
   slug:
     pattern: '[a-z][a-z0-9_\-]+'
@@ -27,6 +28,9 @@ form:
               autofocus: true
               style: vertical
               label: Title
+              validate:
+                type: textarea
+                required: true
             content:
               type: markdown
               style: vertical

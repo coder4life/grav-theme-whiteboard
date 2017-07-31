@@ -1,0 +1,54 @@
+form:
+  fields:
+
+    header.query.items:
+      name: item
+      type: list
+      style: vertical
+      fields:
+
+        .name:
+          type: text
+          label: Title
+          style: vertical
+          validate:
+            type: textarea
+            required: true
+        .description:
+          type: textarea
+          label: Description
+          style: vertical
+          validate:
+            type: textarea
+        .type:
+          type: checkboxes
+          label: Value Type
+          style: vertical
+          use: keys
+          options:
+            'array': 'array'
+            'boolen': 'boolean'
+            'float-negative': 'float (negative)'
+            'float-positive': 'float (positive)'
+            'hash': 'hash'
+            'integer-negative': 'integer (negative)'
+            'integer-positive': 'integer (positive)'
+            'list': 'list'
+            'null': 'null'
+            'object': 'object'
+            'string': 'string'
+            'timestamp': 'timestamp'
+            'zero': 'zero'
+        .example:
+          type: text
+          label: Value Example
+          style: vertical
+          validate:
+            type: textarea
+        .allowed-values:
+          type: array
+          label: Allowed Values
+          style: vertical
+          value_only: true
+          validate:
+            type: array

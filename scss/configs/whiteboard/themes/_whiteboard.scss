@@ -5,6 +5,7 @@
 // base: color shade
 $wb-base-color-shade-white: #d6d5d0 !default;
 $wb-base-color-shade-gray-light: #b3b3b3 !default;
+$wb-base-color-shade-gray: #b3b3b3 !default;
 $wb-base-color-shade-gray-dark: #6b6b6b !default;
 $wb-base-color-shade-black: #242728 !default;
 
@@ -20,7 +21,7 @@ $wb-base-color-secondary-magenta: #fd4485 !default;
 
 // base: color scheme type
 $wb-base-scheme-type-primary: #025aa5 !default;
-$wb-base-scheme-type-seconadary: $wb-base-color-shade-white !default;
+$wb-base-scheme-type-secondary: $wb-base-color-shade-white !default;
 $wb-base-scheme-type-success: #449d44 !default;
 $wb-base-scheme-type-info: #31b0d5 !default;
 $wb-base-scheme-type-warning: #ec971f !default;
@@ -41,16 +42,16 @@ $wb-base-font-weight-normal: normal !default;
 $wb-base-line-height: 1.5 !default;
 
 // base: spacer
-$spacer:   1rem !default;
-$spacer-x: $spacer !default;
-$spacer-y: $spacer !default;
+$wb-base-spacer: 1rem !default;
+$wb-base-spacer-x: $wb-base-spacer !default;
+$wb-base-spacer-y: $wb-base-spacer !default;
 
 // base: background
 $wb-base-background-color: #010e16;
 
 // base: border
 $wb-base-border-radius: .25rem !default;
-$wb-base-border-width: .25rem !default;
+$wb-base-border-width: 1px !default;
 
 // base: header
 $wb-base-headers-border-bottom-width: none !default;
@@ -58,16 +59,24 @@ $wb-base-headers-font-family: inherited !default;
 $wb-base-headers-font-weight: 300 !default;
 $wb-base-headers-line-height: 1.618 !default;
 
+// base: link
+$wb-base-link-color: #fafbfc !default;
+$wb-base-link-decoration: none !default;
+$wb-base-link-hover-color: #01b2f1 !default;
+$wb-base-link-hover-decoration: none !default;
 
 // inline
 //
 // Inline configuration for inline elements
 
 // inline: a
-$wb-inline-a-color: #fafbfc;
-$wb-inline-a-decoration: none;
-$wb-inline-a-hover-color: #01b2f1;
-$wb-inline-a-hover-decoration: none;
+$wb-inline-a-color: $wb-base-link-color !default;
+$wb-inline-a-decoration: $wb-base-link-decoration !default;
+$wb-inline-a-hover-color: $wb-base-link-hover-color !default;
+$wb-inline-a-hover-decoration: $wb-base-link-hover-decoration !default;
+
+// inline: b
+$wb-inline-b-font-weight: $wb-base-font-weight-bold !default;
 
 // inline: blockquote
 $wb-inline-blockquote-border-color: $wb-base-color-shade-gray-light !default;
@@ -84,6 +93,10 @@ $wb-inline-code-padding-y: .2rem !default;
 $wb-inline-code-text-color: #bd4147 !default;
 $code-background: $wb-base-color-shade-gray-light !default;
 
+// inline: em
+
+// inline: del
+
 // inline: h1
 $wb-inline-h1-border-color: $wb-base-color-shade-gray-light !default;
 $wb-inline-h1-border-bottom-width: $wb-base-headers-border-bottom-width !default;
@@ -91,7 +104,7 @@ $wb-inline-h1-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h1-font-size: 3.25rem !default;
 $wb-inline-h1-font-weight: $wb-base-headers-font-weight !default;
 $wb-inline-h1-line-height: $wb-base-headers-line-height !default;
-$wb-inline-h1-margin-bottom: ($spacer / 2) !default;
+$wb-inline-h1-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h2
 $wb-inline-h2-border-color: $wb-base-color-shade-gray-light !default;
@@ -100,7 +113,7 @@ $wb-inline-h2-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h2-font-size: 2.75rem !default;
 $wb-inline-h2-font-weight: $wb-base-headers-font-weight !default;
 $wb-inline-h2-line-height: $wb-base-headers-line-height !default;
-$wb-inline-h2-margin-bottom: ($spacer / 2) !default;
+$wb-inline-h2-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h3
 $wb-inline-h3-border-color: $wb-base-color-shade-gray-light !default;
@@ -109,7 +122,7 @@ $wb-inline-h3-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h3-font-size: 2.25rem !default;
 $wb-inline-h3-font-weight: $wb-base-headers-font-weight !default;
 $wb-inline-h3-line-height: $wb-base-headers-line-height !default;
-$wb-inline-h3-margin-bottom: ($spacer / 2) !default;
+$wb-inline-h3-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h4
 $wb-inline-h4-border-color: $wb-base-color-shade-gray-light !default;
@@ -118,7 +131,7 @@ $wb-inline-h4-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h4-font-size: 1.85rem !default;
 $wb-inline-h4-font-weight: $wb-base-headers-font-weight !default;
 $wb-inline-h4-line-height: $wb-base-headers-line-height !default;
-$wb-inline-h4-margin-bottom: ($spacer / 2) !default;
+$wb-inline-h4-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h5
 $wb-inline-h5-border-color: $wb-base-color-shade-gray-light !default;
@@ -127,7 +140,7 @@ $wb-inline-h5-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h5-font-size: 1.25rem !default;
 $wb-inline-h5-font-weight: $wb-base-headers-font-weight !default;
 $wb-inline-h5-line-height: 1.618 !default;
-$wb-inline-h5-margin-bottom: ($spacer / 2) !default;
+$wb-inline-h5-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h6
 $wb-inline-h6-border-color: $wb-base-color-shade-gray-light !default;
@@ -136,20 +149,33 @@ $wb-inline-h6-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h6-font-size: 1rem !default;
 $wb-inline-h6-font-weight: $wb-base-headers-font-weight !default;
 $wb-inline-h6-line-height: $wb-base-headers-line-height !default;
-$wb-inline-h6-margin-bottom: ($spacer / 2) !default;
+$wb-inline-h6-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: hr
 $wb-inline-hr-border-color: rgba($wb-base-color-shade-black, .1) !default;
-$wb-inline-hr-border-width: $border-width !default;
+$wb-inline-hr-border-width: $wb-base-border-width !default;
+
+// inline: ins
+
+// inline: mark
+$wb-mark-padding: .2em !default;
 
 // inline: p
-$wb-inline-h6-border-color: $wb-base-color-shade-gray-light !default;
-$wb-inline-h6-border-bottom-width: .25rem !default;
-$wb-inline-h6-font-family: inherit !default;
-$wb-inline-h6-font-size: 2.5rem !default;
-$wb-inline-h6-font-weight: 500 !default;
-$wb-inline-h6-line-height: 1.1 !default;
-$wb-inline-h6-margin-bottom: ($spacer / 2) !default;
+$wb-inline-p-border-color: $wb-base-color-shade-gray-light !default;
+$wb-inline-p-border-bottom-width: .25rem !default;
+$wb-inline-p-font-family: inherit !default;
+$wb-inline-p-font-size: 1.125rem !default;
+$wb-inline-p-font-weight: 500 !default;
+$wb-inline-p-line-height: 1.1 !default;
+$wb-inline-p-margin-bottom: ($wb-base-spacer * 1.125) !default;
+
+// inline: s
+
+// inline: small
+
+// inline: strong
+
+// inline: u
 
 
 // block
@@ -157,30 +183,37 @@ $wb-inline-h6-margin-bottom: ($spacer / 2) !default;
 // Block configuration for block level elements
 
 // block: body
-$wb-body-background-color: $wb-base-background-color;
-$wb-body-text-color: $wb-base-color;
+$wb-block-body-background-color: $wb-base-background-color !default;
+$wb-block-body-text-color: $wb-base-color !default;
 
 // block: footer
-$wb-footer-background-color: $wb-base-background-color;
-$wb-footer-text-color: $wb-base-color;
+$wb-block-footer-background-color: $wb-base-background-color !default;
+$wb-block-footer-text-color: $wb-base-color !default;
 
 // block: header
-$wb-header-background-color: $wb-base-background-color;
-$wb-header-background-text: $wb-base-color;
+$wb-block-header-background-color: $wb-base-background-color !default;
+$wb-block-header-background-text: $wb-base-color !default;
 
 // block: main
-$wb-main-background-color: $wb-base-background-color;
-$wb-main-text-color: $wb-base-color;
+$wb-block-main-background-color: $wb-base-background-color !default;
+$wb-block-main-text-color: $wb-base-color !default;
 
 // block: nav
-$wb-nav-background-color: $wb-base-background-color;
-$wb-nav-text-color: $wb-base-color;
+$wb-block-nav-background-color: $wb-base-background-color !default;
+$wb-block-nav-text-color: $wb-base-color !default;
 
 // block: pre
-$wb-pre-background-color: $gray-lightest !default;
-$wb-pre-text-color: $gray-dark !default;
-$wb-pre-border-color: #ccc !default;
-$wb-pre-scrollable-max-height: 340px !default;
+$wb-block-pre-background-color: $wb-base-color-shade-gray-light !default;
+$wb-block-pre-text-color: $wb-base-color-shade-gray-dark !default;
+$wb-block-pre-border-color: $wb-base-color-shade-gray-dark !default;
+$wb-block-pre-scrollable-max-height: 340px !default;
+
+// block: table
+$wb-block-table-border-width: $wb-base-border-width !default;
+$wb-block-table-border-color: $wb-base-color-shade-gray-light !default;
+
+// block: table > td
+$wb-block-table-td-padding: .75rem;
 
 
 // components
@@ -188,7 +221,7 @@ $wb-pre-scrollable-max-height: 340px !default;
 // Components configuration
 
 // components: sidebar-nav
-$sidebar-nav-header-font-size: .9375rem;
-$sidebar-nav-header-line-height: 2rem;
-$sidebar-nav-link-font-size: .9375rem;
-$sidebar-nav-link-line-height: 2rem;
+$sidebar-nav-header-font-size: .9375rem !default;
+$sidebar-nav-header-line-height: 2rem !default;
+$sidebar-nav-link-font-size: .9375rem !default;
+$sidebar-nav-link-line-height: 2rem !default;

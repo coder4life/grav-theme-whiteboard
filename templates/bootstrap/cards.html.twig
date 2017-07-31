@@ -29,16 +29,16 @@
             <img class="card-img-top align-self-center" src="{{  image_top.url|default(placeImage) }}"{% if image_top.alt %} alt="{{  image_top.alt }}"{% endif %}>
         {% endif %}
     {% endif %}
-    {% if block %}
-        <div class="card-block">
-            {% if block.title is not empty %}
-                <h4 class="card-title">{{ block.title }}</h4>
+    {% if body %}
+        <div class="card-body">
+            {% if body.title is not empty %}
+                <h4 class="card-title">{{ body.title }}</h4>
             {% endif %}
-            {% if block.subtitle is not empty %}
-                <h6 class="card-subtitle text-muted">{{ block.subtitle }}</h6>
+            {% if body.subtitle is not empty %}
+                <h6 class="card-subtitle text-muted">{{ body.subtitle }}</h6>
             {% endif %}
-            <p class="card-text">{{ block.text }}</p>
-            {% if block.action is not empty %}
+            <p class="card-text">{{ body.text }}</p>
+            {% if body.action is not empty %}
                 <a href="{{ action.href|default('#') }}" class="btn btn-primary">{{ action.text }}</a>
             {% endif %}
         </div>

@@ -60,12 +60,6 @@
 }
 
 .content {
-    top: 4rem;
-    right: 0;
-    bottom: 0;
-    left: 20rem;
-    position: fixed;
-    overflow-y: scroll;
 
     p {
 
@@ -82,26 +76,26 @@
     table {
         width: 100%;
         max-width: 100%;
-        margin-bottom: $spacer;
+        margin-bottom: $wb-base-spacer;
 
         th,
         td {
-            padding: $table-cell-padding;
+            padding: $wb-block-table-td-padding;
             vertical-align: top;
-            border-top: $table-border-width solid $table-border-color;
+            border-top: $wb-block-table-border-width solid $wb-block-table-border-color;
         }
 
         thead th {
             vertical-align: bottom;
-            border-bottom: (2 * $table-border-width) solid $table-border-color;
+            border-bottom: (2 * $wb-block-table-border-width) solid $wb-block-table-border-color;
         }
 
         tbody + tbody {
-            border-top: (2 * $table-border-width) solid $table-border-color;
+            border-top: (2 * $wb-block-table-border-width) solid $wb-block-table-border-color;
         }
 
         table {
-            background-color: $body-bg;
+            background-color: $wb-base-background-color;
         }
     }
 }

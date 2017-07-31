@@ -9,32 +9,15 @@
 {% endset %}
 
 <section class="{{ pageMacro.linkName(page.menu) }} modular text-center">
-    {{ dump(page.header) }}
-    {{ dump(page.header.particlejs|json_encode()) }}
     {{ script }}
     <div id="particles-js" class="backdrop"></div>
-    <div class="callout">
+    <div class="jumbotron text-center">
         <div class="container">
-            <div class="mac window">
-                <div class="titlebar">
-                    <div class="buttons">
-                        <div class="button">
-                            <span class="action action-close"><strong>&times;</strong></span>
-                        </div>
-                        <div class="button">
-                            <span class="action action-minimize"><strong>&ndash;</strong></span>
-                        </div>
-                        <div class="button">
-                            <span class="action action-zoom"><strong>&plus;</strong></span>
-                        </div>
-                    </div>
-                    <div class="title">
-                        <span class="title-text">{{ page.header.title }}</span>
-                    </div>
-                </div>
-                <div class="content">
-                </div>
+            <div class="content">
+                {{ page.content }}
             </div>
+            <div class="actions"></div>
+            <div class="version"></div>
         </div>
     </div>
 </section>

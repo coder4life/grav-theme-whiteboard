@@ -1,9 +1,11 @@
 form:
   fields:
+
     header.navs:
       type: list
       style: vertical
       fields:
+
         .name:
           type: text
           label: Parent Name

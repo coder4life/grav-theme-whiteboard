@@ -1,24 +1,27 @@
-// Note this file should be used for themes only, do NOT use in conjunction with modifying UI/UX frameworks.
-// To modify framework derived classes do so directly with the "{framework}.scss" import file and associated file.
+// Note this file should be used for definition only, do NOT use in conjunction with modifying UI/UX frameworks.
+// To modify framework classes do so directly with the "vendor/{framework}.scss" import file and associated file.
 // Frameworks provide a baseline for topography and styles for the most atomic parts of HTML markup semantics.
-// The theme file is kept separate to apply more opinionated topography and styles to scaffold elements.
+// The definition file is kept separate to apply more opinionated topography and styles to scaffold elements.
 
 // Themes
-// @import "whiteboard/layout/themes";
 
-//
-// Layouts
-//
-
-// Plugins
-@import "whiteboard/layout/plugins";
+// Config
+@import "configs/whiteboard/themes/whiteboard";
 
 // Pages
-@import "whiteboard/layout/pages";
-@import "whiteboard/layout/api";
+@import "pages/api";
+@import "pages/default";
+@import "pages/resource";
+@import "pages/modular";
 
 // Modular
-@import "whiteboard/layout/modular";
+@import "modular/features";
+@import "modular/intro";
+@import "modular/showcase";
+@import "modular/text";
+
+// Plguins
+@import "plugins/particlesjs";
 
 // Extras
-@import "whiteboard/layout/extras/os-windows";
+@import "extras/os-windows";

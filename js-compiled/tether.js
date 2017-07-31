@@ -1065,39 +1065,37 @@ var TetherClass = function (_Evented) {
       }
 
       if (typeof this.options.optimizations !== 'undefined' && this.options.optimizations.moveElement !== false && !(typeof this.targetModifier !== 'undefined')) {
-        (function () {
-          var offsetParent = _this7.cache('target-offsetparent', function () {
-            return getOffsetParent(_this7.target);
-          });
-          var offsetPosition = _this7.cache('target-offsetparent-bounds', function () {
-            return getBounds(offsetParent);
-          });
-          var offsetParentStyle = getComputedStyle(offsetParent);
-          var offsetParentSize = offsetPosition;
+        var offsetParent = this.cache('target-offsetparent', function () {
+          return getOffsetParent(_this7.target);
+        });
+        var offsetPosition = this.cache('target-offsetparent-bounds', function () {
+          return getBounds(offsetParent);
+        });
+        var offsetParentStyle = getComputedStyle(offsetParent);
+        var offsetParentSize = offsetPosition;
 
-          var offsetBorder = {};
-          ['Top', 'Left', 'Bottom', 'Right'].forEach(function (side) {
-            offsetBorder[side.toLowerCase()] = parseFloat(offsetParentStyle['border' + side + 'Width']);
-          });
+        var offsetBorder = {};
+        ['Top', 'Left', 'Bottom', 'Right'].forEach(function (side) {
+          offsetBorder[side.toLowerCase()] = parseFloat(offsetParentStyle['border' + side + 'Width']);
+        });
 
-          offsetPosition.right = doc.body.scrollWidth - offsetPosition.left - offsetParentSize.width + offsetBorder.right;
-          offsetPosition.bottom = doc.body.scrollHeight - offsetPosition.top - offsetParentSize.height + offsetBorder.bottom;
+        offsetPosition.right = doc.body.scrollWidth - offsetPosition.left - offsetParentSize.width + offsetBorder.right;
+        offsetPosition.bottom = doc.body.scrollHeight - offsetPosition.top - offsetParentSize.height + offsetBorder.bottom;
 
-          if (next.page.top >= offsetPosition.top + offsetBorder.top && next.page.bottom >= offsetPosition.bottom) {
-            if (next.page.left >= offsetPosition.left + offsetBorder.left && next.page.right >= offsetPosition.right) {
-              // We're within the visible part of the target's scroll parent
-              var scrollTop = offsetParent.scrollTop;
-              var scrollLeft = offsetParent.scrollLeft;
+        if (next.page.top >= offsetPosition.top + offsetBorder.top && next.page.bottom >= offsetPosition.bottom) {
+          if (next.page.left >= offsetPosition.left + offsetBorder.left && next.page.right >= offsetPosition.right) {
+            // We're within the visible part of the target's scroll parent
+            var scrollTop = offsetParent.scrollTop;
+            var scrollLeft = offsetParent.scrollLeft;
 
-              // It's position relative to the target's offset parent (absolute positioning when
-              // the element is moved to be a child of the target's offset parent).
-              next.offset = {
-                top: next.page.top - offsetPosition.top + scrollTop - offsetBorder.top,
-                left: next.page.left - offsetPosition.left + scrollLeft - offsetBorder.left
-              };
-            }
+            // It's position relative to the target's offset parent (absolute positioning when
+            // the element is moved to be a child of the target's offset parent).
+            next.offset = {
+              top: next.page.top - offsetPosition.top + scrollTop - offsetBorder.top,
+              left: next.page.left - offsetPosition.left + scrollLeft - offsetBorder.left
+            };
           }
-        })();
+        }
       }
 
       // We could also travel up the DOM and try each containing context, rather than only
@@ -1214,22 +1212,20 @@ var TetherClass = function (_Evented) {
         css.position = 'fixed';
         transcribe(same.viewport, pos.viewport);
       } else if (typeof same.offset !== 'undefined' && same.offset.top && same.offset.left) {
-        (function () {
-          css.position = 'absolute';
-          var offsetParent = _this8.cache('target-offsetparent', function () {
-            return getOffsetParent(_this8.target);
+        css.position = 'absolute';
+        var offsetParent = this.cache('target-offsetparent', function () {
+          return getOffsetParent(_this8.target);
+        });
+
+        if (getOffsetParent(this.element) !== offsetParent) {
+          defer(function () {
+            _this8.element.parentNode.removeChild(_this8.element);
+            offsetParent.appendChild(_this8.element);
           });
+        }
 
-          if (getOffsetParent(_this8.element) !== offsetParent) {
-            defer(function () {
-              _this8.element.parentNode.removeChild(_this8.element);
-              offsetParent.appendChild(_this8.element);
-            });
-          }
-
-          transcribe(same.offset, pos.offset);
-          moved = true;
-        })();
+        transcribe(same.offset, pos.offset);
+        moved = true;
       } else {
         css.position = 'absolute';
         transcribe({ top: true, left: true }, pos.page);
@@ -1312,32 +1308,30 @@ function getBoundingRect(tether, to) {
   }
 
   if (typeof to.nodeType !== 'undefined') {
-    (function () {
-      var node = to;
-      var size = getBounds(to);
-      var pos = size;
-      var style = getComputedStyle(to);
+    var node = to;
+    var size = getBounds(to);
+    var pos = size;
+    var style = getComputedStyle(to);
 
-      to = [pos.left, pos.top, size.width + pos.left, size.height + pos.top];
+    to = [pos.left, pos.top, size.width + pos.left, size.height + pos.top];
 
-      // Account any parent Frames scroll offset
-      if (node.ownerDocument !== document) {
-        var win = node.ownerDocument.defaultView;
-        to[0] += win.pageXOffset;
-        to[1] += win.pageYOffset;
-        to[2] += win.pageXOffset;
-        to[3] += win.pageYOffset;
+    // Account any parent Frames scroll offset
+    if (node.ownerDocument !== document) {
+      var win = node.ownerDocument.defaultView;
+      to[0] += win.pageXOffset;
+      to[1] += win.pageYOffset;
+      to[2] += win.pageXOffset;
+      to[3] += win.pageYOffset;
+    }
+
+    BOUNDS_FORMAT.forEach(function (side, i) {
+      side = side[0].toUpperCase() + side.substr(1);
+      if (side === 'Top' || side === 'Left') {
+        to[i] += parseFloat(style['border' + side + 'Width']);
+      } else {
+        to[i] -= parseFloat(style['border' + side + 'Width']);
       }
-
-      BOUNDS_FORMAT.forEach(function (side, i) {
-        side = side[0].toUpperCase() + side.substr(1);
-        if (side === 'Top' || side === 'Left') {
-          to[i] += parseFloat(style['border' + side + 'Width']);
-        } else {
-          to[i] -= parseFloat(style['border' + side + 'Width']);
-        }
-      });
-    })();
+    });
   }
 
   return to;
@@ -1618,35 +1612,31 @@ TetherBase.modules.push({
       }
 
       if (pinned.length) {
-        (function () {
-          var pinnedClass = void 0;
-          if (typeof _this.options.pinnedClass !== 'undefined') {
-            pinnedClass = _this.options.pinnedClass;
-          } else {
-            pinnedClass = _this.getClass('pinned');
-          }
+        var pinnedClass = void 0;
+        if (typeof _this.options.pinnedClass !== 'undefined') {
+          pinnedClass = _this.options.pinnedClass;
+        } else {
+          pinnedClass = _this.getClass('pinned');
+        }
 
-          addClasses.push(pinnedClass);
-          pinned.forEach(function (side) {
-            addClasses.push(pinnedClass + '-' + side);
-          });
-        })();
+        addClasses.push(pinnedClass);
+        pinned.forEach(function (side) {
+          addClasses.push(pinnedClass + '-' + side);
+        });
       }
 
       if (oob.length) {
-        (function () {
-          var oobClass = void 0;
-          if (typeof _this.options.outOfBoundsClass !== 'undefined') {
-            oobClass = _this.options.outOfBoundsClass;
-          } else {
-            oobClass = _this.getClass('out-of-bounds');
-          }
+        var oobClass = void 0;
+        if (typeof _this.options.outOfBoundsClass !== 'undefined') {
+          oobClass = _this.options.outOfBoundsClass;
+        } else {
+          oobClass = _this.getClass('out-of-bounds');
+        }
 
-          addClasses.push(oobClass);
-          oob.forEach(function (side) {
-            addClasses.push(oobClass + '-' + side);
-          });
-        })();
+        addClasses.push(oobClass);
+        oob.forEach(function (side) {
+          addClasses.push(oobClass + '-' + side);
+        });
       }
 
       if (pinned.indexOf('left') >= 0 || pinned.indexOf('right') >= 0) {

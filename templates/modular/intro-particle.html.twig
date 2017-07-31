@@ -1,0 +1,19 @@
+{% import 'macros/pages.html.twig' as pageMacro %}
+
+{% set script %}
+    <script type="text/javascript">
+      window.onload = function() {
+        particlesJS("particles-js", {{ page.header.particlejs|json_encode() }})
+      }
+    </script>
+{% endset %}
+
+<section class="{{ pageMacro.linkName(page.menu) }} modular text-center">
+    {{ script }}
+    <div id="particles-js" class="backdrop"></div>
+    <div class="callout">
+        <div class="container">
+
+        </div>
+    </div>
+</section>

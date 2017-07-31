@@ -1,0 +1,18 @@
+form:
+  fields:
+
+    header.parameters.items:
+      name: item
+      type: list
+      style: vertical
+      fields:
+        .name:
+          type: text
+          label: Title
+          style: vertical
+        .description:
+          type: textarea
+          label: Description
+          style: vertical
+          validate:
+            type: textarea

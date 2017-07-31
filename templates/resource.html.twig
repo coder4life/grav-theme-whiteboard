@@ -18,7 +18,6 @@
                     {% endif %}
                     <div class="nav-list">
                         {% for nav in navs %}
-                            {{ dump(nav.options) }}
                             {% set parent = page.find(nav.path) %}
                             {% set vars = {
                                 'parent': parent,
@@ -35,7 +34,7 @@
 {% endblock %}
 
 {% block content %}
-    <article class="content">
+    <article class="resource">
         <header class="container">
             <h1 class="title">{{ page.title }}</h1>
             <div class="description">
@@ -43,7 +42,7 @@
             </div>
         </header>
         {% for item in items %}
-            {% include 'partials/resource_item.html.twig' with { 'resource': page, 'page': item, 'truncate': true } %}
+            {% include 'resource_item.html.twig' with { 'resource': page, 'page': item, 'truncate': true } %}
         {% endfor %}
     </article>
 {% endblock %}

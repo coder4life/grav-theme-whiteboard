@@ -58,7 +58,7 @@
         <header id="header" class="fixed-top">
             {% block navigation %}
                 {% set vars = {
-                    'class': { 'toggleable': "md", 'theme': 'inverse', 'style': 'inverse' }
+                    'class': { 'toggleable': "md", 'responsive': 'lg', 'theme': 'dark', 'style': 'dark' }
                 } %}
                 {% include 'bootstrap/navbar.html.twig' with vars %}
             {% endblock %}

@@ -1,3 +1,11 @@
+// Config Params
+@import "../configs/whiteboard/themes/whiteboard";
+
+body {
+    background-color: $wb-base-background-color;
+    color: $wb-base-color;
+}
+
 .light {
     background: #F6F4F8;
     color: #777777;
@@ -41,7 +49,3 @@
         text-decoration: underline;
     }
 }
-
-/*@each $theme, $color in $themes {
-    @include theme($theme, $color);
-}*/
