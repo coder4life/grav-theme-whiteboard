@@ -1,62 +1,91 @@
-// whiteboard
+$theme-name: blizzard;
+
+// base
 //
-// whiteboard configuration elements for block-level elements.
+// Base configuration elements for block-level elements.
 
-$whiteboard-font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
-$whiteboard-font-family-serif: Georgia, "Times New Roman", Times, serif !default;
-$whiteboard-font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
-$whiteboard-font-family: $font-family-sans-serif !default;
+// base: color scheme type
+$wb-base-scheme-type-primary: #0e86ca;
+$wb-base-scheme-type-secondary: rgba(255,255,255,0.2);
+$wb-base-scheme-type-inverse: rgba(0,0,0,0.2);
 
-$whiteboard-font-size: 1rem !default; // Assumes the browser default, typically `16px`
-$whiteboard-font-weight-normal: normal !default;
-$whiteboard-font-weight-bold: bold !default;
-$whiteboard-line-height: 1.5 !default;
+// base: style
+$wb-base-color: rgba(255,255,255,0.8);
 
-$whiteboard-background-color: #010E16;
-$whiteboard-text-color: #FAFBFC;
-$whiteboard-link-color: #01b2f1;
+// base: background
+$wb-base-background-color:  #282E36;
 
-$whiteboard-headings-margin-bottom: ($spacer / 2) !default;
-$whiteboard-headings-font-family: inherit !default;
-$whiteboard-headings-font-weight: 500 !default;
-$whiteboard-headings-line-height: 1.1 !default;
-$whiteboard-headings-color: inherit !default;
+// base: header
+$wb-base-headers-border-bottom-width: none;
+$wb-base-headers-font-family: inherited;
+$wb-base-headers-font-weight: 300;
+$wb-base-headers-line-height: 1.618;
 
-$whiteboard-h1-font-size: 2.5rem !default;
-$whiteboard-h2-font-size: 2rem !default;
-$whiteboard-h3-font-size: 1.75rem !default;
-$whiteboard-h4-font-size: 1.5rem !default;
-$whiteboard-h5-font-size: 1.25rem !default;
-$whiteboard-h6-font-size: 1rem !default;
+// base: link
+$wb-base-link-color: #00aeff;
+$wb-base-link-decoration: none;
+$wb-base-link-hover-color: #91e4ff;
+$wb-base-link-hover-decoration: none;
 
-
-// Block
+// inline
 //
-// Block configuration elements for block-level elements.
+// Inline configuration for inline elements
 
-// Body
-$body-background-color: $whiteboard-background-color;
-$body-text-color: $whiteboard-text-color;
+// inline: a
+$wb-inline-a-color: $wb-base-link-color;
+$wb-inline-a-decoration: $wb-base-link-decoration;
+$wb-inline-a-hover-color: $wb-base-link-hover-color;
+$wb-inline-a-hover-decoration: $wb-base-link-hover-decoration;
 
-// Nav
-$nav-background-color: $whiteboard-background-color;
-$nav-text-color: $whiteboard-text-color;
+// inline: code
+$wb-inline-code-text-color: #bd4147;
+$code-background: $wb-base-color-shade-gray-light;
 
-// Header
-$header-background-color: $whiteboard-background-color;
-$header-background-text: $whiteboard-text-color;
 
-// Main
-$main-background-color: $whiteboard-background-color;
-$main-text-color: $whiteboard-text-color;
+// block
+//
+// Block configuration for block level elements
 
-// Sidebar > Nav
+// block: body
+$wb-block-body-background-color: $wb-base-background-color;
+$wb-block-body-text-color: $wb-base-color;
+
+// block: footer
+$wb-block-footer-background-color: $wb-base-background-color;
+$wb-block-footer-text-color: $wb-base-color;
+
+// block: header
+$wb-block-header-background-color: $wb-base-background-color;
+$wb-block-header-background-text: $wb-base-color;
+
+// block: main
+$wb-block-main-background-color: $wb-base-background-color;
+$wb-block-main-text-color: $wb-base-color;
+
+// block: nav
+$wb-block-nav-background-color: $wb-base-background-color;
+$wb-block-nav-text-color: $wb-base-color;
+
+// block: pre
+$wb-block-pre-background-color: $wb-base-color-shade-gray-light;
+$wb-block-pre-text-color: $wb-base-color-shade-gray-dark;
+$wb-block-pre-border-color: $wb-base-color-shade-gray-dark;
+$wb-block-pre-scrollable-max-height: 340px;
+
+// block: table
+$wb-block-table-border-width: $wb-base-border-width;
+$wb-block-table-border-color: $wb-base-color-shade-gray-light;
+
+// block: table > td
+$wb-block-table-td-padding: .75rem;
+
+
+// components
+//
+// Components configuration
+
+// components: sidebar-nav
 $sidebar-nav-header-font-size: .9375rem;
-$sicebar-nav-header-line-height: 2rem;
+$sidebar-nav-header-line-height: 2rem;
 $sidebar-nav-link-font-size: .9375rem;
-$sicebar-nav-link-line-height: 2rem;
-
-//Footer
-$footer-background-color: $whiteboard-background-color;
-$footer-text-color: $whiteboard-text-color;
-
+$sidebar-nav-link-line-height: 2rem;

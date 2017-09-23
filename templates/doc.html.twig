@@ -1,0 +1,34 @@
+{# extends base template partial #}
+{% extends 'partials/base.html.twig' %}
+
+{% set items = page.collection() %}
+
+{% set inheritedNavs = page.inherited('navs') %}
+
+{% set navs = page.header.navs %}
+
+{% block sidebar %}
+    {% if inheritedNavs or navs %}
+        {% include 'partials/sidebar.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <article class="document">
+        {% if items %}
+            <header class="container">
+                <h1 class="title">{{ page.title }}</h1>
+                {% if page.content is not empty %}
+                    <div class="description">
+                        {{ page.content }}
+                    </div>
+                {% endif %}
+            </header>
+            {% for item in items %}
+                {% include 'doc_item.html.twig' with { 'doc': page, 'page': item } %}
+            {% endfor %}
+        {% else %}
+            {{ page.content }}
+        {% endif %}
+    </article>
+{% endblock %}

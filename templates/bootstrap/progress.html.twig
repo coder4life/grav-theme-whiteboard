@@ -1,12 +1,12 @@
 {# defined class #}
 {% set classes = 'progress-bar' %}
 
-{# mutable and toggle class, required #}
+{# toggle class, required #}
 {% if class.striped is same as(true) %}
     {% set classes = classes ~ ' progress-bar-striped' %}
 {% endif %}
 
-{# mutable and toggle class, required #}
+{# toggle class, required #}
 {% if class.animated is same as(true) %}
     {% set classes = classes ~ ' progress-bar-animated' %}
 {% endif %}
@@ -14,6 +14,11 @@
 {# mutable and toggle class, required #}
 {% if class.style %}
     {% set classes = classes ~ ' bg-'  ~ class.style %}
+{% endif %}
+
+{# mutable, optional #}
+{% if class.names %}
+    {% set classes = classes ~ ' '  ~ class.names %}
 {% endif %}
 
 <div class="progress">

@@ -47,14 +47,14 @@
                             'items': item.children.visible,
                             'id': item.url|md5,
                             'url': item.url,
-                            'text': item.menu|upper
+                            'text': item.menu
                         } %}
                         {% include 'bootstrap/dropdown.html.twig' with vars %}
                     </li>
                 {% else %}
                     <li class="nav-item {{ current_page }}">
                         <a class="nav-link" href="{{ item.url }}">
-                            {{ item.menu|upper }}
+                            {{ item.menu }}
                         </a>
                     </li>
                 {% endif %}

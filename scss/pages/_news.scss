@@ -1,0 +1,21 @@
+.page-template--news {
+
+    .card-deck {
+        .card {
+            flex: 1 0 auto;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .card-body {
+        text-align: left;
+    }
+
+    .card-title {
+        text-transform: uppercase;
+    }
+
+    .card-img-top {
+        border-bottom: 0.25rem solid
+    }
+}

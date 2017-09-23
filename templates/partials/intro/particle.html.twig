@@ -1,0 +1,19 @@
+{% if not isMobile() %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        particlesJS("particles-js", {{ page.header.particlejs|json_encode() }});
+      });
+    </script>
+
+    <div id="particles-js" class="backdrop"></div>
+{% endif %}
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <div class="content">
+            {{ page.content }}
+        </div>
+        <div class="actions"></div>
+        <div class="version"></div>
+    </div>
+</div>

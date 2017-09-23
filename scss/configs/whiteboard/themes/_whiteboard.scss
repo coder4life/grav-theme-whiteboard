@@ -1,3 +1,5 @@
+$theme-name: whiteboard;
+
 // base
 //
 // Base configuration elements for block-level elements.
@@ -50,6 +52,7 @@ $wb-base-spacer-y: $wb-base-spacer !default;
 $wb-base-background-color: #010e16;
 
 // base: border
+$wb-base-border-color: $wb-base-color !default;
 $wb-base-border-radius: .25rem !default;
 $wb-base-border-width: 1px !default;
 

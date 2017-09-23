@@ -12,42 +12,51 @@
 
     {% block stylesheets %}
         {% if config.system.debugger.enabled %}
-            {% do assets.addCss('theme://css-compiled/owlcarousel2.css', 100) %}
-            {% do assets.addCss('theme://css-compiled/font-awesome.css', 101) %}
-            {% do assets.addCss('theme://css-compiled/bootstrap.css', 105) %}
-            {% do assets.addCss('theme://css-compiled/whiteboard.css', 110) %}
+            {% do assets.addCss('theme://css/owlcarousel2.css', 100) %}
+            {% do assets.addCss('theme://css/whiteboard.css', 105) %}
+            {% do assets.addCss('theme://css/fontawesome.css', 109) %}
+            {% do assets.addCss('theme://css/bootstrap.css', 110) %}
         {% else %}
-            {% do assets.addCss('theme://css-compiled/owlcarousel2.min.css', 100) %}
-            {% do assets.addCss('theme://css-compiled/font-awesome.min.css', 101) %}
-            {% do assets.addCss('theme://css-compiled/bootstrap.min.css', 105) %}
-            {% do assets.addCss('theme://css-compiled/whiteboard.min.css', 106) %}
+            {% do assets.addCss('theme://css/owlcarousel2.min.css', 100) %}
+            {% do assets.addCss('theme://css/whiteboard.min.css', 105) %}
+            {% do assets.addCss('theme://css/fontawesome.min.css', 109) %}
+            {% do assets.addCss('theme://css/bootstrap.min.css', 110) %}
+
         {% endif %}
     {% endblock %}
     {{ assets.css() }}
 
+    {% include 'partials/theme.html.twig' %}
+
     {% block javascripts %}
         {% if config.system.debugger.enabled %}
-            {% do assets.addJs('theme://js-compiled/typed.js', 101) %}
-            {% do assets.addJs('theme://js-compiled/particles.js', 102) %}
-            {% do assets.addJs('theme://js-compiled/owlcarousel2.js', 103) %}
-            {% do assets.addJs('theme://js-compiled/bootstrap.js', 105) %}
-            {% do assets.addJs('theme://js-compiled/tether.min.js', 106) %}
+            {% do assets.addJs('theme://js/typed.js', 100) %}
+            {% do assets.addJs('theme://js/stackblur.js', 101) %}
+            {% do assets.addJs('theme://js/particles.js', 102) %}
+            {% do assets.addJs('theme://js/owlcarousel2.js', 103) %}
+            {% do assets.addJs('theme://js/bootstrap.js', 105) %}
+            {% do assets.addJs('theme://js/popper.js', 107) %}
         {% else %}
-            {% do assets.addJs('theme://js-compiled/typed.min.js', 101) %}
-            {% do assets.addJs('theme://js-compiled/particles.min.js', 102) %}
-            {% do assets.addJs('theme://js-compiled/owlcarousel2.min.js', 103) %}
-            {% do assets.addJs('theme://js-compiled/bootstrap.min.js', 105) %}
-            {% do assets.addJs('theme://js-compiled/tether.min.js', 106) %}
+            {% do assets.addJs('theme://js/typed.min.js', 100) %}
+            {% do assets.addJs('theme://js/stackblur.min.js', 101) %}
+            {% do assets.addJs('theme://js/particles.min.js', 102) %}
+            {% do assets.addJs('theme://js/owlcarousel2.min.js', 103) %}
+            {% do assets.addJs('theme://js/bootstrap.min.js', 105) %}
+            {% do assets.addJs('theme://js/popper.min.js', 107) %}
         {% endif %}
         {% do assets.addJs('jquery', 110) %}
     {% endblock %}
     {{ assets.js() }}
-{% endblock head %}
+    {% endblock head %}
 </head>
 
-{% set classes = 'theme-' ~ config.system.pages.theme %}
+{% set classes = 'theme--' ~ config.system.pages.theme %}
 
-{% set classes = classes ~ ' page-' ~ page.slug %}
+{% set classes = classes ~ ' theme-style--' ~ config.theme.style.default %}
+
+{% set classes = classes ~ ' page-name--' ~ page.slug %}
+
+{% set classes = classes ~ ' page-template--' ~ page.template %}
 
 {% if page.header.body_classes %}
     {% set classes = classes ~ ' ' ~ page.header.body_classes %}
@@ -58,7 +67,7 @@
         <header id="header" class="fixed-top">
             {% block navigation %}
                 {% set vars = {
-                    'class': { 'toggleable': "md", 'responsive': 'lg', 'theme': 'dark', 'style': 'dark' }
+                    'class': { 'toggleable': "md", 'responsive': 'lg', 'theme': 'dark' }
                 } %}
                 {% include 'bootstrap/navbar.html.twig' with vars %}
             {% endblock %}
@@ -75,7 +84,7 @@
     {% block footer %}
         <footer id="footer">
             <div class="totop">
-                <span><a href="#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>
+                <span><a href="#" id="toTop"></a></span>
             </div>
         </footer>
     {% endblock %}

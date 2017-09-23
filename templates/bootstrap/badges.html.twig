@@ -1,0 +1,28 @@
+{# defined class #}
+{% set classes = 'badge' %}
+
+{# mutable and toggle class, optional #}
+{% if class.style %}
+    {% set classes = classes ~ ' badge-'  ~ class.style %}
+{% endif %}
+
+{# toggle class, optional #}
+{% if class.pill is same as(true) %}
+    {% set classes = classes ~ ' badge-pill' %}
+{% endif %}
+
+{# mutable, optional #}
+{% if class.names is defined %}
+    {% set classes = classes ~ ' ' ~ class.names %}
+{% endif %}
+
+{# mutable and toggle class, required #}
+{% if class.direction %}
+    {% set classes = classes ~ ' pull-'  ~ class.direction %}
+{% endif %}
+
+{% if link %}
+    <a class="{{ classes }}" href="{{ link }}">{{ text }}</a>
+{% else %}
+    <span class="{{ classes }}">{{ text }}</span>
+{% endif %}

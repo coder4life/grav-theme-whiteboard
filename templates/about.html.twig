@@ -1,0 +1,21 @@
+{% extends 'partials/base.html.twig' %}
+
+{# import page macros #}
+{% import 'macros/pages.html.twig' as pageMacros %}
+
+{% block content %}
+    <article class="about">
+        <div class="intro">
+            {% set vars = {
+                'title': page.title,
+                'image': { 'uri': pageMacros.header_image(page, 'cropResize', 2560, 640) }
+            } %}
+            {% include 'partials/intro/text.html.twig' with vars %}
+        </div>
+        <div class="container">
+            <div class="content">
+                {{ page.content }}
+            </div>
+        </div>
+    </article>
+{% endblock %}

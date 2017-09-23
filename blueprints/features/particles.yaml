@@ -1,0 +1,555 @@
+form:
+  fields:
+
+    section_particlejs_particles_number:
+      type: section
+      title: Numbers
+      underline: true
+      fields:
+
+        header.particlejs.particles.number.value:
+          type: text
+          label: Value
+          default: 150
+          validate:
+            type: int
+            min: 50
+            max: 500
+        header.particlejs.particles.number.density.enable:
+          type: toggle
+          label: Density Enable
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.number.density.value_area:
+          type: text
+          label: Value Area
+          default: 800
+          validate:
+            type: int
+            min: 50
+            max: 500
+
+    section_particlejs_particles_color:
+      type: section
+      title: Colors
+      underline: true
+      fields:
+
+        header.particlejs.particles.color.value:
+          type: array
+          label: Color Values
+          value_only: true
+
+    section_particlejs_particles_shape:
+      type: section
+      title: Shape
+      underline: true
+      fields:
+
+        header.particlejs.particles.shape.type:
+          type: select
+          label: Type
+          classes: fancy
+          default: circle
+          options:
+            'circle': 'circle'
+            'edge': 'edge'
+            'triangle': 'triangle'
+            'polygon': 'polygon'
+            'star': 'star'
+            'image': 'image'
+        header.particlejs.particles.shape.stroke.width:
+          type: text
+          label: Stroke Width
+          default: 0
+          validate:
+            type: int
+            min: 1
+            max: 5
+        header.particlejs.particles.shape.stroke.color:
+          type: colorpicker
+          label: Stroke Color
+          default: '#00b4ff'
+          validate:
+            type: color
+        header.particlejs.particles.shape.polygon.nb_sides:
+          type: text
+          label: Polygon Sides
+          default: 5
+          validate:
+            type: int
+            min: 1
+            max: 10
+        header.particlejs.particles.shape.image.src:
+          type: filepicker
+          folder: '@self'
+          preview_images: true
+          label: Select a file
+        header.particlejs.particles.shape.image.width:
+          type: text
+          label: Image Width
+          default: 100
+          validate:
+            type: int
+            min: 10
+            max: 100
+        header.particlejs.particles.shape.image.height:
+          type: text
+          label: Image Height
+          default: 100
+          validate:
+            type: int
+            min: 10
+            max: 100
+
+    section_particlejs_particles_opacity:
+      type: section
+      title: Opacity
+      underline: true
+      fields:
+
+        header.particlejs.particles.opacity.value:
+          type: text
+          label: Value
+          default: 0.5
+          validate:
+            type: number
+            min: 0
+            max: 1
+        header.particlejs.particles.opacity.random:
+          type: toggle
+          label: Random
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.opacity.anim.enable:
+          type: toggle
+          label: Animation Enable
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.opacity.anim.speed:
+          type: text
+          label: Animation Speed
+          default: 1
+          validate:
+            type: number
+            min: 0
+            max: 10
+        header.particlejs.particles.opacity.anim.opacity_min:
+          type: text
+          label: Animation Opacity Min
+          default: 0.1
+          validate:
+            type: number
+            min: 0
+            max: 1
+        header.particlejs.particles.opacity.anim.sync:
+          type: toggle
+          label: Animation Enable
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+
+    section_particlejs_particles_size:
+      type: section
+      title: Size
+      underline: true
+      fields:
+
+        header.particlejs.particles.size.value:
+          type: text
+          label: Value
+          default: 3
+          validate:
+            type: int
+            min: 1
+            max: 20
+        header.particlejs.particles.size.random:
+          type: toggle
+          label: Random
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.size.anim.enable:
+          type: toggle
+          label: Animation Enable
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.size.anim.speed:
+          type: text
+          label: Animation Speed
+          default: 3
+          validate:
+            type: int
+            min: 0
+            max: 10
+        header.particlejs.particles.size.anim.size_min:
+          type: text
+          label: Animation Size Min
+          default: 0.1
+          validate:
+            type: number
+            min: 0
+            max: 1
+        header.particlejs.particles.size.anim.sync:
+          type: toggle
+          label: Animation Sync
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+
+    section_particlejs_particle_line_linked:
+      type: section
+      title: Line Linked
+      underline: true
+      fields:
+
+        header.particlejs.particles.line_linked.enable:
+          type: toggle
+          label: Enable
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.line_linked.distance:
+          type: text
+          label: Distance
+          default: 150
+          validate:
+            type: int
+            min: 0
+            max: 10
+        header.particlejs.particles.line_linked.color:
+          type: colorpicker
+          label: Color
+          default: '#00b4ff'
+          validate:
+            type: color
+        header.particlejs.particles.line_linked.opacity:
+          type: text
+          label: Opacity
+          default: 0.4
+          validate:
+            type: number
+            min: 0
+            max: 1
+        header.particlejs.particles.line_linked.width:
+          type: text
+          label: Width
+          default: 2
+          validate:
+            type: int
+            min: 0
+            max: 5
+
+    section_particlejs_particle_move:
+      type: section
+      title: Move
+      underline: true
+      fields:
+
+        header.particlejs.particles.move.enable:
+          type: toggle
+          label: Enable
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.move.speed:
+          type: text
+          label: Speed
+          default: 0.5
+          validate:
+            type: number
+            min: 0
+            max: 10
+        header.particlejs.particles.move.direction:
+          type: select
+          label: Direction
+          classes: fancy
+          default: 'none'
+          options:
+            'none': 'none'
+            'top': 'top'
+            'top-right': 'top-right'
+            'right': 'right'
+            'bottom-right': 'bottom-right'
+            'bottom': 'bottom'
+            'bottom-left': 'bottom-left'
+            'left': 'left'
+            'top-left': 'top-left'
+        header.particlejs.particles.move.random:
+          type: toggle
+          label: Random
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.move.straight:
+          type: toggle
+          label: Straight
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+
+        header.particlejs.particles.move.out_mode:
+          type: select
+          label: Direction
+          classes: fancy
+          options:
+            'out': 'out'
+            'bounce': 'bounce'
+          validate:
+            type: string
+        header.particlejs.particles.move.bounce:
+          type: toggle
+          label: Bounce
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.move.attract.enable:
+          type: toggle
+          label: Attract Enable
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.particles.move.attract.rotateX:
+          type: text
+          label: Attract Rotate X
+          default: 600
+          validate:
+            type: int
+            min: 0
+            max: 5000
+        header.particlejs.particles.move.attract.rotateY:
+          type: text
+          label: Attract Rotate Y
+          default: 1200
+          validate:
+            type: int
+            min: 0
+            max: 5000
+
+    section_particlejs_interactivty:
+      type: section
+      title: Interactivity
+      underline: true
+      fields:
+
+        header.particlejs.interactivity.detect_on:
+          type: select
+          label: Detect On
+          classes: fancy
+          options:
+            'canvas': 'canvas'
+            'window': 'window'
+        header.particlejs.interactivity.events.onhover.enable:
+          type: toggle
+          label: Onhover Enable
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.interactivity.events.onhover.mode:
+          type: select
+          label: Onhover Mode
+          classes: fancy
+          default: grab
+          options:
+            'bubble': 'bubble'
+            'grab': 'grab'
+            'repulse': 'repulse'
+          validate:
+            type: string
+        header.particlejs.interactivity.events.onclick.enable:
+          type: toggle
+          label: Onclick Enable
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.interactivity.events.onclick.mode:
+          type: select
+          label: Onclick Mode
+          classes: fancy
+          default: push
+          options:
+            'bubble': 'bubble'
+            'push': 'push'
+            'remove': 'remove'
+            'repulse': 'repulse'
+          validate:
+            type: string
+        header.particlejs.interactivity.events.resize:
+          type: toggle
+          label: Resize
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.particlejs.interactivity.modes.grab.distance:
+          type: text
+          label: Grab Distance
+          default: 100
+          validate:
+            type: int
+            min: 0
+            max: 500
+        header.particlejs.interactivity.modes.grab.line_linked.opacity:
+          type: text
+          label: Grab Line Linked Opacity
+          default: 0.5
+          validate:
+            type: number
+            min: 0
+            max: 1
+        header.particlejs.interactivity.modes.bubble.distance:
+          type: text
+          label: Bubble Distance
+          default: 100
+          validate:
+            type: int
+            min: 0
+            max: 500
+        header.particlejs.interactivity.modes.bubble.size:
+          type: text
+          label: Bubble Size
+          default: 40
+          validate:
+            type: int
+            min: 0
+            max: 100
+        header.particlejs.interactivity.modes.bubble.duration:
+          type: text
+          label: Bubble Duration
+          default: 0.4
+          validate:
+            type: number
+            min: 0
+            max: 10
+        header.particlejs.interactivity.modes.bubble.opacity:
+          type: text
+          label: Bubble Opacity
+          default: 0.8
+          validate:
+            type: number
+            min: 0
+            max: 10
+        header.particlejs.interactivity.modes.bubble.speed:
+          type: text
+          label: Bubble Speed
+          default: 3
+          validate:
+            type: number
+            min: 0
+            max: 10
+        header.particlejs.interactivity.modes.repulse.distance:
+          type: text
+          label: Repulse Distnce
+          default: 200
+          validate:
+            type: int
+            min: 1
+            max: 500
+        header.particlejs.interactivity.modes.repulse.duration:
+          type: text
+          label: Repuse Duration
+          default: 1.2
+          validate:
+            type: number
+            min: 0
+            max: 10
+        header.particlejs.interactivity.modes.push.particles_nb:
+          type: text
+          label: Push Particles Number
+          default: 100
+          validate:
+            type: int
+            min: 0
+            max: 25
+        header.particlejs.interactivity.modes.remove.particles_nb:
+          type: text
+          label: Remove Particles Number
+          default: 2
+          validate:
+            type: int
+            min: 0
+            max: 25
+
+    section_particlejs_retina_detect:
+      type: section
+      title: Retina
+      underline: true
+      fields:
+
+        header.particlejs.retina_detect:
+          type: toggle
+          label: Retina Detect
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool

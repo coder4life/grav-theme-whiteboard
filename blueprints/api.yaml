@@ -20,6 +20,16 @@ form:
           type: tab
           title: Content
           ordering@: 0
+          fields:
+
+            section_header_image:
+              type: section
+              title: Header Image
+              underline: true
+              import@:
+
+                type: partials/header_image
+                context: blueprints://
 
         groups:
           type: tab

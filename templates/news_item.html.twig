@@ -1,0 +1,40 @@
+{# extends base template partial #}
+{% extends 'partials/base.html.twig' %}
+
+{# import page macros #}
+{% import 'macros/pages.html.twig' as pageMacros %}
+
+{% block content %}
+
+    <div class="news-item">
+        <div class="intro">
+            {% set vars = {
+                'image': { 'uri': pageMacros.header_image(page, 'cropResize', 2560, 640)  }
+            } %}
+            {% embed 'partials/intro/text.html.twig' with vars %}
+                {% block section_content %}
+                    <h1 class="title text-center">{{ page.title }}</h1>
+                    <h2 class="subtitle text-center">{{ page.subtitle }}</h2>
+                    <span class="news-date">
+                        <time class="dt-published" datetime="{{ page.date|date("c") }}">
+                            <span>{{ page.date|date("d") }}</span>
+                            <em>{{ page.date|date("M") }}</em>
+                        </time>
+                    </span>
+                    {% if page.taxonomy.tag %}
+                        <span class="tags">
+                            {% for tag in page.taxonomy.tag %}
+                                <a href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}" class="p-category">{{ tag }}</a>
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+        <div class="container">
+            {{ page.content }}
+        </div>
+
+    </div>
+
+{% endblock %}

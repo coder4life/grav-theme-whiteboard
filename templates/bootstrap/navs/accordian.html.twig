@@ -1,4 +1,4 @@
-{% macro loop(page, options, depth, previous) %}
+{# {% macro loop(page, options, depth) %}
 
     {% for child in page.children %}
 
@@ -7,9 +7,9 @@
         {% if child.children.count > 0 %}
             <li class="nav-item">
                 <a class="nav-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{ child.url|md5 }}" aria-expanded="false" aria-controls="collapse_{{ child.url|md5 }}">
-                    {{ child.menu }}
+                    <i class="fa fa-folder"></i><span>{{ child.menu }}</span><span class="float-right"><i class="fa fa-angle-left float-right" aria-hidden="true"></i></span>
                 </a>
-                <div id="collapse_{{ child.url|md5 }}" class="collapse{{ current_child }}" role="tabpanel" aria-labelledby="collapse_{{ child.url|md5 }}">
+                <div id="collapse_{{ child.url|md5 }}" class="nav-group collapse{{ current_child }}" role="tabpanel" aria-labelledby="collapse_{{ child.url|md5 }}">
                     <ul class="nav flex-column depth-{{ depth + 1 }}" >
                         {{ _self.loop(child, options, depth + 1) }}
                     </ul>
@@ -19,11 +19,16 @@
             {% for option in options %}
                 {% if option.depth == depth %}
                     <li class="nav-item">
-                        {% if option.type == 'id' %}
-                            <a class="nav-link" href="{{ page.url }}#{{ child.slug }}">{{ child.menu }}</a>
-                        {% else %}
-                            <a class="nav-link" href="{{ child.url }}">{{ child.menu }}</a>
-                        {% endif %}
+                        <a class="nav-link"{% if option.type == 'id' %} href="{{ page.url }}#{{ child.slug }}"{% else %} href="{{ child.url }}"{% endif %}>
+                            <i class="fa fa-file"></i><span>{{ child.menu }}</span>
+                                {% block badge %}
+                                    {% set vars = {
+                                        'class': { 'names': 'http-verb-' },
+                                        'text': 'test'
+                                    } %}
+                                    {% include 'bootstrap/badge.html.twig' with vars %}
+                                {% endblock %}
+                        </a>
                     </li>
                 {% endif %}
             {% endfor %}
@@ -33,4 +38,61 @@
 
 <ul class="nav root flex-column">
     {{ _self.loop(parent, options, 1) }}
-</ul>
+</ul> #}
+
+{# {% import 'bootstrap/navs/accordian.html.twig' as current_child %} #}
+
+{% set current_child = current_child ? current_child : '' %}
+
+{% set page = parent ? parent : page %}
+
+{% for child in page.children %}
+
+    {% set current_child = child %}
+
+    {% set active_child = (child.active or child.activeChild) ? ' show' : '' %}
+    {% set current_page = (child.active or child.activeChild) ? ' active' : '' %}
+
+    {{ dump(current_page) }}
+
+    {% if child.children.count > 0 %}
+        <li class="nav-item tree{{ current_page }}">
+            <a class="nav-link collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{ child.url|md5 }}" aria-controls="collapse_{{ child.url|md5 }}">
+                <i class="fa fa-folder"></i><span>{{ child.menu }}</span><span class="float-right"><i class="fa fa-angle-left float-right" aria-hidden="true"></i></span>
+            </a>
+            <div id="collapse_{{ child.url|md5 }}" class="nav-group collapse{{ active_child }}" role="tabpanel">
+                <ul class="nav flex-column depth-{{ depth }}" >
+                    {% set vars = {
+                        'parent': child,
+                        'options': options,
+                        'depth': depth + 1,
+                        'badge': badge
+                    } %}
+                    {% include 'bootstrap/navs/accordian.html.twig' with vars %}
+                </ul>
+            </div>
+        </li>
+    {% else %}
+        {% for option in options %}
+            {% if option.depth == depth %}
+                <li class="nav-item{{ current_page }}">
+                    <a class="nav-link"{% if option.type == 'id' %} href="{{ page.url }}#{{ child.slug }}"{% else %} href="{{ child.url }}"{% endif %}>
+                        <i class="fa fa-file"></i><span>{{ child.menu }}</span>
+                        {% if badge %}
+                            {% set vars = {
+                                'class': {
+                                    'names': attribute(child.header, badge.attribute) ? badge.class.names ~ attribute(child.header, badge.attribute) : badge.class.names,
+                                    'style': badge.class.style ? badge.class.style : '',
+                                    'pill': badge.class.pill ? badge.class.pill ? badge.class.pill : false,
+                                    'direction': 'right'
+                                },
+                                'text': attribute(child.header, badge.attribute)|upper
+                            } %}
+                            {% include 'bootstrap/badges.html.twig' with vars %}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

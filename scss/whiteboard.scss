@@ -9,8 +9,12 @@
 @import "configs/whiteboard/themes/whiteboard";
 
 // Pages
-@import "pages/api";
 @import "pages/default";
+@import "pages/api";
+@import "pages/docs";
+@import "pages/doc";
+@import "pages/news";
+@import "pages/news_item";
 @import "pages/resource";
 @import "pages/modular";
 
@@ -20,8 +24,11 @@
 @import "modular/showcase";
 @import "modular/text";
 
-// Plguins
+// Plugins
 @import "plugins/particlesjs";
 
 // Extras
 @import "extras/os-windows";
+
+// Themes
+@import "themes";

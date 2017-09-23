@@ -1,12 +1,14 @@
 .mac.window {
     height: 100%;
+    width: 80%;
     background: #ffffff;
     border-top: 1px solid #acacac;
     border-right: 1px solid #acacac;
     border-left: 1px solid #acacac;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.35);
+    margin: 0 auto;
 
     .titlebar {
         color: #4d494d;
@@ -14,17 +16,12 @@
         text-align: center;
         width: 100%;
         border-bottom: 1px solid #b1aeb1;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
         user-select: none;
         cursor: default;
-        padding: 0.5rem 0;
-
-        .title-text {
-            font-size: 1rem;
-            line-height: 1.15rem;
-            padding: 0 0.5rem;
-        }
+        padding: 0.4rem 0;
+        white-space: nowrap;
 
         .button {
             float: left;

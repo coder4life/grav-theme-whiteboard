@@ -1,0 +1,53 @@
+title: News
+extends@:
+    type: default
+    context: blueprints://pages
+child_type: news_item
+title: Default
+rules:
+  slug:
+    pattern: "[a-z][a-z0-9_\-]+"
+    min: 2
+    max: 80
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+
+        content:
+          type: tab
+          title: Content
+          ordering@: 0
+          fields:
+
+            section_header_image:
+              type: section
+              title: Header Image
+              underline: true
+              import@:
+
+                type: partials/header_image
+                context: blueprints://
+
+
+        items:
+          type: tab
+          title: Items
+          ordering@: 1
+          import@:
+
+            type: partials/items
+            context: blueprints://
+
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+          ordering@: 2
+
+        advanced:
+          type: tab
+          title: PLUGIN_ADMIN.ADVANCED
+          ordering@: 3

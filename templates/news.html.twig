@@ -1,0 +1,81 @@
+{# extends base template partial #}
+{% extends 'partials/base.html.twig' %}
+
+{# import page macros #}
+{% import 'macros/pages.html.twig' as pageMacros %}
+
+{# set collection variable, from page class API #}
+{% set items = page.collection() %}
+
+{% set new_base_url = page.url == '/' ? '' : page.url %}
+
+{% block content %}
+    <div class="news">
+        <div class="intro">
+            {% set vars = {
+                'title': page.title,
+                'image': { 'uri': pageMacros.header_image(page, 'cropResize', 2560, 640) }
+            } %}
+            {% include 'partials/intro/text.html.twig' with vars %}
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <section class="news-cards">
+                        <h2 class="title">{{ "PAGE.NEWS.LATEST"|t }}</h2>
+                        {% set vars = {
+                            'class': { 'type': 'deck', 'align_content': 'start', 'align_items': 'start' }
+                        } %}
+                        {% embed 'bootstrap/card-group.html.twig' with vars %}
+                            {% block cards %}
+                                {% for item in items %}
+
+                                    {% set header_item_image_src = pageMacros.header_image(item, 'cropZoom', 1200, 400) %}
+
+                                    {% set vars = {
+                                        'class': { 'outline': false, 'align': 'center' },
+                                        'image_top': header_item_image_src ? {
+                                            'url': header_item_image_src,
+                                            'link': item.url
+                                        } : false,
+                                        'list': page.find(parent.path).children
+                                    } %}
+                                    {% embed 'bootstrap/cards.html.twig' with vars %}
+                                        {% block card_body %}
+                                            <div class="card-body">
+                                                {% if item.title is not empty %}
+                                                    <a href="{{ item.url }}"><h4 class="card-title">{{ item.title }}</h4></a>
+                                                {% endif %}
+                                                {% if item.subtitle is not empty %}
+                                                    <h6 class="card-subtitle text-muted">{{ item.subtitle }}</h6>
+                                                {% endif %}
+                                                {% if item.summary is not empty %}
+                                                    <p class="card-text">{{ item.summary }}</p>
+                                                {% endif %}
+                                                <div class="byline">
+                                                    {% if item.author is not empty %}
+                                                        <span>{{ "PAGE.BLOG.BY"|t ~ ': ' ~ item.author.name }}</span>
+                                                    {% else %}
+                                                        <span>{{ "PAGE.BLOG.BY"|t ~ ': ' ~  config.site.author.name }}</span>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="posted">
+                                                    <time class="posted-time" datetime="{{ item.date|date("c") }}">
+                                                        {{ "PAGE.BLOG.POSTED"|t ~ ': ' ~ item.date|nicetime(true) ~ ' on ' ~ item.date|date('Y/m/d') ~ ' at ' ~ item.date|date('g:i A') }}
+                                                    </time>
+                                                </div>
+                                            </div>
+                                        {% endblock %}
+                                    {% endembed %}
+                                {% endfor %}
+                            {% endblock %}
+                        {% endembed %}
+                    </section>
+                </div>
+                <div class="col-4">
+                    {% include 'partials/aside.html.twig' with { 'url_relative': new_base_url } %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

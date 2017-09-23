@@ -20,7 +20,7 @@
 {% set base_url = base_url|default(page.url) %}
 
 {% if items|length > 1 %}
-<nav aria-label="Pagination">
+<nav aria-label="pagination">
     <ul class="{{ classes }}">
         {% if items.hasPrev %}
             {% set url =  (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}

@@ -1,0 +1,72 @@
+title: Docs
+extends@:
+    type: default
+    context: blueprints://pages
+rules:
+  slug:
+    pattern: '[a-z][a-z0-9_\-]+'
+    min: 2
+    max: 80
+form:
+  validation: loose
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+
+        content:
+          type: tab
+          title: Content
+          ordering@: 0
+          fields:
+
+            section_header_image:
+              type: section
+              title: Header Image
+              underline: true
+              import@:
+
+                type: partials/header_image
+                context: blueprints://
+
+        groups:
+          type: tab
+          title: Groups
+          ordering@: 1
+          fields:
+
+            section_api_groups:
+              type: section
+              title: Groups
+              underline: true
+              import@:
+
+                type: partials/groups
+                context: blueprints://
+
+        navs:
+          type: tab
+          title: Navs
+          ordering@: 2
+          fields:
+
+            section_nav_list:
+              type: section
+              title: Nav list
+              underline: true
+              import@:
+
+                type: partials/navs
+                context: blueprints://
+
+        options:
+          type: tab
+          title: PLUGIN_ADMIN.OPTIONS
+          ordering@: 3
+
+        advanced:
+          type: tab
+          title: PLUGIN_ADMIN.ADVANCED
+          ordering@: 4

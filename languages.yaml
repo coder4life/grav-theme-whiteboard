@@ -1,20 +1,34 @@
 en:
-  TRANSLATION_TEST: Whiteboard!
-  BLOG:
-    ITEM:
-      CONTINUE_READING: Continue reading...
-      NEXT_POST: Next Post
-      PREV_POST: Previous Post
-  RESOURCE:
-    PATH: Path Parameters
-    QUERY: Query Parameters
-    RESPONSE: Response Object
-    REQUIRED: Required
-  REST:
-    VERB:
-      GET:
-      POST:
-      PATCH:
+  NAME: Whiteboard!
+  MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
+  PAGE:
+    BLOG:
+      BY: By
+      POSTED: Posted
+      PUBLISHED: Published
+      MODIFIED: Updated
+      ON: on
+      ITEM:
+        CONTINUE_READING: Continue reading...
+        NEXT_POST: Next Post
+        PREV_POST: Previous Post
+    NEWS:
+      LATEST: Latest from News + Blog posts
+    RESOURCE:
+      PATH: Path Parameters
+      QUERY: Query Parameters
+      RESPONSE: Response Object
+      REQUIRED: Required
+      REST:
+        VERB:
+          GET:
+          POST:
+          PATCH:
+  PARTIAL:
+    ASIDE:
+      ARCHIVES: Archives
+      CATEGORY: Category
+      TAGS: Tags
 
   FORM_DATA:
     SUMMARY: "Here is the summary of what you wrote to us:"

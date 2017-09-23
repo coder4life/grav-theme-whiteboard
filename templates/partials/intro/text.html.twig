@@ -1,0 +1,13 @@
+{% if image %}
+    <div class="media-cover">
+        <img class="media-cover-image" src="{{ image.uri }}"{% if image.alt %} alt="{{ image.alt }}"{% endif %} />
+    </div>
+{% endif %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        {% block section_content %}
+            {% if title %}<h1 class="title">{{ title }}</h1>{% endif %}
+            {% if button %}<a class="btn btn-outline-primary" href="#" role="button">{{ button.text }}</a>{% endif %}
+        {% endblock %}
+    </div>
+</div>

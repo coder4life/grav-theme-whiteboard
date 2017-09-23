@@ -1,8 +1,65 @@
-.resource {
-    top: 4rem;
-    right: 0;
-    bottom: 0;
-    left: 20rem;
-    position: fixed;
-    overflow-y: scroll;
+.page-template--resource {
+
+    .main {
+        padding: 0;
+    }
+
+    .resource {
+        padding: 8rem 0 4rem 20rem;
+        position: relative;
+    }
+
+    .title + .description {
+        margin-bottom: 2.5rem;
+    }
+
+    .container {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+    }
+
+    .method-title {
+        margin-bottom: 1rem;
+    }
+
+    .method-http {
+        width: 100%;
+        display: flex;
+        position: relative;
+        border-radius: 4px;
+    }
+
+    .method-http-verb {
+        border-radius: 4px 0 0 4px;
+        padding: 0 0.25rem;
+        line-height: 2.25rem;
+        flex: 0 0 4rem;
+        text-align: center;
+    }
+
+    .method-http-path {
+        border-radius: 0 4px 4px 0;
+        margin-left: 0.5rem;
+        padding: 0 0.25rem;
+        line-height: 2.25rem;
+    }
+
+    .definition-title {
+        margin-bottom: 1rem;
+    }
+
+    .definition-items {
+        list-style: none;
+        padding: 0;
+
+        .definition-item:first-child {
+            border-top: 1px solid;
+        }
+
+        .definition-item {
+            border-bottom: 1px solid;
+            padding: 1.5rem 0;
+            list-style: none;
+        }
+    }
 }

@@ -1,0 +1,42 @@
+form:
+  fields:
+
+    header.header_image:
+      type: toggle
+      toggleable: true
+      label: Display Header Image
+      help: Enabled displaying of a header image
+      highlight: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+    header.header_image_file:
+      type: text
+      toggleable: true
+      label: Image File
+      help: image filename that exists in the page folder. If not provided, will use the first image found.
+      placeholder: For example: myimage.jpg
+    header.header_image_width:
+      type: text
+      toggleable: true
+      label: Image Width
+      size: small
+      help: Header width in px
+      placeholder: Default is 1200
+      default: 1200
+      validate:
+        type: int
+        min: 0
+        max: 5000
+    header.header_image_height:
+      type: text
+      toggleable: true
+      label: Image Height
+      size: small
+      help: Header height in px
+      placeholder: Default is 400
+      default: 400
+      validate:
+        type: int
+        min: 0
+        max: 5000

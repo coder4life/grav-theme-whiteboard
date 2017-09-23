@@ -10,6 +10,9 @@ Thumbs.db
 **/.sass-cache
 **/*.map
 
+# Build
+build/*
+
 # NPM Modules
 node_modules/*
 npm-debug.log

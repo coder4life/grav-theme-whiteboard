@@ -1,0 +1,148 @@
+@mixin theme() {
+
+    // Config Params
+    // @import "/configs/whiteboard/themes/whiteboard";
+
+    // Page: Default Style
+    .theme-style--#{$theme-name} {
+
+        background: $wb-base-background-color;
+        color: $wb-base-color;
+
+        a {
+            color: $wb-inline-a-color;
+            text-decoration: $wb-inline-a-decoration;
+        }
+
+        a:hover {
+            color: $wb-inline-a-hover-color;
+            text-decoration: $wb-inline-a-hover-decoration;
+        }
+
+        code {
+            background: rgba(0, 0, 0, .15);
+            border-color: rgba(255, 255, 255, .3);
+            color: #bd4147;
+        }
+
+        .title {
+            color: rgba(255, 255, 255, 0.81);
+            border-image: linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0.3) 100%) 1;
+        }
+
+        .intro {
+
+            .title {
+                font-size: 3.5rem;
+                background: linear-gradient(to right, rgba(52, 58, 64, 0.15) 0%, rgba(52, 58, 64, 0.8) 25%, rgba(52, 58, 64, 0.8) 75%, rgba(52, 58, 64, 0.15) 100%);
+                color: #00aeff;
+                border-image: linear-gradient(rgba(0, 174, 255, 0.3) 0%, rgba(0, 174, 255, 0.8) 25%, rgba(0, 174, 255, 0.8) 75%, rgba(0, 174, 255, 0.3) 100%) 1;
+            }
+
+        }
+
+        .badge-default {
+            background-color: rgba(0,0,0,.2);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .navbar {
+            background-color: rgba(52, 58, 64, 0.8);
+            border-color: #00aeff;
+
+            .nav-item {
+
+                .nav-link {
+                    color: $wb-inline-a-color;
+                    text-decoration: $wb-inline-a-decoration;
+                }
+
+                .nav-link:hover {
+                    color: $wb-inline-a-hover-color;
+                    text-decoration: $wb-inline-a-hover-decoration;
+                }
+            }
+
+            .nav-item.active {
+                .nav-link {
+                    border-bottom: 3px solid #00aeff;
+                }
+
+            }
+        }
+
+        .sidebar-nav {
+            border-color: rgba(0, 174, 255, 0.60);
+
+            .nav-header {
+                background: #1a2226;
+                color: #4b646f;
+            }
+
+            .nav-link {
+                border-color: transparent;
+            }
+
+            .nav-link:hover {
+                background: #1e282c;
+            }
+
+            .nav-group {
+                background: #2c3b41;
+            }
+
+            .nav-item.tree.active > .nav-link {
+                color: $wb-inline-a-hover-color;
+                text-decoration: $wb-inline-a-hover-decoration;
+                background-color: #1e282c;
+                border-color: #00aeff;
+            }
+        }
+
+        .card {
+            background: #343A40;
+            border: none;
+
+            .list-group-item {
+                color: $wb-inline-a-color;
+                text-decoration: $wb-inline-a-decoration;
+                background-color: #343A40;
+            }
+
+            .list-group-item:hover {
+                color: $wb-inline-a-hover-color;
+                text-decoration: $wb-inline-a-hover-decoration;
+                background-color: #1e282c;
+            }
+        }
+    }
+
+    // Page: News Style
+    .theme-style--#{$theme-name}.page-template--news {
+
+        .news-cards {
+            border-color: #00aeff;
+        }
+    }
+
+    // Page: Resource Style
+    .theme-style--#{$theme-name}.page-template--resource {
+
+        .method-http {
+            background: #ffffff;
+
+            .method-http-path {
+                color: #333333
+            }
+        }
+
+    }
+}
+
+/* Theme – Default */
+@import 'configs/whiteboard/themes/whiteboard';
+@include theme();
+
+/* Theme – Blizzard */
+@import 'configs/whiteboard/themes/blizzard';
+@include theme();

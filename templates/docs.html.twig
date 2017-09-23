@@ -1,28 +1,51 @@
+{# extends base template partial #}
 {% extends 'partials/base.html.twig' %}
 
-{% set items = page.collection() %}
+{% import 'macros/pages.html.twig' as pageMacros %}
 
-{% block sidebar %}
-    {% include 'partials/sidebar_navigation.html.twig' %}
-{% endblock %}
+{# set collection variable from page class API #}
+{% set groups = page.header.groups %}
 
 {% block content %}
-    {% if config.plugins.breadcrumbs.enabled %}
-        {% include 'partials/breadcrumbs.html.twig' %}
-    {% endif %}
 
-    <div class="content-wrapper blog-content-list grid pure-g">
-        <div id="listing" class="block pure-u-2-3 h-feed">
-            {% for item in collection %}
-                {% include 'partials/blog_item.html.twig' with { 'blog': page, 'page': item, 'truncate': item } %}
-            {% endfor %}
+    <div class="documents">
+        <div class="intro">
+            {% set vars = {
+                'title': page.title,
+                'image': { 'uri': pageMacros.header_image(page, 'cropResize', 2560, 640) },
+                'terminal_title': 'TargetDummy Console'
+            } %}
+            {% include 'partials/intro/terminal.html.twig' with vars %}
+        </div>
 
-            {% if config.plugins.pagination.enabled and items.params.pagination %}
-                {% include 'partials/pagination.html.twig' with {'base_url': page.url, 'pagination': items.params.pagination} %}
-            {% endif %}
-        </div>
-        <div id="sidebar" class="block size-1-3 pure-u-1-3">
-            {% include 'partials/sidebar.html.twig' with {'blog': page} %}
-        </div>
+        {% if page.content %}
+            <div class="container">
+                <div class="content">
+                    {{ page.content }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% for group in groups %}
+            <section class="api-cards container group">
+                <h2 class="title">{{ group.name }}</h2>
+                {% set vars = {
+                    'class': { 'type': 'deck', 'align_content': 'start', 'align_items': 'start' }
+                } %}
+                {% embed 'bootstrap/card-group.html.twig' with vars %}
+                    {% block cards %}
+                        {% set parents = group.parents %}
+                        {% for parent in parents %}
+                            {% set vars = {
+                                'class': { 'outline': false, 'align': 'center' },
+                                'top': { 'text': parent.name },
+                                'list': page.find(parent.path).children
+                            } %}
+                            {% include 'bootstrap/cards.html.twig' with vars %}
+                        {% endfor %}
+                    {% endblock %}
+                {% endembed %}
+            </section>
+        {% endfor %}
     </div>
 {% endblock %}

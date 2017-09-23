@@ -1,17 +1,19 @@
-@import "modular/intro";
-@import "modular/features";
-@import "modular/showcase";
-@import "modular/text";
+.page-template--modular {
 
-
-.main {
-
-    .modular {
+    .main {
+        overflow: hidden;
         position: relative;
+        top: 0;
+        padding: 0;
+
+        .modular {
+            position: relative;
+        }
+
+        .modular.inset {
+            padding: 4rem 0;
+        }
+
     }
 
-    .modular.inset {
-        padding: 4rem 0;
-    }
 }
-

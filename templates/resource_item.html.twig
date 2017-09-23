@@ -1,26 +1,26 @@
-<section class="partial-resource-item">
-    <header class="resource-header container">
-        <h4 id="{{ page.slug }}">{{ page.title }}</h4>
-        <div class="http-method">
-            <span class="http-verb http-verb-{{ page.header.verb|lower }}">{{ page.header.verb|upper }}</span>
-            <span class="http-path http-path">{{ page.header.path }}</span>
+<section id="{{ page.slug }}" class="resource-item">
+    <header class="method container">
+        <h4 id="{{ page.slug }}" class="method-title">{{ page.title }}</h4>
+        <div class="method-http">
+            <span class="method-http-verb method-http-verb-{{ page.header.verb|lower }}">{{ page.header.verb|upper }}</span>
+            <span class="method-http-path method-http-path">{{ page.header.path }}</span>
         </div>
-        <div class="resource-content">
+        <div class="method-content">
             {{ page.content }}
         </div>
     </header>
     {% if page.header.parameters.items is not empty %}
-        <div class="resource-parameters flex-row">
+        <div class="parameters flex-row">
             <div class="resource-reference container">
                 <header>
-                    <h5 class="resource-name">{{ t("RESOURCE.PATH") }}</h5>
-                    <div class="resource-preamble">
+                    <h5 class="definition-title">{{ t("RESOURCE.PATH")|upper }}</h5>
+                    <div class="definition-preamble">
                         {{ page.header.parameters.preamble|markdown }}
                     </div>
                 </header>
-                <ul class="resource-items">
+                <ul class="definition-items">
                     {% for item in page.header.parameters.items %}
-                        <li class="resource-item">
+                        <li class="definition-item">
                             <div class="resource-label">
                                 <strong class="resource-field">{{ item.name }}</strong>
                                 <em class="resource-type">string</em>
@@ -38,18 +38,18 @@
         </div>
     {% endif %}
     {% if page.header.query.items is not empty %}
-        <div class="resource-query flex-row">
+        <div class="query flex-row">
             <div class="resource-reference container">
                 <header>
-                    <h5 class="resource-name">{{ t("RESOURCE.QUERY") }}</h5>
-                    <div class="resource-preamble">
+                    <h5 class="definition-title">{{ t("RESOURCE.QUERY")|upper }}</h5>
+                    <div class="definition-preamble">
                         {{ page.header.query.preamble|markdown }}
                     </div>
                 </header>
-                <ul class="resource-items">
+                <ul class="definition-items">
                     {% for item in page.header.query.items %}
-                        <li class="resource-item">
-                            <div class="resource-label">
+                        <li class="definition-item">
+                            <div class="definition-label">
                                 <strong class="resource-field">{{ item.name }}</strong>
                                 <em class="resource-type"></em>
                                 {% if item.required %}
@@ -66,18 +66,18 @@
         </div>
     {% endif %}
     {% if page.header.response.items is not empty %}
-        <div class="resource-response flex-row">
-            <div class="resource-reference container">
+        <div class="response flex-row">
+            <div class="reference container">
                 <header>
-                    <h5 class="resource-name">{{ t("RESOURCE.RESPONSE") }}</h5>
-                    <div class="resource-preamble">
+                    <h5 class="definition-title">{{ t("RESOURCE.RESPONSE")|upper }}</h5>
+                    <div class="definition-preamble">
                         {{ page.header.response.preamble|markdown }}
                     </div>
                 </header>
-                <ul class="resource-items">
+                <ul class="definition-items">
                     {% for item in page.header.response.items %}
-                        <li class="resource-item">
-                            <div class="resource-label">
+                        <li class="definition-item">
+                            <div class="definition-label">
                                 <strong class="resource-field"></strong>
                                 <em class="resource-type"></em>
                                 {% if item.required %}
@@ -88,7 +88,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="resource-sample container">
+            <div class="sample container">
                 <pre>
                     <code>
                         {{ page.header.query.description }}

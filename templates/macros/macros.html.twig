@@ -1,5 +1,3 @@
 {% macro htmlAttributes(name, text) %}{{ name ~ '=' ~ text }}{% endmacro %}
 
-{% macro htmlAttributes(items) %}
-
-{% endmacro %}
+{% macro linkName(text) %}{{ text|lower|replace({' ':'_'}) -}}{% endmacro %}

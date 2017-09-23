@@ -1,0 +1,32 @@
+<nav class="sidebar-nav">
+    <div id="accordion">
+        {% embed 'bootstrap/navs.html.twig' with { 'vertical': true } %}
+            {% block navs %}
+                {% if inheritedNavs is not empty %}
+                    <div class="nav-back">
+                        <a class="nav-link" href="{{ inheritedNavs.url }}"><i class="fa fa-arrow-left"></i>
+                            <span>Back to {{ inheritedNavs.menu }}</span></a>
+                    </div>
+                {% endif %}
+                <div class="nav-list">
+                    {% for nav in navs %}
+                        {% set parent = page.find(nav.path) %}
+                        <h5 class="nav-header">{{ nav.name|upper }}</h5>
+                        <ul class="nav root flex-column">
+                            {% set vars = {
+                                'parent': parent,
+                                'options': nav.options,
+                                'depth': 1,
+                                'badge': {
+                                    'class': { 'names': 'method-http-verb-' },
+                                    'attribute': 'verb'
+                                }
+                            } %}
+                            {% include 'bootstrap/navs/accordian.html.twig' with vars %}
+                        </ul>
+                    {% endfor %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    </div>
+</nav>

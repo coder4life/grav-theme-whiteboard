@@ -1,8 +1,8 @@
-{% import 'macros/pages.html.twig' as pageMacro %}
+{% import 'macros/macros.html.twig' as macros %}
 
-{% set items =  page.header.features %}
+{% set items = page.header.features %}
 
-<section class="features modular inset">
+<section class="modular-template--{{ macros.linkName(page.menu) }} inset">
     <div class="content container text-center">
         {{ page.content }}
     </div>

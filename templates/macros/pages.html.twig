@@ -1,1 +1,34 @@
-{% macro linkName(text) %}{{ text|lower|replace({' ':'_'}) -}}{% endmacro %}
+{% macro header_image(page, action = 'cropResize', default_image_width, default_image_height) %}
+
+    {# Set Header Image from Page variable if it exists #}
+    {% set header_image = page.header.header_image|defined(true) %}
+    {# Set Header Image from Page variable if it exists #}
+    {% set header_image_file = page.header.header_image_file %}
+    {# Set Header Image Width from Page variable if it exists #}
+    {% set header_image_width  = page.header.header_image_width|defined(default_image_width) %}
+    {# Set Header Image Height from Page variable if it exists #}
+    {% set header_image_height = page.header.header_image_height|defined(default_image_height) %}
+    {# Set Temporary Image string structure used if an image does not exist for debug #}
+    {% set placeImage = 'http://www.placehold.it/' ~ header_image_width ~ 'x' ~ header_image_height ~ '/f4f4f4' %}
+    {# Set Header Image from Page array #}
+    {% set header_image_media = header_image_file ? page.media.images[page.header.header_image_file] : page.media.images|first %}
+    {# Set Header Image Source #}
+    {% if header_image_media and action == 'resize' %}
+        {% set header_image_src = header_image_media.resize(header_image_width, header_image_height).url %}
+    {% elseif header_image_media and action == 'forceResize' %}
+        {% set header_image_src = header_image_media.forceResize(header_image_width, header_image_height).url %}
+    {% elseif header_image_media and action == 'cropResize' %}
+        {% set header_image_src = header_image_media.cropResize(header_image_width, header_image_height).url %}
+    {% elseif header_image_media and action == 'crop' %}
+        {% set header_image_src = header_image_media.crop(header_image_width, header_image_height).url %}
+    {% elseif header_image_media and action == 'cropZoom' %}
+        {% set header_image_src = header_image_media.cropZoom(header_image_width, header_image_height).url %}
+    {% elseif grav.config.system.debugger.enabled %}
+        {% set header_image_src = placeImage %}
+    {% else %}
+        {% set header_image_src = '' %}
+    {% endif %}
+
+    {{ header_image_src }}
+
+{% endmacro %}

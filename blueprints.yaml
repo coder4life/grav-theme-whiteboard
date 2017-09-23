@@ -1,5 +1,5 @@
 name: Whiteboard
-version: 0.0.1
+version: 0.0.6
 description: "Whiteboards are used to write, draw, plan, and prototypes ideas. Why cannot a similar concept exist for documentation?"
 icon: empire
 author:
@@ -14,10 +14,10 @@ license: MIT
 form:
   validation: loose
   fields:
+
     tabs:
       type: tabs
       active: 1
-
       fields:
 
         features:
@@ -29,7 +29,7 @@ form:
               type: toggle
               label: Enable Owl Carousel 2 - JS
               highlight: 1
-              default: 0
+              default: 1
               options:
                 1: Enabled
                 0: Disabled
@@ -39,7 +39,7 @@ form:
               type: toggle
               label: Enable Particles - JS
               highlight: 1
-              default: 0
+              default: 1
               options:
                 1: Enabled
                 0: Disabled
@@ -49,7 +49,7 @@ form:
               type: toggle
               label: Enable Tether - JS
               highlight: 1
-              default: 0
+              default: 1
               options:
                 1: Enabled
                 0: Disabled
@@ -206,18 +206,29 @@ form:
                   validate:
                     type: string
 
-        theme:
+        style:
           type: tab
-          title: Theme
+          title: Style
           fields:
 
-            section_theme_main:
+            style.default:
+              type: select
+              label: Default Style
+              classes: fancy
+              default: whiteboard
+              options:
+                'whiteboard': 'whiteboard'
+                'blizzard': 'blizzard'
+              validate:
+                type: string
+
+            section_style_main:
               type: section
               title: Body Style
               underline: true
               fields:
 
-                theme.main.shade:
+                style.main.shade:
                   type: select
                   label: Shade
                   classes: fancy
@@ -225,7 +236,7 @@ form:
                   options:
                     'light': 'light'
                     'dark': 'dark'
-                theme.main.pallet:
+                style.main.pallet:
                   type: select
                   label: Pallet
                   classes: fancy
@@ -236,26 +247,26 @@ form:
                     'accent2': 'accent2'
                     'accent3': 'accent3'
                     'accent4': 'accent4'
-                theme.main.image:
+                style.main.image:
                   type: filepicker
                   folder: '@self'
                   preview_images: true
                   label: Select a file
 
-            section_theme_modular:
+            section_style_modular:
               type: section
               title: Main Style
               underline: true
               fields:
 
-                theme.modular.shade:
+                style.modular.shade:
                   type: select
                   label: Shade
                   classes: fancy
                   options:
                     'light': 'light'
                     'dark': 'dark'
-                theme.modular.pallet:
+                style.modular.pallet:
                   type: select
                   label: Pallet
                   classes: fancy
@@ -266,19 +277,19 @@ form:
                     'accent2': 'accent2'
                     'accent3': 'accent3'
                     'accent4': 'accent4'
-                theme.modular.image:
+                style.modular.image:
                   type: filepicker
                   folder: '@self'
                   preview_images: true
                   label: Select a file
 
-            section_theme_header:
+            section_style_header:
               type: section
               title: Header Style
               underline: true
               fields:
 
-                theme.header.style:
+                style.header.style:
                   type: select
                   label: Shade
                   classes: fancy
@@ -286,7 +297,7 @@ form:
                   options:
                     'light': 'light'
                     'dark': 'dark'
-                theme.header.pallet:
+                style.header.pallet:
                   type: select
                   label: Pallet
                   classes: fancy
@@ -297,19 +308,19 @@ form:
                     'accent2': 'accent2'
                     'accent3': 'accent3'
                     'accent4': 'accent4'
-                theme.header.image:
+                style.header.image:
                   type: filepicker
                   folder: '@self'
                   preview_images: true
                   label: Select a file
 
-            section_theme_footer:
+            section_style_footer:
               type: section
               title: Footer Style
               underline: true
               fields:
 
-                theme.footer.style:
+                style.footer.style:
                   type: select
                   label: Shade
                   classes: fancy
@@ -317,7 +328,7 @@ form:
                   options:
                     'light': 'light'
                     'dark': 'dark'
-                theme.footer.pallet:
+                style.footer.pallet:
                   type: select
                   label: Pallet
                   classes: fancy
@@ -328,7 +339,7 @@ form:
                     'accent2': 'accent2'
                     'accent3': 'accent3'
                     'accent4': 'accent4'
-                theme.footer.image:
+                style.footer.image:
                   type: filepicker
                   folder: '@self'
                   preview_images: true
@@ -341,37 +352,37 @@ form:
 
             section_api_rest:
               type: section
-              title: REST
+              title: Api Rest
               underline: true
               fields:
 
                 api.rest.get:
                   type: colorpicker
-                  label: GET Color
+                  label: Get Color
                   default: '#00b680'
                   validate:
                     type: string
                 api.rest.post:
                   type: colorpicker
-                  label: POST Color
+                  label: Post Color
                   default: '#009cde'
                   validate:
                     type: string
                 api.rest.patch:
                   type: colorpicker
-                  label: PATCH Color
+                  label: Patch Color
                   default: '#640487'
                   validate:
                     type: string
                 api.rest.put:
                   type: colorpicker
-                  label: PUT Color
+                  label: Put Color
                   default: '#f08d00'
                   validate:
                     type: string
                 api.rest.delete:
                   type: colorpicker
-                  label: DELETE Color
+                  label: Delete Color
                   default: '#d4005e'
                   validate:
                     type: string
@@ -383,7 +394,7 @@ form:
 
             section_settings_global:
               type: section
-              title: Golbal Settings
+              title: Global Settings
               underline: true
               fields:
 

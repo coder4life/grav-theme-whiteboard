@@ -1,8 +1,18 @@
+// Bootstrap broken default layout issues, need to override these
+
 // General
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 
+.jumbotron {
+    background: none;
+}
+
+// Badges
+.badge {
+    font-size: 100%;
+}
 
 // Cards
 .card-deck {
@@ -17,9 +27,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-
 .card-img-top, .card-image-bottom {
     width: auto;
+    max-width: 100%;
 }
 
 .list-group {
@@ -74,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
     .navbar-nav {
         .nav-link {
             padding: 0 1.2rem;
-            line-height: 4rem;
+            line-height: 3.125rem;
         }
     }
 }
