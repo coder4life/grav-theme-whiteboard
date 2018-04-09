@@ -1,3 +1,5 @@
+// stylelint-disable
+
 $theme-name: blizzard;
 
 // base
@@ -6,14 +8,14 @@ $theme-name: blizzard;
 
 // base: color scheme type
 $wb-base-scheme-type-primary: #0e86ca;
-$wb-base-scheme-type-secondary: rgba(255,255,255,0.2);
-$wb-base-scheme-type-inverse: rgba(0,0,0,0.2);
+$wb-base-scheme-type-secondary: rgba(255, 255, 255, 0.2);
+$wb-base-scheme-type-inverse: rgba(0, 0, 0, 0.2);
 
 // base: style
-$wb-base-color: rgba(255,255,255,0.8);
+$wb-base-color: rgba(255, 255, 255, 0.8);
 
 // base: background
-$wb-base-background-color:  #282E36;
+$wb-base-background-color:  #282e36;
 
 // base: header
 $wb-base-headers-border-bottom-width: none;
@@ -77,7 +79,7 @@ $wb-block-table-border-width: $wb-base-border-width;
 $wb-block-table-border-color: $wb-base-color-shade-gray-light;
 
 // block: table > td
-$wb-block-table-td-padding: .75rem;
+$wb-block-table-td-padding: 0.75rem;
 
 
 // components
@@ -85,7 +87,7 @@ $wb-block-table-td-padding: .75rem;
 // Components configuration
 
 // components: sidebar-nav
-$sidebar-nav-header-font-size: .9375rem;
+$sidebar-nav-header-font-size: 0.9375rem;
 $sidebar-nav-header-line-height: 2rem;
-$sidebar-nav-link-font-size: .9375rem;
+$sidebar-nav-link-font-size: 0.9375rem;
 $sidebar-nav-link-line-height: 2rem;

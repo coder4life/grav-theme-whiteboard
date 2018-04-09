@@ -17,6 +17,40 @@ const autoprefixer = require('autoprefixer'),
   merge = require('merge-stream');
 
 config = {
+  css: [
+    { // bootstrap
+        name: 'bootstrap',
+        base: '.',
+        in: 'scss/vendor/bootstrap.scss',
+        out: 'css',
+        compile: true,
+        prefix: true,
+    },
+    { // fontawesome
+        name: 'fontawesome',
+        base: '.',
+        in: 'scss/vendor/fontawesome.scss',
+        out: 'css',
+        compile: true,
+        prefix: true,
+    },
+    { // owlcarousel2
+        name: 'owlcarousel2',
+        base: '.',
+        in: 'scss/vendor/owlcarousel2.scss',
+        out: 'css',
+        compile: true,
+        prefix: true,
+    },
+    { // whiteboard
+        name: 'whiteboard',
+        base: '.',
+        in: 'scss/whiteboard.scss',
+        out: 'css',
+        compile: true,
+        prefix: true,
+    }
+  ],
   js: [
     {
       name: 'bootstrap',
@@ -92,40 +126,6 @@ config = {
       ],
       out: 'js',
       flatten: true,
-    }
-  ],
-  css: [
-    { // bootstrap
-      name: 'bootstrap',
-      base: '.',
-      in: 'scss/vendor/bootstrap.scss',
-      out: 'css',
-      compile: true,
-      prefix: true,
-    },
-    { // fontawesome
-      name: 'fontawesome',
-      base: '.',
-      in: 'scss/vendor/fontawesome.scss',
-      out: 'css',
-      compile: true,
-      prefix: true,
-    },
-    { // owlcarousel2
-      name: 'owlcarousel2',
-      base: '.',
-      in: 'scss/vendor/owlcarousel2.scss',
-      out: 'css',
-      compile: true,
-      prefix: true,
-    },
-    { // whiteboard
-      name: 'whiteboard',
-      base: '.',
-      in: 'scss/whiteboard.scss',
-      out: 'css',
-      compile: true,
-      prefix: true,
     }
   ],
   fonts: [

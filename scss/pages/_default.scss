@@ -1,196 +1,207 @@
 body {
-    min-width: 320px;
-    min-height: 480px;
+  min-width: 320px;
+  min-height: 480px;
 }
 
 code {
-    padding: 0.1rem 0.3rem;
+  padding: 0.1rem 0.3rem;
 }
 
 table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: $wb-base-spacer;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $wb-base-spacer;
 
-    th,
-    td {
-        padding: $wb-block-table-td-padding;
-        vertical-align: top;
-        border-top: $wb-block-table-border-width solid $wb-block-table-border-color;
-    }
+  th,
+  td {
+    padding: $wb-block-table-td-padding;
+    vertical-align: top;
+    border-top: $wb-block-table-border-width solid $wb-block-table-border-color;
+  }
 
-    thead th {
-        vertical-align: bottom;
-        border-bottom: (2 * $wb-block-table-border-width) solid $wb-block-table-border-color;
-    }
+  th {
+    vertical-align: bottom;
+    border-bottom: (2 * $wb-block-table-border-width) solid $wb-block-table-border-color;
+  }
 
-    tbody + tbody {
-        border-top: (2 * $wb-block-table-border-width) solid $wb-block-table-border-color;
-    }
+  tbody {
+    border-top: (2 * $wb-block-table-border-width) solid $wb-block-table-border-color;
+  }
 
-    table {
-        background-color: $wb-base-background-color;
-    }
+  table {
+    background-color: $wb-base-background-color;
+  }
 }
 
-.badge {
-    border: 1px solid;
-    padding: 10px 15px;
-    margin: 0 5px 10px 0;
+video {
+  max-width: 100%;
+  height: 100%;
+}
+
+audio {
+  max-width: 100%;
 }
 
 .navbar {
-    border-bottom: 0.125rem solid;
+  border-bottom: 0.125rem solid;
 
-    .nav-link {
-        text-transform: uppercase;
-    }
+  .nav-link {
+    text-transform: uppercase;
+  }
 }
 
 .navbar-brand {
-    width: 20rem;
-    border-left: 3px solid transparent;
+  width: 20rem;
+  border-left: 3px solid transparent;
 }
 
 .main {
-    position: relative;
-    padding: 6.5rem 0 4rem;
-    overflow-y: scroll;
+  position: relative;
+  padding: 6.5rem 0 4rem;
+  overflow-y: scroll;
 }
 
 .container {
-    padding-top: 3rem;
-    padding-bottom: 1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 .group {
-    .title {
-        margin-bottom: 1.5rem;
-    }
+  .title {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .title {
-    border-top: 0.125rem solid;
-    border-bottom: 0.125rem solid;
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  border-top: 0.125rem solid;
+  border-bottom: 0.125rem solid;
 }
 
 .sidebar {
-    width: 100%;
+  width: 100%;
 
-    .container {
-        padding-top: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
+  .container {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .badge {
+    padding: 10px 15px;
+    margin: 0 5px 10px 0;
+    font-size: 100%;
+    border: 1px solid;
+  }
 }
 
 .intro {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 35vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 35vh;
 
-    .container {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+  .container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .title {
+    width: 80%;
+    padding: 0.25rem 0;
+    margin: 0 auto 2rem auto;
+    font-weight: 400;
+    border-top: 0.125rem solid;
+    border-bottom: 0.25rem solid;
+  }
+
+  .media-cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -100;
+    overflow: hidden;
+
+    .media-cover-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      min-width: 100%;
+      max-width: none;
+      height: auto;
+      min-height: 100%;
+      max-height: none;
+      transform: translate(-50%, -50%);
     }
-
-    .title {
-        width: 80%;
-        border-top: 0.125rem solid;
-        border-bottom: 0.250rem solid;
-        margin: 0 auto 2rem auto;
-        padding: 0.25rem 0;
-        font-weight: 400;
-    }
-
-    .media-cover {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: hidden;
-        z-index: -100;
-
-        .media-cover-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            max-height: none;
-            max-width: none;
-            min-height: 100%;
-            min-width: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%,-50%);
-        }
-    }
+  }
 }
 
 .sidebar-nav {
-    width: 20rem;
-    border-right: 0.125rem solid;
-    top: 3.4375rem;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    z-index: 10;
+  position: fixed;
+  top: 3.4375rem;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 20rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-right: 0.125rem solid;
 
-    .fa {
-        margin-right: 10px;
-    }
+  .fa {
+    margin-right: 10px;
+  }
 
-    .nav-back {
-        .nav-link {
-            font-size: 0.9375rem;
-            line-height: 1;
-        }
-    }
-
-    .nav-header {
-        font-size: 0.875rem;
-        line-height: 1;
-        margin: 0;
-        padding: 11px 25px 11px 15px;
-    }
-
-    .nav-item.tree > .nav-link {
-            font-size: 0.875rem;
-            line-height: 1;
-            padding: 12px 25px 12px 15px;
-
-            .fa-angle-left {
-                line-height: 1;
-                transform: rotate(-90deg);
-            }
-        }
-
-    .nav-item.tree > .nav-link.collapsed {
-        .fa-angle-left {
-            transform: rotate(0);
-        }
-    }
-
-    .nav-item.tree.active > .nav-link {
-        .fa-angle-left {
-            transform: rotate(-90deg);
-            line-height: 1;
-        }
-    }
-
+  .nav-back {
     .nav-link {
-        font-size: 0.875rem;
-        line-height: 1;
-        padding: 11px 25px 11px 15px;
-        border-left: 3px solid;
+      font-size: 0.9375rem;
+      line-height: 1;
     }
+  }
 
+  .nav-header {
+    padding: 11px 25px 11px 15px;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1;
+  }
 
+  .nav-item.tree > .nav-link {
+    padding: 12px 25px 12px 15px;
+    font-size: 0.875rem;
+    line-height: 1;
+
+    .fa-angle-left {
+      line-height: 1;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .nav-item.tree > .nav-link.collapsed {
+    .fa-angle-left {
+      transform: rotate(0);
+    }
+  }
+
+  .nav-item.tree.active > .nav-link {
+    .fa-angle-left {
+      line-height: 1;
+      transform: rotate(-90deg);
+    }
+  }
+
+  .nav-link {
+    padding: 11px 25px 11px 15px;
+    font-size: 0.875rem;
+    line-height: 1;
+    border-left: 3px solid;
+  }
+
+  /* .badge {
+      border: 1px solid;
+  } */
 }
-

@@ -1,35 +1,35 @@
 .modular-template--features {
 
+  .card-group {
+
+    .card {
+      margin: 0;
+
+      .card-img-top {
+        border-radius: 100%;
+      }
+
+    }
+
+    .card:nth-child(n+4) {
+      margin: 0;
+      border-bottom: 0;
+    }
+
+    .card:nth-child(3n) {
+      margin: 0;
+      border-right: 0;
+    }
+
+  }
+
+  &.light {
     .card-group {
-
-        .card {
-            margin: 0;
-
-            .card-img-top {
-                border-radius: 100%;
-            }
-
-        }
-
-        .card:nth-child(n+4) {
-            border-bottom: 0;
-            margin: 0;
-        }
-
-        .card:nth-child(3n) {
-            border-right: 0;
-            margin: 0;
-        }
-
+      .card {
+        border-right: 1px solid #aaaaaa;
+        border-bottom: 1px solid #aaaaaa;
+      }
     }
-
-    &.light {
-        .card-group {
-            .card {
-                border-right: 1px solid #aaaaaa;
-                border-bottom: 1px solid #aaaaaa;
-            }
-        }
-    }
+  }
 
 }

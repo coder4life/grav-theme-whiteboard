@@ -31,10 +31,19 @@ form:
                 type: partials/header_image
                 context: blueprints://
 
+        typed:
+          type: tab
+          ordering@: 1
+          title: Typed
+          import@:
+
+            type: features/typed
+            context: blueprints://
+
         groups:
           type: tab
           title: Groups
-          ordering@: 1
+          ordering@: 2
           fields:
 
             section_api_groups:
@@ -49,7 +58,7 @@ form:
         navs:
           type: tab
           title: Navs
-          ordering@: 2
+          ordering@: 3
           fields:
 
             section_nav_list:
@@ -64,9 +73,9 @@ form:
         options:
           type: tab
           title: PLUGIN_ADMIN.OPTIONS
-          ordering@: 3
+          ordering@: 4
 
         advanced:
           type: tab
           title: PLUGIN_ADMIN.ADVANCED
-          ordering@: 4
+          ordering@: 5

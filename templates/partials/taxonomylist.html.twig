@@ -1,21 +1,24 @@
 {% set taxlist = taxonomylist.get() %}
-
 {% if taxlist %}
     {% if style == 'list' %}
-        <div class="list-group tags">
+        <div class="list-group menu">
             {% for tax,value in taxlist[taxonomy] %}
                 {% set active = uri.param(taxonomy) == tax ? ' active' : '' %}
                 <a class="list-group-item{{ active }}" href="{{ url_relative }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax }}">{{ tax }}</a>
             {% endfor %}
         </div>
     {% elseif style == 'badge' %}
-        {% for tax,value in taxlist[taxonomy] %}
-            {% set vars = {
-                'class': { 'style': 'default' },
-                'link': url_relative ~ '/' ~ taxonomy ~ config.system.param_sep ~ tax,
-                'text': tax,
-            } %}
-            {% include 'bootstrap/badges.html.twig' with vars %}
-        {% endfor %}
+        <div class="tags">
+        {% spaceless %}
+            {% for tax,value in taxlist[taxonomy] %}
+                {% set vars = {
+                    'class': { 'style': 'default' },
+                    'link': url_relative ~ '/' ~ taxonomy ~ config.system.param_sep ~ tax,
+                    'text': tax,
+                } %}
+                {% include 'bootstrap/badges.html.twig' with vars %}
+            {% endfor %}
+        {% endspaceless %}
+        </div>
     {% endif %}
 {% endif %}

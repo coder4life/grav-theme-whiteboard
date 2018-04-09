@@ -5,7 +5,6 @@
 {% import 'macros/pages.html.twig' as pageMacros %}
 
 {% block content %}
-
     <div class="news-item">
         <div class="intro">
             {% set vars = {
@@ -31,10 +30,14 @@
                 {% endblock %}
             {% endembed %}
         </div>
-        <div class="container">
-            {{ page.content }}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ page.content }}
+            </div>
+            <div class="col-4">
+                {% include 'partials/aside.html.twig' with { 'url_relative': parent.url } %}
+            </div>
         </div>
-
     </div>
-
 {% endblock %}

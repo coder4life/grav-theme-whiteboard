@@ -1,19 +1,19 @@
 .page-template--modular {
 
-    .main {
-        overflow: hidden;
-        position: relative;
-        top: 0;
-        padding: 0;
+  .main {
+    position: relative;
+    top: 0;
+    padding: 0;
+    overflow: hidden;
 
-        .modular {
-            position: relative;
-        }
-
-        .modular.inset {
-            padding: 4rem 0;
-        }
-
+    .modular {
+      position: relative;
     }
+
+    .modular.inset {
+      padding: 4rem 0;
+    }
+
+  }
 
 }

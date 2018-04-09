@@ -1,4 +1,4 @@
-$theme-name: whiteboard;
+$theme-name: whiteboard !default;
 
 // base
 //
@@ -31,13 +31,13 @@ $wb-base-scheme-type-danger: #c9302c !default;
 $wb-base-scheme-type-inverse: $wb-base-color-shade-black !default;
 
 // base: font family
-$wb-base-font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
-$wb-base-font-family-serif: Georgia, "Times New Roman", Times, serif !default;
-$wb-base-font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$wb-base-font-family-sans-serif: -apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif !default;
+$wb-base-font-family-serif: georgia, "Times New Roman", times, serif !default;
+$wb-base-font-family-monospace:  menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace !default;
 $wb-base-font-family: $wb-base-font-family-sans-serif !default;
 
 // base: style
-$wb-base-color: #010e16;
+$wb-base-color: #010e16 !default;
 $wb-base-font-size: 1rem !default; // Assumes the browser default, typically `16px`
 $wb-base-font-weight-bold: bold !default;
 $wb-base-font-weight-normal: normal !default;
@@ -49,11 +49,11 @@ $wb-base-spacer-x: $wb-base-spacer !default;
 $wb-base-spacer-y: $wb-base-spacer !default;
 
 // base: background
-$wb-base-background-color: #010e16;
+$wb-base-background-color: #010e16 !default;
 
 // base: border
 $wb-base-border-color: $wb-base-color !default;
-$wb-base-border-radius: .25rem !default;
+$wb-base-border-radius: 0.25rem !default;
 $wb-base-border-width: 1px !default;
 
 // base: header
@@ -83,16 +83,16 @@ $wb-inline-b-font-weight: $wb-base-font-weight-bold !default;
 
 // inline: blockquote
 $wb-inline-blockquote-border-color: $wb-base-color-shade-gray-light !default;
-$wb-inline-blockquote-border-width: .25rem !default;
+$wb-inline-blockquote-border-width: 0.25rem !default;
 $wb-inline-blockquote-font-size: ($wb-base-font-size * 1.25) !default;
 $wb-inline-blockquote-font-size: 2.5rem !default;
 $wb-inline-blockquote-font-weight: 500 !default;
 $wb-inline-blockquote-line-height: $wb-base-headers-line-height !default;
 
 // inline: code
-$wb-inline-code-font-size: .875rem !default;
-$wb-inline-code-padding-x: .4rem !default;
-$wb-inline-code-padding-y: .2rem !default;
+$wb-inline-code-font-size: 0.875rem !default;
+$wb-inline-code-padding-x: 0.4rem !default;
+$wb-inline-code-padding-y: 0.2rem !default;
 $wb-inline-code-text-color: #bd4147 !default;
 $code-background: $wb-base-color-shade-gray-light !default;
 
@@ -129,7 +129,7 @@ $wb-inline-h3-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h4
 $wb-inline-h4-border-color: $wb-base-color-shade-gray-light !default;
-$wb-inline-h4-border-bottom-width: $wb-base-headers-border-bottom-width!default;
+$wb-inline-h4-border-bottom-width: $wb-base-headers-border-bottom-width !default;
 $wb-inline-h4-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h4-font-size: 1.85rem !default;
 $wb-inline-h4-font-weight: $wb-base-headers-font-weight !default;
@@ -138,7 +138,7 @@ $wb-inline-h4-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h5
 $wb-inline-h5-border-color: $wb-base-color-shade-gray-light !default;
-$wb-inline-h5-border-bottom-width: $wb-base-headers-border-bottom-width!default;
+$wb-inline-h5-border-bottom-width: $wb-base-headers-border-bottom-width !default;
 $wb-inline-h5-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h5-font-size: 1.25rem !default;
 $wb-inline-h5-font-weight: $wb-base-headers-font-weight !default;
@@ -147,7 +147,7 @@ $wb-inline-h5-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: h6
 $wb-inline-h6-border-color: $wb-base-color-shade-gray-light !default;
-$wb-inline-h6-border-bottom-width: $wb-base-headers-border-bottom-width!default;
+$wb-inline-h6-border-bottom-width: $wb-base-headers-border-bottom-width !default;
 $wb-inline-h6-font-family: $wb-base-headers-font-family !default;
 $wb-inline-h6-font-size: 1rem !default;
 $wb-inline-h6-font-weight: $wb-base-headers-font-weight !default;
@@ -155,17 +155,17 @@ $wb-inline-h6-line-height: $wb-base-headers-line-height !default;
 $wb-inline-h6-margin-bottom: ($wb-base-spacer * 0.75) !default;
 
 // inline: hr
-$wb-inline-hr-border-color: rgba($wb-base-color-shade-black, .1) !default;
+$wb-inline-hr-border-color: rgba($wb-base-color-shade-black, 0.1) !default;
 $wb-inline-hr-border-width: $wb-base-border-width !default;
 
 // inline: ins
 
 // inline: mark
-$wb-mark-padding: .2em !default;
+$wb-mark-padding: 0.2em !default;
 
 // inline: p
 $wb-inline-p-border-color: $wb-base-color-shade-gray-light !default;
-$wb-inline-p-border-bottom-width: .25rem !default;
+$wb-inline-p-border-bottom-width: 0.25rem !default;
 $wb-inline-p-font-family: inherit !default;
 $wb-inline-p-font-size: 1.125rem !default;
 $wb-inline-p-font-weight: 500 !default;
@@ -216,7 +216,7 @@ $wb-block-table-border-width: $wb-base-border-width !default;
 $wb-block-table-border-color: $wb-base-color-shade-gray-light !default;
 
 // block: table > td
-$wb-block-table-td-padding: .75rem;
+$wb-block-table-td-padding: 0.75rem !default;
 
 
 // components
@@ -224,7 +224,7 @@ $wb-block-table-td-padding: .75rem;
 // Components configuration
 
 // components: sidebar-nav
-$sidebar-nav-header-font-size: .9375rem !default;
+$sidebar-nav-header-font-size: 0.9375rem !default;
 $sidebar-nav-header-line-height: 2rem !default;
-$sidebar-nav-link-font-size: .9375rem !default;
+$sidebar-nav-link-font-size: 0.9375rem !default;
 $sidebar-nav-link-line-height: 2rem !default;

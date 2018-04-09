@@ -1,75 +1,124 @@
 form:
   fields:
 
+    section_typed_text:
+      type: section
+      title: Params
+      underline: true
+      fields:
+
+        header.typed.pretext:
+          type: textarea
+          label: Pretext
+
+        header.typed.posttext:
+          type: textarea
+          label: Posttext
+
     section_typed_params:
       type: section
       title: Params
       underline: true
       fields:
 
-        header.typed.type_speed:
+        header.typed.options.strings:
+          type: array
+          label: Strings
+          value_only: true
+
+        header.typed.options.typeSpeed:
           type: text
           label: Type Speed
-          default: 0.7
+          default: 100
           validate:
-            type: float
+            type: int
             min: 0
-            max: 10
-        header.typed.start_deplay:
+            max: 10000
+        header.typed.options.startDeplay:
           type: text
           label: Start Delay
-          default: 0.7
+          default: 0
           validate:
-            type: float
+            type: int
             min: 0
-            max: 10
-        header.typed.back_speed:
+            max: 10000
+        header.typed.options.backSpeed:
           type: text
           label: Back Speed
-          default: 0.7
+          default: 50
           validate:
-            type: float
+            type: int
             min: 0
-            max: 10
-        header.typed.back_delay:
-             type: text
-             label: Back Speed
-             default: 0.7
-             validate:
-               type: float
-               min: 0
-               max: 10
-        header.typed.shuffle:
+            max: 10000
+        header.typed.options.backDelay:
+          type: text
+          label: Back Deplay
+          default: 2500
+          validate:
+            type: int
+            min: 0
+            max: 10000
+        header.typed.options.smartBackspace:
+          type: toggle
+          label: Smart Backspace
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.typed.options.shuffle:
           type: toggle
           label: Shuffle
           highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        header.typed.options.fadeOut:
+          type: toggle
+          label: Fade Out
+          highlight: 1
           default: 0
           options:
             1: PLUGIN_ADMIN.ENABLED
             0: PLUGIN_ADMIN.DISABLED
           validate:
             type: bool
-        header.typed.loop:
+        header.typed.options.fadeOutClass:
+          type: text
+          label: Fade Out Class
+          default: typed-fade-out'
+          validate:
+            type: string
+        header.typed.options.fadeOutDelay:
+          type: text
+          label: Fade Out Deplay
+          default: 500
+          validate:
+            type: int
+            min: 0
+            max: 10000
+        header.typed.options.loop:
           type: toggle
           label: Loop
           highlight: 1
-          default: 0
+          default: 1
           options:
             1: PLUGIN_ADMIN.ENABLED
             0: PLUGIN_ADMIN.DISABLED
           validate:
             type: bool
-        header.typed.loop_count:
-          type: toggle
+        header.typed.options.loopCount:
+          type: text
           label: Loop Count
-          highlight: 1
-          default: 0
-          options:
-            1: PLUGIN_ADMIN.ENABLED
-            0: PLUGIN_ADMIN.DISABLED
+          default: Infinity
           validate:
-            type: bool
-        header.typed.show_cursor:
+            type: string
+        header.typed.options.show_cursor:
           type: toggle
           label: Show Cursor
           highlight: 1
@@ -79,19 +128,19 @@ form:
             0: PLUGIN_ADMIN.DISABLED
           validate:
             type: bool
-        header.typed.cursor_char:
+        header.typed.options.cursor_char:
           type: text
           label: Cursor Char
           default: '|'
           validate:
             type: string
-        header.typed.attr:
+        header.typed.options.attr:
           type: text
           label: Attribute
           default: null
           validate:
             type: string
-        header.typed.content_type:
+        header.typed.options.content_type:
           type: text
           label: Content Type
           default: 'html'

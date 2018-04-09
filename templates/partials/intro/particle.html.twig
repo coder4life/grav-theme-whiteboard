@@ -1,11 +1,11 @@
 {% if not isMobile() %}
     <script type="text/javascript">
       $(document).ready(function() {
-        particlesJS("particles-js", {{ page.header.particlejs|json_encode() }});
+        particlesJS("particles-canvas", {{ page.header.particlejs.options|json_encode() }});
       });
     </script>
 
-    <div id="particles-js" class="backdrop"></div>
+    <div id="particles-canvas" class="particles-js backdrop"></div>
 {% endif %}
 
 <div class="jumbotron text-center">

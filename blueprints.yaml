@@ -11,6 +11,10 @@ keywords: whiteboard, theme, core, modern, fast, responsive, html5, css3
 bugs: https://github.com//coder4life/grav-theme-whiteboard/issues
 license: MIT
 
+dependencies:
+    - { name: grav, version: '>=1.4.0' }
+    - { name: ui-bootstrap4, version: '>=0.0.1' }
+
 form:
   validation: loose
   fields:

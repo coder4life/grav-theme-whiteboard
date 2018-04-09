@@ -49,24 +49,15 @@ form:
             type: features/particles
             context: blueprints://
 
-        typed:
-          type: tab
-          ordering@: 3
-          title: Typed
-          import@:
-
-            type: features/typed
-            context: blueprints://
-
         options:
           type: tab
           title: Options
-          ordering@: 4
+          ordering@: 3
 
         advanced:
           type: tab
           title: Advanced
-          ordering@: 5
+          ordering@: 4
           fields:
 
             columns:

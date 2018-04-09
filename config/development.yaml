@@ -1,0 +1,87 @@
+packages:
+  css:
+    - name: 'bootstrap'
+      base: '.'
+      in: 'scss/vendor/bootstrap.scss'
+      out: 'css'
+      compile: true
+      prefix: true
+    - name: 'fontawesome'
+      base: '.'
+      in: 'scss/vendor/fontawesome.scss'
+      out: 'css'
+      compile: true
+      prefix: true
+    - name: 'owlcarousel2'
+      base: '.'
+      in: 'scss/vendor/owlcarousel2.scss'
+      out: 'css'
+      compile: true
+      prefix: true
+    - name: 'whiteboard'
+      base: '.'
+      in: 'scss/whiteboard.scss'
+      out: 'css'
+      compile: true
+      prefix: true
+  fonts:
+    - name: 'fontawesome'
+      base: 'node_modules/font-awesome/fonts/'
+      in: 'node_modules/font-awesome/fonts/*'
+      out: 'fonts'
+  js:
+    - name: 'bootstrap'
+      base: '.'
+      in:
+        - 'node_modules/bootstrap/dist/js/bootstrap.js'
+        - 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+      out: 'js'
+    - name: 'owlcarousel2'
+      base: '.'
+      in:
+        - 'node_modules/owl.carousel/dist/owl.carousel.js'
+        - 'node_modules/owl.carousel/dist/owl.carousel.min.js'
+      out: 'js'
+    - name: 'particles'
+      base: '.'
+      in: 'node_modules/particles.js/particles.js'
+      out: 'js'
+      minify: true
+    - name: 'popper'
+      base: '.'
+      in:
+        - 'node_modules/popper.js/dist/umd/popper.js'
+        - 'node_modules/popper.js/dist/umd/popper.min.js'
+        - 'node_modules/popper.js/dist/umd/popper.min.js.map'
+        - 'node_modules/popper.js/dist/umd/popper-utils.js'
+        - 'node_modules/popper.js/dist/umd/popper-utils.min.js'
+        - 'node_modules/popper.js/dist/umd/popper-utils.min.js.map'
+      out: 'js'
+    - name: 'tooltip'
+      base: '.'
+      in:
+        - 'node_modules/tooltip.js/dist/tooltip.js'
+        - 'node_modules/tooltip.js/dist/tooltip.min.js'
+        - 'node_modules/tooltip.js/dist/tooltip.min.js.map'
+      out: 'js'
+    - name: 'typed'
+      base: '.'
+      in:
+        - 'node_modules/typed.js/lib/typed.js'
+        - 'node_modules/typed.js/lib/typed.min.js'
+        - 'node_modules/typed.js/lib/typed.min.js.map'
+      out: 'js'
+
+supportedBrowsers:
+  - 'last 1 major version'
+  - '>= 1%'
+  - 'Android 2.3'
+  - 'Android >= 4'
+  - 'Chrome >= 35'
+  - 'Edge >= 12'
+  - 'Explorer >= 10'
+  - 'Firefox >= 38'
+  - 'iOS >= 8'
+  - 'Opera >= 12'
+  - 'Safari >= 8'
+
