@@ -16,7 +16,7 @@
                     'link': url_relative ~ '/' ~ taxonomy ~ config.system.param_sep ~ tax,
                     'text': tax,
                 } %}
-                {% include 'bootstrap/badges.html.twig' with vars %}
+                {% include '@bootstrap/components/badge.html.twig' with vars %}
             {% endfor %}
         {% endspaceless %}
         </div>

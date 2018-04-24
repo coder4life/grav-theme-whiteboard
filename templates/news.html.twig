@@ -26,7 +26,7 @@
                         {% set vars = {
                             'class': { 'type': 'deck', 'align_content': 'start', 'align_items': 'start' }
                         } %}
-                        {% embed 'bootstrap/card-group.html.twig' with vars %}
+                        {% embed '@bootstrap/components/card-group.html.twig' with vars %}
                             {% block cards %}
                                 {% for item in items %}
 
@@ -40,7 +40,7 @@
                                         } : false,
                                         'list': page.find(parent.path).children
                                     } %}
-                                    {% embed 'bootstrap/cards.html.twig' with vars %}
+                                    {% embed '@bootstrap/components/card.html.twig' with vars %}
                                         {% block card_body %}
                                             <div class="card-body">
                                                 {% if item.title is not empty %}

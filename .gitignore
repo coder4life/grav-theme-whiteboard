@@ -11,7 +11,7 @@ Thumbs.db
 **/*.map
 
 # Build
-build/*
+build/tmp
 
 # NPM Modules
 node_modules/*

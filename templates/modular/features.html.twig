@@ -10,7 +10,7 @@
         {% set vars = {
             'class': { 'type': 'group', 'align_content': 'start', 'align_items': 'start' }
         } %}
-        {% embed 'bootstrap/card-group.html.twig' with vars %}
+        {% embed '@bootstrap/components/card-group.html.twig' with vars %}
             {% block cards %}
                 {% for item in items %}
                     {% set vars = {
@@ -20,7 +20,7 @@
                         },
                         'body': { 'title': item.title, 'text': item.text }
                     } %}
-                    {% include 'bootstrap/cards.html.twig' with vars %}
+                    {% include '@bootstrap/components/card.html.twig' with vars %}
                 {% endfor %}
             {% endblock %}
         {% endembed %}
@@ -30,7 +30,7 @@
                 'uri': page.header.button.uri,
                 'text': page.header.button.text
             } %}
-            {% include 'bootstrap/button.html.twig' with vars %}
+            {% include '@bootstrap/components/button.html.twig' with vars %}
         {% endif %}
     </div>
 </section>

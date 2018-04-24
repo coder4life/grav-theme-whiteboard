@@ -1,0 +1,96 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/root";
+
+// Bootstrap broken default layout issues, need to override these
+
+// General
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+.jumbotron {
+  background: none;
+}
+
+// Cards
+.card-deck {
+  .card {
+    flex: 1 0 auto;
+  }
+}
+
+.card-group {
+  .card {
+    flex: 1 0 auto;
+  }
+}
+
+.card-img-top,
+.card-image-bottom {
+  width: auto;
+  max-width: 100%;
+}
+
+.list-group {
+  .list-group-item:hover {
+    text-decoration: underline;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .card-deck {
+    .card {
+      flex: 1 0 calc(100% / 2 - #{$card-deck-margin * 2});
+    }
+  }
+
+  .card-group {
+    .card {
+      flex: 1 0 calc(100% / 2);
+    }
+  }
+
+}
+
+@include media-breakpoint-up(lg) {
+  .card-deck {
+    .card {
+      flex: 1 0 calc(100% / 3 - #{$card-deck-margin * 2});
+    }
+  }
+
+  .card-group {
+    .card {
+      flex: 1 0 calc(100% / 3);
+    }
+  }
+
+}
+
+// Navbar
+.navbar {
+
+  .container {
+    padding: 0;
+  }
+
+}
+
+.navbar-toggleable-md {
+
+  padding: 0 2rem;
+
+  .navbar-nav {
+    .nav-link {
+      padding: 0 1.2rem;
+      line-height: 3.125rem;
+    }
+  }
+}

@@ -3,54 +3,77 @@ namespace Grav\Theme;
 
 use Grav\Common\Theme;
 
+
 class Whiteboard extends Theme
 {
+
     /**
      * @return array
+     *
+     * The getSubscribedEvents() gives the core a list of events
+     *     that the plugin wants to listen to. The key of each
+     *     array section is the event that the plugin listens to
+     *     and the value (in the form of an array) contains the
+     *     callable (or function) as well as the priority. The
+     *     higher the number the higher the priority.
      */
-    /*public static function getSubscribedEvents()
+    public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized'  => ['onPluginsInitialized', 0]
+            'onThemeInitialized' => ['onThemeInitialized', 0]
         ];
+    }
+
+    public function onThemeInitialized()
+    {
+        if ($this->isAdmin()) {
+            $this->active = false;
+            return;
+        }
+
+        $this->enable([
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+        ]);
     }
 
     public function onTwigSiteVariables()
     {
-        // Load CSS Assets
-        if ($this->config->get('system.debugger.enabled')) {
-            $this->grav['assets']
-                ->addCss('theme://css-compiled/owlcarousel2.css', 100)
-                ->addCss('theme://css-compiled/font-awesome.css', 101)
-                ->addCss('theme://css-compiled/bootstrap.css', 105)
-                ->addCss('theme://css-compiled/whiteboard.css', 110);
-        } else{
-            $this->grav['assets']
-                ->addCss('theme://css-compiled/owlcarousel2.min.css', 100)
-                ->addCss('theme://css-compiled/font-awesome.min.css', 101)
-                ->addCss('theme://css-compiled/bootstrap.min.css', 105)
-                ->addCss('theme://css-compiled/whiteboard.min.css', 110);
+        $mode = '';
+        $whiteboard_bits = [];
+        $owl_carousel_bits = [];
+
+        $assets = $this->grav['assets'];
+        $configSystemDebugger = $this->grav['config']->get('system.debugger');
+        $configThemeSettings = $this->config->get('theme.whiteboard.settings');
+
+        if($configThemeSettings['mode'] == 'system') {
+            if($configSystemDebugger['debugger']) {
+                $mode = '.min';
+            }
+        } else if($configThemeSettings['mode'] == 'testing') {
+            $mode = '.min';
         }
 
-        // Load JS Assets
-        if ($this->config->get('system.debugger.enabled')) {
-            $this->grav['assets']
-                ->addJs('theme://js-compiled/typed.js', 101)
-                ->addJs('theme://js-compiled/particles.js', 102)
-                ->addJs('theme://js-compiled/owlcarousel2.js', 103)
-                ->addJs('theme://js-compiled/bootstrap.js', 105)
-                ->addJs('theme://js-compiled/tether.js', 106);
-        } else {
-            $this->grav['assets']
-                ->addJs('theme://js-compiled/typed.min.js', 101)
-                ->addJs('theme://js-compiled/particles.min.js', 102)
-                ->addJs('theme://js-compiled/owlcarousel2.min.js', 103)
-                ->addJs('theme://js-compiled/bootstrap.min.js', 105)
-                ->addJs('theme://js-compiled/tether.min.js', 106);
-        }
+        $whiteboard_bits[] = "theme://assets/css/vendor/whiteboard/whiteboard{$mode}.css";
 
-        $this->grav['assets']
-            ->add('jquery', 101);
+        $assets->registerCollection('whiteboard', $whiteboard_bits);
+        $assets->add('whiteboard', 1000);
 
-    }*/
+        $owl_carousel_bits[] = "theme://assets/css/vendor/owl.carousel/owl.carousel{$mode}.css";
+        $owl_carousel_bits[] = "theme://assets/css/vendor/owl.carousel/owl.theme.default{$mode}.css";
+        $owl_carousel_bits[] = "theme://assets/js/vendor/owl.carousel/owl.carousel{$mode}.js";
+
+        $assets->registerCollection('owl.carousel', $owl_carousel_bits);
+        $assets->add('owl.carousel', 10000);
+
+        $particle_js_bits[] = "theme://assets/js/vendor/particles.js/particles{$mode}.js";
+
+        $assets->registerCollection('particle.js', $particle_js_bits);
+        $assets->add('particle.js', 10000);
+
+        $typed_bits[] = "theme://assets/js/vendor/typed.js/typed{$mode}.js";
+
+        $assets->registerCollection('typed.js', $typed_bits);
+        $assets->add('typed.js', 10000);
+    }
 }

@@ -1,6 +1,6 @@
 <nav class="sidebar-nav">
     <div id="accordion">
-        {% embed 'bootstrap/navs.html.twig' with { 'vertical': true } %}
+        {% embed '@bootstrap/components/nav.html.twig' with { 'vertical': true } %}
             {% block navs %}
                 {% if inheritedNavs is not empty %}
                     <div class="nav-back">
@@ -22,7 +22,7 @@
                                     'attribute': 'verb'
                                 }
                             } %}
-                            {% include 'bootstrap/navs/accordian.html.twig' with vars %}
+                            {% include '@bootstrap/components/navs/accordian.html.twig' with vars %}
                         </ul>
                     {% endfor %}
                 </div>

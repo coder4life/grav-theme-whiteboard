@@ -1,76 +1,31 @@
 packages:
   css:
-    - name: 'bootstrap'
-      base: '.'
-      in: 'scss/vendor/bootstrap.scss'
-      out: 'css'
-      compile: true
-      prefix: true
-    - name: 'fontawesome'
-      base: '.'
-      in: 'scss/vendor/fontawesome.scss'
-      out: 'css'
-      compile: true
-      prefix: true
-    - name: 'owlcarousel2'
-      base: '.'
-      in: 'scss/vendor/owlcarousel2.scss'
-      out: 'css'
+    - name: 'owl.carousel'
+      source:
+        - path: 'node_modules/owl.carousel/src/scss/owl.carousel.scss'
+        - path: 'node_modules/owl.carousel/src/scss/owl.theme.default.scss'
+      target: 'assets/css/vendor'
+      flatten: true
       compile: true
       prefix: true
     - name: 'whiteboard'
-      base: '.'
-      in: 'scss/whiteboard.scss'
-      out: 'css'
+      source: 'scss/whiteboard.scss'
+      target: 'assets/css/vendor'
       compile: true
       prefix: true
-  fonts:
-    - name: 'fontawesome'
-      base: 'node_modules/font-awesome/fonts/'
-      in: 'node_modules/font-awesome/fonts/*'
-      out: 'fonts'
   js:
-    - name: 'bootstrap'
-      base: '.'
-      in:
-        - 'node_modules/bootstrap/dist/js/bootstrap.js'
-        - 'node_modules/bootstrap/dist/js/bootstrap.min.js'
-      out: 'js'
-    - name: 'owlcarousel2'
-      base: '.'
-      in:
-        - 'node_modules/owl.carousel/dist/owl.carousel.js'
-        - 'node_modules/owl.carousel/dist/owl.carousel.min.js'
-      out: 'js'
-    - name: 'particles'
-      base: '.'
-      in: 'node_modules/particles.js/particles.js'
-      out: 'js'
+    - name: 'owl.carousel'
+      source: 'node_modules/owl.carousel/dist/*.js'
+      target: 'assets/js/vendor'
+      flatten: true
+    - name: 'particles.js'
+      source: 'node_modules/particles.js/particles.js'
+      target: 'assets/js/vendor'
       minify: true
-    - name: 'popper'
-      base: '.'
-      in:
-        - 'node_modules/popper.js/dist/umd/popper.js'
-        - 'node_modules/popper.js/dist/umd/popper.min.js'
-        - 'node_modules/popper.js/dist/umd/popper.min.js.map'
-        - 'node_modules/popper.js/dist/umd/popper-utils.js'
-        - 'node_modules/popper.js/dist/umd/popper-utils.min.js'
-        - 'node_modules/popper.js/dist/umd/popper-utils.min.js.map'
-      out: 'js'
-    - name: 'tooltip'
-      base: '.'
-      in:
-        - 'node_modules/tooltip.js/dist/tooltip.js'
-        - 'node_modules/tooltip.js/dist/tooltip.min.js'
-        - 'node_modules/tooltip.js/dist/tooltip.min.js.map'
-      out: 'js'
-    - name: 'typed'
-      base: '.'
-      in:
-        - 'node_modules/typed.js/lib/typed.js'
-        - 'node_modules/typed.js/lib/typed.min.js'
-        - 'node_modules/typed.js/lib/typed.min.js.map'
-      out: 'js'
+    - name: 'typed.js'
+      source: 'node_modules/typed.js/lib/*'
+      target: 'assets/js/vendor'
+      flatten: true
 
 supportedBrowsers:
   - 'last 1 major version'

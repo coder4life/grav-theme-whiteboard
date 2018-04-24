@@ -145,9 +145,9 @@
 }
 
 /* Theme – Default */
-@import "configs/whiteboard/themes/whiteboard";
+@import "configs/themes/whiteboard";
 @include theme();
 
 /* Theme – Blizzard */
-@import "configs/whiteboard/themes/blizzard";
+@import "configs/themes/blizzard";
 @include theme();

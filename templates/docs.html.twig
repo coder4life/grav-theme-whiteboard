@@ -32,7 +32,7 @@
                 {% set vars = {
                     'class': { 'type': 'deck', 'align_content': 'start', 'align_items': 'start' }
                 } %}
-                {% embed 'bootstrap/card-group.html.twig' with vars %}
+                {% embed '@bootstrap/components/card-group.html.twig' with vars %}
                     {% block cards %}
                         {% set parents = group.parents %}
                         {% for parent in parents %}
@@ -41,7 +41,7 @@
                                 'top': { 'text': parent.name },
                                 'list': page.find(parent.path).children
                             } %}
-                            {% include 'bootstrap/cards.html.twig' with vars %}
+                            {% include '@bootstrap/components/card.html.twig' with vars %}
                         {% endfor %}
                     {% endblock %}
                 {% endembed %}

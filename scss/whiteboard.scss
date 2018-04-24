@@ -6,7 +6,7 @@
 // Themes
 
 // Config
-@import "configs/whiteboard/themes/whiteboard";
+@import "configs/themes/whiteboard";
 
 // Pages
 @import "pages/default";
@@ -33,3 +33,6 @@
 
 // Themes
 @import "themes";
+
+// Vendors
+@import "vendor/bootstrap/bootstrap";
